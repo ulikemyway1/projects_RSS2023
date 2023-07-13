@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1440px;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 1440px;
+  background-color: #0C0C0E;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+header .logo {
+  font-family: Forum;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  margin-right: 424px;
+}
+header .logo a {
+  color: #FFF;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+}
+header nav ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+header nav ul li {
+  display: inline;
+  text-decoration: none;
+  margin-left: 30px;
+}
+header nav ul li a {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+  position: relative;
+}
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+header .profile {
+  margin-left: 40px;
+}
+
+.welcome {
+  background: url("/img/welcome/welcome_bg.png") center center/cover;
+  height: 600px;
+  position: relative;
+}
+.welcome_text {
+  color: #FFF;
+  text-align: center;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 220px;
+  width: 600px;
+  height: 220px;
+  padding: 35px 40px;
+  background: #0C0C0E;
+}
