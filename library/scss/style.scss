@@ -6,6 +6,15 @@
     width: 1440px;
     
 }
+.hidden {
+    display: none;
+}
+
+.inner_padding {
+    display: block;
+    padding: 20px 20px 40px 20px;
+}
+
 a {
     text-decoration: none;
 }
@@ -82,4 +91,77 @@ header {
         padding: 35px 40px;
         background: #0C0C0E;
     }
+}
+
+.underline_title {
+    position: relative;
+    display:block;
+    color: #0C0C0E;
+    font-family: Forum;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    text-align: center;
+    &::after {
+        content: '';
+        width: 50px;
+        height: 1px;
+        background: #0C0C0E;
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX((-50%));
+    }
+}
+
+.about {
+
+    &_text {
+        color: #000;
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        margin-top: 60px;
+    }
+    &_slider {
+        margin-top: 20px;
+        &_content-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+        &_paginator {
+            display: flex;
+            margin: 20px auto 0px auto;
+            &_wrapper {
+                display: flex;
+                justify-content:center;
+                width: 100%;
+            }
+            &-btn {
+                width: 26px;
+                height: 26px;
+                position: relative;
+                
+                &-fill {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 100%;
+                    background-color: #0C0C0E;
+                }
+            }
+        }
+    }
+}
+
+.paginator-btn_active {
+    background-color: #BB945F;
 }
