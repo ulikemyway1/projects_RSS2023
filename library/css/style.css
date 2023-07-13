@@ -28,11 +28,12 @@ header {
   padding: 20px;
 }
 header .logo {
+  letter-spacing: 0.6px;
   font-family: Forum;
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
-  margin-right: 424px;
+  margin-right: 410px;
 }
 header .logo a {
   color: #FFF;
@@ -121,6 +122,7 @@ header .profile {
   font-style: normal;
   font-weight: 400;
   margin-top: 60px;
+  line-height: 40px;
 }
 .about_slider {
   margin-top: 20px;
@@ -131,7 +133,7 @@ header .profile {
 }
 .about_slider_paginator {
   display: flex;
-  margin: 20px auto 0px auto;
+  margin: 37px auto 0px auto;
 }
 .about_slider_paginator_wrapper {
   display: flex;
@@ -142,6 +144,7 @@ header .profile {
   width: 26px;
   height: 26px;
   position: relative;
+  cursor: pointer;
 }
 .about_slider_paginator-btn-fill {
   position: absolute;
@@ -156,4 +159,44 @@ header .profile {
 
 .paginator-btn_active {
   background-color: #BB945F;
+}
+
+.tabs_header {
+  margin-top: 40px;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+.tabs_wrapper {
+  margin-top: 40px;
+}
+.tabs_category {
+  margin-top: 40px;
+  display: flex;
+  width: 700px;
+  justify-content: space-between;
+}
+.tabs_category input {
+  height: 17px;
+  width: 17px;
+  border: 2px solid black;
+}
+.tabs_category input:checked + label {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+.tabs_category-label {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+.tabs_category-item input[type=radio]:checked {
+  background-color: #000;
 }

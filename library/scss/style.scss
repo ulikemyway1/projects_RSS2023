@@ -25,17 +25,18 @@ header {
     align-items: center;
     padding: 20px;
     .logo {
-        
+        letter-spacing: 0.6px;
         font-family: Forum;
         font-size: 30px;
         font-style: normal;
         font-weight: 400;
-        margin-right:424px;
+        margin-right:410px;
         a {
             color: #FFF;
         }
     }
     nav {
+      
         display: flex;
         flex-direction: row;
         
@@ -127,6 +128,7 @@ header {
         font-style: normal;
         font-weight: 400;
         margin-top: 60px;
+        line-height: 40px;
     }
     &_slider {
         margin-top: 20px;
@@ -136,7 +138,7 @@ header {
         }
         &_paginator {
             display: flex;
-            margin: 20px auto 0px auto;
+            margin: 37px auto 0px auto;
             &_wrapper {
                 display: flex;
                 justify-content:center;
@@ -146,6 +148,7 @@ header {
                 width: 26px;
                 height: 26px;
                 position: relative;
+                cursor: pointer;
                 
                 &-fill {
                     position: absolute;
@@ -165,3 +168,53 @@ header {
 .paginator-btn_active {
     background-color: #BB945F;
 }
+
+
+.tabs {
+
+    &_header {
+        margin-top: 40px;
+        color: #000;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+    }
+    &_wrapper {
+        margin-top: 40px;
+    }
+    &_category {
+        margin-top: 40px;
+        display: flex;
+        width: 700px;
+        justify-content: space-between;
+        input{
+            height: 17px;
+            width: 17px;
+            border: 2px solid black;
+            &:checked + label {
+                color: #000;
+                font-family: Inter;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+        }
+        
+        }
+        &-label {
+            color: #000;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        &-item {
+            input[type=radio]:checked {
+                background-color:#000
+            }
+        }
+    }
+}
+
+// инпуты не radio а обычне блоки лучше сделать для лучшей кастомизации
