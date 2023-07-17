@@ -303,3 +303,73 @@ header .profile {
   bottom: -1px;
   right: -40px;
 }
+
+.coffeshop {
+  margin-top: 60px;
+}
+.coffeshop_descr {
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  padding-top: 60px;
+}
+.coffeshop_wrapper {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 480px 480px;
+  -moz-column-gap: 480px;
+       column-gap: 480px;
+}
+.coffeshop_category-title {
+  color: #BB945F;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.coffeshop_category-item {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+.coffeshop_goods {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  flex-grow: 1;
+}
+.coffeshop_price {
+  color: #000;
+  font-family: Forum;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.coffeshop_line {
+  width: 100px;
+  height: 1px;
+  background: #BB945F;
+}
+.coffeshop .right_orient .coffeshop_category-item {
+  justify-content: flex-end;
+}
+.coffeshop .right_orient .coffeshop_goods {
+  flex-grow: unset;
+}

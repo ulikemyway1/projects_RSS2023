@@ -323,3 +323,76 @@ header {
     }
 }
 
+.coffeshop {
+    margin-top: 60px;
+    &_descr {
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 2px;
+        padding-top: 60px;
+    }
+    &_wrapper {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 480px 480px;
+        column-gap: 480px;
+    }
+    &_category {
+        &-title {
+            color: #BB945F;
+            font-family: Forum;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+        }
+        &-item {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+        }
+    }
+    &_goods {
+            color: #000;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            flex-grow: 1;
+    }
+    &_price {
+        color: #000;
+        font-family: Forum;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 2px;
+        text-transform: capitalize;
+    }
+    &_line {
+        width: 100px;
+        height: 1px;
+        background: #BB945F;
+    }
+    .right_orient {
+        .coffeshop_category-item {
+            justify-content: flex-end;
+        }
+        .coffeshop_goods {
+            flex-grow: unset;
+        }
+    }
+}
+
