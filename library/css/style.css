@@ -171,6 +171,12 @@ header .profile {
 }
 .tabs_wrapper {
   margin-top: 40px;
+  display: grid;
+  grid-template-columns: 550px 550px;
+  grid-auto-rows: 555px;
+  -moz-column-gap: 260px;
+       column-gap: 260px;
+  row-gap: 40px;
 }
 .tabs_category {
   margin-top: 40px;
@@ -199,4 +205,101 @@ header .profile {
 }
 .tabs_category-item input[type=radio]:checked {
   background-color: #000;
+}
+.tabs_item {
+  position: relative;
+  width: 550px;
+  height: 555px;
+  border: 1px solid black;
+  padding: 20px 15px;
+}
+.tabs_item-header {
+  color: #000;
+  font-family: Forum;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  position: relative;
+}
+.tabs_item-header::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 1px;
+  background: #BB945F;
+  bottom: 0px;
+  left: 0px;
+}
+.tabs_item-title {
+  margin-top: 20px;
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tabs_item-subtitle {
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.tabs_item-descr {
+  margin-top: 20px;
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  width: 355px;
+  text-transform: capitalize;
+}
+.tabs_item button {
+  margin-top: 15px;
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  background: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 1px;
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  padding: 0;
+  transition: all 0.5s;
+}
+.tabs_item button.active_btn {
+  cursor: pointer;
+}
+.tabs_item button.active_btn:hover {
+  border: 1px solid #BB945F;
+  background: #BB945F;
+}
+.tabs_item button.disabled {
+  cursor: pointer;
+  border: 1px solid #BB945F;
+  color: #BB945F;
+  cursor: default;
+}
+.tabs_item-img {
+  position: absolute;
+  bottom: -1px;
+  right: -40px;
 }
