@@ -10,6 +10,8 @@
     display: none;
 }
 
+
+
 .inner_padding {
     display: block;
     padding: 20px 20px 40px 20px;
@@ -149,7 +151,7 @@ header {
                 height: 26px;
                 position: relative;
                 cursor: pointer;
-                
+
                 &-fill {
                     position: absolute;
                     top: 50%;
@@ -182,6 +184,11 @@ header {
     }
     &_wrapper {
         margin-top: 40px;
+        display: grid;
+        grid-template-columns: 550px 550px;
+        grid-auto-rows: 555px;
+        column-gap: 260px;
+        row-gap: 40px;
     }
     &_category {
         margin-top: 40px;
@@ -215,6 +222,401 @@ header {
             }
         }
     }
+    &_item {
+        position: relative;
+        width: 550px;
+        height: 555px;
+        border: 1px solid black;
+        padding: 20px 15px;
+        &-header {
+            color: #000;
+            font-family: Forum;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                width: 60px;
+                height: 1px;
+                background: #BB945F;
+                bottom: 0px;
+                left: 0px;
+            }
+        }
+        &-title {
+            margin-top: 20px;
+            color: #000;
+            font-family: Inter;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        &-subtitle {
+            color: #000;
+            font-family: Inter;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+        }
+        &-descr {
+            margin-top: 20px;
+            color: #000;
+            font-family: Inter;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            letter-spacing: 2px;
+            width: 355px;
+            text-transform: capitalize;
+        }
+        button {
+            margin-top: 15px;
+            width: 75px;
+            height: 30px;
+            font-family: Inter;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 30px;
+            letter-spacing: 1px;
+            position: absolute;
+            left: 20px;
+            bottom: 15px;
+            padding: 0;
+            transition: all 0.5s;
+            &.active_btn {
+                cursor: pointer;
+                &:hover {
+                    border: 1px solid #BB945F;
+                    background: #BB945F;
+                }
+            
+            }
+            &.disabled {
+                cursor: pointer;
+                border: 1px solid #BB945F;
+                color: #BB945F;
+                cursor: default;
+            }
+          
+        }
+        &-img {
+            position: absolute;
+            bottom: -1px;
+            right: -40px;
+        }
+    }
 }
 
-// инпуты не radio а обычне блоки лучше сделать для лучшей кастомизации
+.coffeshop {
+    margin-top: 60px;
+    &_descr {
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 2px;
+        padding-top: 60px;
+    }
+    &_wrapper {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 480px 480px;
+        column-gap: 480px;
+    }
+    &_category {
+        &-title {
+            color: #BB945F;
+            font-family: Forum;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+        }
+        &-item {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+        }
+    }
+    &_goods {
+            color: #000;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            flex-grow: 1;
+    }
+    &_price {
+        color: #000;
+        font-family: Forum;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 2px;
+        text-transform: capitalize;
+    }
+    &_line {
+        width: 100px;
+        height: 1px;
+        background: #BB945F;
+    }
+    .right_orient {
+        .coffeshop_category-item {
+            justify-content: flex-end;
+        }
+        .coffeshop_goods {
+            flex-grow: unset;
+        }
+    }
+}
+
+.contacts {
+    margin-top: 60px;
+    &_wrapper {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &_info {
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        span {
+            font-weight: 700;
+        }
+        h3 {
+            margin-bottom: 40px;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            
+        }
+        h4 {
+            margin-top: 40px;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            
+        }
+        a {
+        color: inherit;
+        }
+    }
+}
+
+.librarycard {
+    margin-top: 60px;
+    padding: 20px 20px 40px 20px;
+    &_wrapper {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &_card {
+         &-title {
+        color: #000;
+        font-family: Inter;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.6px;
+        text-align: center;
+            }
+        &-form {
+            margin-top: 30px;
+            padding: 20px 20px 30px 20px;
+            width: 600px;
+            height: 386px;
+            border: 3px solid #BB945F;
+            background: #FFF;
+        .input_wrapper {
+            background: #BB945F;
+            padding: 20px;
+            
+            .form_title {
+                color: #000;
+                font-family: Forum;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 50px;
+                letter-spacing: 0.6px;
+                margin-bottom: 20px;
+            }
+            input {
+                display: block;
+                height: 66px;
+                width: 100%;
+                border-radius: 10px;
+                border: none;
+                padding: 8px 20px;
+                font-family: Forum;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 50px;
+                letter-spacing: 0.6px;
+                &::placeholder {
+                    color: #8E8E8E;
+
+                }
+                &:last-of-type {
+                    margin-top: 25px;
+                }
+                
+            }
+        }
+        button {
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0 auto;
+            padding: 10px 40px;
+            border-radius: 2px;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    }
+        
+    }
+    &_info {
+        &-title {
+            color: #000;
+            text-align: right;
+            font-family: Forum;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.6px;
+        }
+        &-descr {
+            margin-top: 35px;
+            color: #000;
+            text-align: right;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px;
+            letter-spacing: 0.4px;
+        }
+        &-btns {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 35px;
+            button {
+                width: 75px;
+                padding: 10px 0px;
+                font-family: Inter;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                letter-spacing: 1px;
+                margin-left: 20px;
+
+
+            }
+        }
+    }
+}
+
+.button {
+    transition: all 0.6s;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    background-color: #fff;
+    text-align: center;
+    &:hover {
+        border: 1px solid #BB945F;
+        background: #BB945F;
+    }
+}
+
+footer {
+    height: 250px;
+    background: #0C0C0E;
+    padding: 20px 20px 44px 20px;
+    .footer_main {
+        margin-bottom: 10px;
+        color: #FFF;
+        font-family: Inter;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        display: flex;
+        justify-content: space-between;
+        time {
+            text-align: right;
+        }
+        a {
+            color: inherit;
+            font-style: normal;
+        }
+        .footer_social {
+            a {
+                margin-right: 15px;
+            }
+        }
+    }
+    hr {
+        margin-top: 20px;
+    }
+    .footer_rss {
+        margin-top: 44px;
+        display: flex;
+        justify-content: space-between;
+        color: #FFF;
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; 
+        letter-spacing: 2px;
+        a {
+            color: inherit;
+            font-style: inherit;
+        }
+    }
+}

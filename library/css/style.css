@@ -171,6 +171,12 @@ header .profile {
 }
 .tabs_wrapper {
   margin-top: 40px;
+  display: grid;
+  grid-template-columns: 550px 550px;
+  grid-auto-rows: 555px;
+  -moz-column-gap: 260px;
+       column-gap: 260px;
+  row-gap: 40px;
 }
 .tabs_category {
   margin-top: 40px;
@@ -199,4 +205,385 @@ header .profile {
 }
 .tabs_category-item input[type=radio]:checked {
   background-color: #000;
+}
+.tabs_item {
+  position: relative;
+  width: 550px;
+  height: 555px;
+  border: 1px solid black;
+  padding: 20px 15px;
+}
+.tabs_item-header {
+  color: #000;
+  font-family: Forum;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  position: relative;
+}
+.tabs_item-header::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 1px;
+  background: #BB945F;
+  bottom: 0px;
+  left: 0px;
+}
+.tabs_item-title {
+  margin-top: 20px;
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.tabs_item-subtitle {
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.tabs_item-descr {
+  margin-top: 20px;
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  width: 355px;
+  text-transform: capitalize;
+}
+.tabs_item button {
+  margin-top: 15px;
+  width: 75px;
+  height: 30px;
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 1px;
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  padding: 0;
+  transition: all 0.5s;
+}
+.tabs_item button.active_btn {
+  cursor: pointer;
+}
+.tabs_item button.active_btn:hover {
+  border: 1px solid #BB945F;
+  background: #BB945F;
+}
+.tabs_item button.disabled {
+  cursor: pointer;
+  border: 1px solid #BB945F;
+  color: #BB945F;
+  cursor: default;
+}
+.tabs_item-img {
+  position: absolute;
+  bottom: -1px;
+  right: -40px;
+}
+
+.coffeshop {
+  margin-top: 60px;
+}
+.coffeshop_descr {
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  padding-top: 60px;
+}
+.coffeshop_wrapper {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 480px 480px;
+  -moz-column-gap: 480px;
+       column-gap: 480px;
+}
+.coffeshop_category-title {
+  color: #BB945F;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.coffeshop_category-item {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+.coffeshop_goods {
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  flex-grow: 1;
+}
+.coffeshop_price {
+  color: #000;
+  font-family: Forum;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.coffeshop_line {
+  width: 100px;
+  height: 1px;
+  background: #BB945F;
+}
+.coffeshop .right_orient .coffeshop_category-item {
+  justify-content: flex-end;
+}
+.coffeshop .right_orient .coffeshop_goods {
+  flex-grow: unset;
+}
+
+.contacts {
+  margin-top: 60px;
+}
+.contacts_wrapper {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.contacts_info {
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.contacts_info span {
+  font-weight: 700;
+}
+.contacts_info h3 {
+  margin-bottom: 40px;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.contacts_info h4 {
+  margin-top: 40px;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.contacts_info a {
+  color: inherit;
+}
+
+.librarycard {
+  margin-top: 60px;
+  padding: 20px 20px 40px 20px;
+}
+.librarycard_wrapper {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.librarycard_card-title {
+  color: #000;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  text-align: center;
+}
+.librarycard_card-form {
+  margin-top: 30px;
+  padding: 20px 20px 30px 20px;
+  width: 600px;
+  height: 386px;
+  border: 3px solid #BB945F;
+  background: #FFF;
+}
+.librarycard_card-form .input_wrapper {
+  background: #BB945F;
+  padding: 20px;
+}
+.librarycard_card-form .input_wrapper .form_title {
+  color: #000;
+  font-family: Forum;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  margin-bottom: 20px;
+}
+.librarycard_card-form .input_wrapper input {
+  display: block;
+  height: 66px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  padding: 8px 20px;
+  font-family: Forum;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+.librarycard_card-form .input_wrapper input::-moz-placeholder {
+  color: #8E8E8E;
+}
+.librarycard_card-form .input_wrapper input::placeholder {
+  color: #8E8E8E;
+}
+.librarycard_card-form .input_wrapper input:last-of-type {
+  margin-top: 25px;
+}
+.librarycard_card-form button {
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0 auto;
+  padding: 10px 40px;
+  border-radius: 2px;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.librarycard_info-title {
+  color: #000;
+  text-align: right;
+  font-family: Forum;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+.librarycard_info-descr {
+  margin-top: 35px;
+  color: #000;
+  text-align: right;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+}
+.librarycard_info-btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 35px;
+}
+.librarycard_info-btns button {
+  width: 75px;
+  padding: 10px 0px;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  margin-left: 20px;
+}
+
+.button {
+  transition: all 0.6s;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  background-color: #fff;
+  text-align: center;
+}
+.button:hover {
+  border: 1px solid #BB945F;
+  background: #BB945F;
+}
+
+footer {
+  height: 250px;
+  background: #0C0C0E;
+  padding: 20px 20px 44px 20px;
+}
+footer .footer_main {
+  margin-bottom: 10px;
+  color: #FFF;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer_main time {
+  text-align: right;
+}
+footer .footer_main a {
+  color: inherit;
+  font-style: normal;
+}
+footer .footer_main .footer_social a {
+  margin-right: 15px;
+}
+footer hr {
+  margin-top: 20px;
+}
+footer .footer_rss {
+  margin-top: 44px;
+  display: flex;
+  justify-content: space-between;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+footer .footer_rss a {
+  color: inherit;
+  font-style: inherit;
 }
