@@ -285,10 +285,6 @@ header {
             margin-top: 15px;
             width: 75px;
             height: 30px;
-            border-radius: 2px;
-            border: 1px solid #0C0C0E;
-            background: #FFF;
-            text-align: center;
             font-family: Inter;
             font-size: 10px;
             font-weight: 700;
@@ -510,19 +506,11 @@ header {
             margin: 30px auto 0 auto;
             padding: 10px 40px;
             border-radius: 2px;
-            border: 1px solid #0C0C0E;
-            background-color: #fff;
-            text-align: center;
             font-family: Inter;
             font-size: 20px;
             font-style: normal;
             font-weight: 700;
             letter-spacing: 1px;
-            transition: all 0.6s;
-            &:hover {
-                border: 1px solid #BB945F;
-                background: #BB945F;
-            }
         }
     }
         
@@ -556,10 +544,6 @@ header {
             button {
                 width: 75px;
                 padding: 10px 0px;
-                border-radius: 2px;
-                border: 1px solid #0C0C0E;
-                background-color: #fff;
-                text-align: center;
                 font-family: Inter;
                 font-size: 10px;
                 font-style: normal;
@@ -567,14 +551,22 @@ header {
                 line-height: normal;
                 letter-spacing: 1px;
                 margin-left: 20px;
-                transition: all 0.6s;
-                cursor: pointer;
-                &:hover {
-                    border: 1px solid #BB945F;
-                    background: #BB945F;
-                }
+
+
             }
         }
     }
 }
 
+.button {
+    transition: all 0.6s;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    background-color: #fff;
+    text-align: center;
+    &:hover {
+        border: 1px solid #BB945F;
+        background: #BB945F;
+    }
+}
