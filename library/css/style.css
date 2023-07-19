@@ -26,6 +26,7 @@ header {
   display: flex;
   align-items: center;
   padding: 20px;
+  height: 90px;
 }
 header .logo {
   letter-spacing: 0.6px;
@@ -33,23 +34,28 @@ header .logo {
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
-  margin-right: 410px;
+  flex-grow: 1;
 }
 header .logo a {
   color: #FFF;
 }
 header nav {
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
+  align-items: flex-start;
 }
 header nav ul {
   list-style-type: none;
-  padding-left: 0;
+  padding: 0px;
+  margin: 0px;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 30px;
 }
 header nav ul li {
-  display: inline;
+  margin: 0px;
+  padding: 0px;
+  display: inline-block;
   text-decoration: none;
-  margin-left: 30px;
 }
 header nav ul li a {
   color: #FFF;
@@ -83,7 +89,7 @@ header .profile {
   letter-spacing: 3px;
   text-transform: uppercase;
   position: absolute;
-  top: 220px;
+  top: 185px;
   width: 600px;
   height: 220px;
   padding: 35px 40px;
@@ -91,6 +97,7 @@ header .profile {
 }
 
 .underline_title {
+  margin: 0;
   position: relative;
   display: block;
   color: #0C0C0E;
@@ -161,16 +168,20 @@ header .profile {
   background-color: #BB945F;
 }
 
+.tabs {
+  margin-top: 55px;
+}
 .tabs_header {
-  margin-top: 40px;
+  margin-top: 30px;
   color: #000;
-  font-family: Inter;
+  font-family: "Inter";
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
+  letter-spacing: 0.3px;
 }
 .tabs_wrapper {
-  margin-top: 40px;
+  margin-top: 35px;
   display: grid;
   grid-template-columns: 550px 550px;
   grid-auto-rows: 555px;
@@ -182,26 +193,42 @@ header .profile {
   margin-top: 40px;
   display: flex;
   width: 700px;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 90px;
+}
+.tabs_category_wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 120px;
+  height: 33px;
 }
 .tabs_category input {
-  height: 17px;
-  width: 17px;
-  border: 2px solid black;
+  cursor: pointer;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  border-radius: 50%;
+  display: inline-block;
+  border: 3px solid #FFF;
+  outline: 2px solid #000;
+  height: 15px;
+  width: 15px;
+}
+.tabs_category input:checked {
+  background: #000;
 }
 .tabs_category input:checked + label {
-  color: #000;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
   font-weight: 700;
 }
 .tabs_category-label {
+  cursor: pointer;
   color: #000;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
+  margin-left: 20px;
 }
 .tabs_category-item input[type=radio]:checked {
   background-color: #000;
@@ -211,7 +238,7 @@ header .profile {
   width: 550px;
   height: 555px;
   border: 1px solid black;
-  padding: 20px 15px;
+  padding: 15px 20px;
 }
 .tabs_item-header {
   color: #000;
@@ -300,9 +327,6 @@ header .profile {
   right: -40px;
 }
 
-.coffeshop {
-  margin-top: 60px;
-}
 .coffeshop_descr {
   text-align: center;
   font-family: Inter;
@@ -316,7 +340,7 @@ header .profile {
 .coffeshop_wrapper {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: 480px 480px;
+  grid-template-columns: 441px 481px;
   -moz-column-gap: 480px;
        column-gap: 480px;
 }
@@ -363,6 +387,9 @@ header .profile {
   height: 1px;
   background: #BB945F;
 }
+.coffeshop .right_orient {
+  text-align: right;
+}
 .coffeshop .right_orient .coffeshop_category-item {
   justify-content: flex-end;
 }
@@ -371,12 +398,13 @@ header .profile {
 }
 
 .contacts {
-  margin-top: 60px;
+  margin-top: 1px;
 }
 .contacts_wrapper {
   margin-top: 60px;
   display: flex;
   justify-content: space-between;
+  padding: 0px 20px;
 }
 .contacts_info {
   font-family: Inter;
@@ -391,6 +419,7 @@ header .profile {
   font-weight: 700;
 }
 .contacts_info h3 {
+  margin: 0;
   margin-bottom: 40px;
   font-family: Inter;
   font-size: 20px;
@@ -401,6 +430,7 @@ header .profile {
   text-transform: capitalize;
 }
 .contacts_info h4 {
+  margin: 0;
   margin-top: 40px;
   font-family: Inter;
   font-size: 20px;
@@ -415,7 +445,7 @@ header .profile {
 }
 
 .librarycard {
-  margin-top: 60px;
+  margin-top: 40px;
   padding: 20px 20px 40px 20px;
 }
 .librarycard_wrapper {
@@ -481,7 +511,7 @@ header .profile {
 .librarycard_card-form button {
   cursor: pointer;
   display: block;
-  margin: 30px auto 0 auto;
+  margin: 23px auto 0 auto;
   padding: 10px 40px;
   border-radius: 2px;
   font-family: Inter;
@@ -518,6 +548,7 @@ header .profile {
 }
 .librarycard_info-btns button {
   width: 75px;
+  height: 30px;
   padding: 10px 0px;
   font-family: Inter;
   font-size: 10px;
@@ -544,7 +575,7 @@ header .profile {
 footer {
   height: 250px;
   background: #0C0C0E;
-  padding: 20px 20px 44px 20px;
+  padding: 20px 20px 45px 20px;
 }
 footer .footer_main {
   margin-bottom: 10px;
@@ -556,6 +587,7 @@ footer .footer_main {
   line-height: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 footer .footer_main time {
   text-align: right;
@@ -563,15 +595,23 @@ footer .footer_main time {
 footer .footer_main a {
   color: inherit;
   font-style: normal;
+  width: 24px;
+  height: 24px;
+}
+footer .footer_main .footer_social ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
 }
 footer .footer_main .footer_social a {
   margin-right: 15px;
 }
 footer hr {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 footer .footer_rss {
-  margin-top: 44px;
+  margin-top: 45px;
   display: flex;
   justify-content: space-between;
   color: #FFF;

@@ -14,25 +14,27 @@
 </head>
 <body>
     <div class="container">
+        <main>
         <header>
-            <div class="logo"> <a href="#">Brooklyn Public Library</a> </div>
+            <h1 class="logo"> <a href="#">Brooklyn Public Library</a> </h1>
             <nav>
                 <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Favorites</a></li>
-                    <li><a href="#">Coffee shop</a></li>
-                    <li><a href="#">Contacts</a></li>
-                    <li><a href="#">Library Card</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#favorites">Favorites</a></li>
+                    <li><a href="#coffeshop">Coffee shop</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
+                    <li><a href="#librarycard">Library Card</a></li>
                 </ul>
             </nav>
             <div class="profile"><a href="#"><img src="img/icons/profile.png" alt="profile"></a></div>
         </header>
-        <main>
+    </main>
+        
             <section class="welcome">
-                <div class="welcome_text">Welcome<br>to the Brooklyn<br>Library</div>
+                <h2 class="welcome_text">Welcome<br>to the Brooklyn<br>Library</h2>
             </section>
-            <secction class="about inner_padding">
-                <h2 class="underline_title">About</h2>
+            <section class="about inner_padding">
+                <h2 class="underline_title"><a name="about"></a>About</h2>
                 <div class="about_text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </div>
                 <div class="about_slider">
                     <div class="about_slider_content-wrapper">
@@ -57,25 +59,25 @@
 
                      </div>
                 </div>
-            </secction>
+            </section>
             <section class="favorites inner_padding">
-                <h2 class="underline_title">Favorites</h2>
+                <h2 class="underline_title"><a name="favorites"></a>Favorites</h2>
                 <div class="tabs">
                     <div class="tabs_header">Pick favorites of season</div>
                     <div class="tabs_category">
-                        <div class="tabs_category_wrpapper">
-                            <input type="radio" value="winter" name="category" id="winter" class="tabs_category-item">
+                        <div class="tabs_category_wrapper">
+                            <input type="radio" value="winter" name="category" id="winter" class="tabs_category-item" checked>
                             <label for="winter" class="tabs_category-label">Winter</label>
                         </div>
-                        <div class="tabs_category_wrpapper">
+                        <div class="tabs_category_wrapper">
                             <input type="radio" value="spring" name="category" id="spring" class="tabs_category-item">
                             <label for="spring" class="tabs_category-label">Spring</label>
                         </div>
-                        <div class="tabs_category_wrpapper">
+                        <div class="tabs_category_wrapper">
                             <input type="radio" value="summer" name="category" id="summer" class="tabs_category-item">
                             <label for="summer" class="tabs_category-label">Summer</label>
                         </div>
-                        <div class="tabs_category_wrpapper">
+                        <div class="tabs_category_wrapper">
                             <input type="radio" value="autumn" name="category" id="autumn" class="tabs_category-item">
                             <label for="autumn" class="tabs_category-label">Autumn</label>
                         </div>
@@ -121,7 +123,7 @@
 
             </section>
             <section class="coffeshop inner_padding">
-                <div class="underline_title">Coffee shop</div>
+                <h2 class="underline_title"><a name="coffeshop"></a>Coffee shop</h2>
                 <div class="coffeshop_descr">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</div>
                 <div class="coffeshop_wrapper">
                     <div class="coffeshop_category">
@@ -195,14 +197,14 @@
             </section>
 
             <section class="contacts">
-                <div class="underline_title">Our Contacts</div>
+                <h2 class="underline_title"><a name="contacts"></a>Our Contacts</h2>
                 <div class="contacts_wrapper">
                     <div class="contacts_info">
-                        <p><h3><span>For all Library inquiries:</span></h3></p>
+                        <h3><span>For all Library inquiries:</span></h3>
                         <p>Please call <a href="tel:+6177302370">(617) 730-2370</a></p>
                         <p>For TTY service, please call <a href="tel:+6177302370">(617) 730-2370</a></p>
                         <p>Putterham Library: <a href="tel:+6177302385">(617) 730-2385</a></p>
-                        <p><h4><span>Senior Staff</span></h4></p>
+                        <h4><span>Senior Staff</span></h4>
                         <p>Library Director: <span><a href="mailto:amanda_hirst@gmail.com"> Amanda Hirst</a></span></p>
                     </div>
                     <div class="contacts_map">
@@ -211,7 +213,7 @@
                 </div>
             </section>
             <section class="librarycard">
-                <div class="underline_title">Digital Library Cards</div>
+                <h2 class="underline_title"><a name="librarycard"></a>Digital Library Cards</h2>
                     <div class="librarycard_wrapper">
                         <div class="librarycard_card">
                             <div class="librarycard_card-title">Find your Library card</div>
@@ -237,7 +239,7 @@
                     </div>
 
             </section>
-        </main>
+
         <footer>
             <div class="footer_main">
                 <address><a href="https://www.google.com/maps/search/286+Cadman+Plaza,+New+York,+NY+11238,+United+States/@40.6956337,-73.9928847,17z/data=!3m1!4b1?entry=ttu">286 Cadman Plaza, New York,<br>NY 11238, United States</a></address>
@@ -245,9 +247,12 @@
             </div>
             <div class="footer_main">
                 <div class="footer_social">
-                  <a href="https://twitter.com/BrooklynNets"><img src="img/icons/twi.svg" alt="Twitter"></a>  
-                  <a href="https://www.instagram.com/brooklynpeltzbeckham/"><img src="img/icons/inst.svg" alt="Instagram"></a>
-                  <a href="https://www.facebook.com/Brooklyn/"> <img src="img/icons/fb.svg" alt="Facebook"></a> 
+                    <ul>
+                        <li><a href="https://twitter.com/BrooklynNets"><img src="img/icons/twi.svg" alt="Twitter"></a>  </li>
+                        <li><a href="https://www.instagram.com/brooklynpeltzbeckham/"><img src="img/icons/inst.svg" alt="Instagram"></a></li>
+                        <li> <a href="https://www.facebook.com/Brooklyn/"> <img src="img/icons/fb.svg" alt="Facebook"></a> </li>
+                    </ul>
+
                 </div>
                 <time datetime="08:00">Sat - Sun<br>10:00 am - 06:00 pm</time>
             </div>
@@ -258,6 +263,7 @@
                 <span><a href="https://github.com/ulikemyway1">Aliaksandr</a></span>
             </div>
         </footer>
+        <script src=script.js></script>
     </div>
 </body>
 </html>

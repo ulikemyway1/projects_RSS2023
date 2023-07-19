@@ -26,30 +26,40 @@ header {
     display: flex;
     align-items: center;
     padding: 20px;
+    height: 90px;
     .logo {
         letter-spacing: 0.6px;
         font-family: Forum;
         font-size: 30px;
         font-style: normal;
         font-weight: 400;
-        margin-right:410px;
+        flex-grow: 1;
+
         a {
             color: #FFF;
         }
     }
     nav {
       
-        display: flex;
-        flex-direction: row;
+        display: inline-flex;
+        align-items: flex-start;
+
         
         ul {
             list-style-type: none;
-            padding-left: 0;
+            padding: 0px;
+            margin: 0px;
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 30px;
 
             li {
-                display: inline;
+                margin: 0px;
+                padding: 0px;
+                display: inline-block;
                 text-decoration: none;
-                margin-left: 30px;
+
+                
                 
                 a {
                   color: #FFF;
@@ -88,7 +98,7 @@ header {
         letter-spacing: 3px;
         text-transform: uppercase;
         position: absolute;
-        top:220px;
+        top:185px;
         width: 600px;
         height: 220px;
         padding: 35px 40px;
@@ -97,6 +107,7 @@ header {
 }
 
 .underline_title {
+    margin: 0;
     position: relative;
     display:block;
     color: #0C0C0E;
@@ -173,17 +184,18 @@ header {
 
 
 .tabs {
-
+    margin-top: 55px;
     &_header {
-        margin-top: 40px;
+        margin-top: 30px;
         color: #000;
-        font-family: Inter;
+        font-family: 'Inter';
         font-size: 20px;
         font-style: normal;
         font-weight: 700;
+        letter-spacing: 0.3px;
     }
     &_wrapper {
-        margin-top: 40px;
+        margin-top: 35px;
         display: grid;
         grid-template-columns: 550px 550px;
         grid-auto-rows: 555px;
@@ -194,26 +206,43 @@ header {
         margin-top: 40px;
         display: flex;
         width: 700px;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 90px;
+        &_wrapper {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+
+            width: 120px;
+            height: 33px;
+        }
         input{
-            height: 17px;
-            width: 17px;
-            border: 2px solid black;
+            cursor: pointer;
+            appearance: none; 
+            -webkit-appearance: none; 
+            border-radius: 50%; 
+            display: inline-block;
+            border: 3px solid #FFF; 
+            outline: 2px solid #000; 
+            height: 15px;
+            width: 15px;
+            &:checked {
+                background: #000; 
+            }
+
             &:checked + label {
-                color: #000;
-                font-family: Inter;
-                font-size: 20px;
-                font-style: normal;
                 font-weight: 700;
         }
         
         }
         &-label {
+            cursor: pointer;
             color: #000;
             font-family: Inter;
             font-size: 20px;
             font-style: normal;
             font-weight: 400;
+            margin-left: 20px;
         }
 
         &-item {
@@ -227,7 +256,7 @@ header {
         width: 550px;
         height: 555px;
         border: 1px solid black;
-        padding: 20px 15px;
+        padding: 15px 20px;
         &-header {
             color: #000;
             font-family: Forum;
@@ -320,7 +349,7 @@ header {
 }
 
 .coffeshop {
-    margin-top: 60px;
+
     &_descr {
         text-align: center;
         font-family: Inter;
@@ -334,10 +363,11 @@ header {
     &_wrapper {
         margin-top: 40px;
         display: grid;
-        grid-template-columns: 480px 480px;
+        grid-template-columns: 441px 481px;
         column-gap: 480px;
     }
     &_category {
+
         &-title {
             color: #BB945F;
             font-family: Forum;
@@ -347,6 +377,7 @@ header {
             line-height: 40px;
             letter-spacing: 2px;
             text-transform: capitalize;
+
         }
         &-item {
             margin-top: 40px;
@@ -383,6 +414,7 @@ header {
         background: #BB945F;
     }
     .right_orient {
+        text-align: right;
         .coffeshop_category-item {
             justify-content: flex-end;
         }
@@ -393,13 +425,15 @@ header {
 }
 
 .contacts {
-    margin-top: 60px;
+    margin-top: 1px;
     &_wrapper {
         margin-top: 60px;
         display: flex;
         justify-content: space-between;
+        padding: 0px 20px;
     }
     &_info {
+
         font-family: Inter;
         font-size: 20px;
         font-style: normal;
@@ -411,6 +445,7 @@ header {
             font-weight: 700;
         }
         h3 {
+            margin: 0;
             margin-bottom: 40px;
             font-family: Inter;
             font-size: 20px;
@@ -422,6 +457,7 @@ header {
             
         }
         h4 {
+            margin: 0;
             margin-top: 40px;
             font-family: Inter;
             font-size: 20px;
@@ -439,7 +475,7 @@ header {
 }
 
 .librarycard {
-    margin-top: 60px;
+    margin-top: 40px;
     padding: 20px 20px 40px 20px;
     &_wrapper {
         margin-top: 60px;
@@ -504,7 +540,7 @@ header {
         button {
             cursor: pointer;
             display: block;
-            margin: 30px auto 0 auto;
+            margin: 23px auto 0 auto;
             padding: 10px 40px;
             border-radius: 2px;
             font-family: Inter;
@@ -544,6 +580,7 @@ header {
             margin-top: 35px;
             button {
                 width: 75px;
+                height: 30px;
                 padding: 10px 0px;
                 font-family: Inter;
                 font-size: 10px;
@@ -575,7 +612,7 @@ header {
 footer {
     height: 250px;
     background: #0C0C0E;
-    padding: 20px 20px 44px 20px;
+    padding: 20px 20px 45px 20px;
     .footer_main {
         margin-bottom: 10px;
         color: #FFF;
@@ -586,24 +623,33 @@ footer {
         line-height: 20px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         time {
             text-align: right;
         }
         a {
             color: inherit;
             font-style: normal;
+            width: 24px;
+            height: 24px;
         }
         .footer_social {
+            ul {
+                list-style-type: none;
+                display: flex;
+                margin: 0px;
+                padding: 0px;
+            }
             a {
                 margin-right: 15px;
             }
         }
     }
     hr {
-        margin-top: 20px;
+        margin-top: 30px;
     }
     .footer_rss {
-        margin-top: 44px;
+        margin-top: 45px;
         display: flex;
         justify-content: space-between;
         color: #FFF;
