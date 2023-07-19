@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <main>
+
         <header>
             <h1 class="logo"> <a href="#">Brooklyn Public Library</a> </h1>
             <nav>
@@ -28,13 +28,13 @@
             </nav>
             <div class="profile"><a href="#"><img src="img/icons/profile.png" alt="profile"></a></div>
         </header>
-    </main>
-        
+   
+        <main>
             <section class="welcome">
                 <h2 class="welcome_text">Welcome<br>to the Brooklyn<br>Library</h2>
             </section>
-            <section class="about inner_padding">
-                <h2 class="underline_title"><a name="about"></a>About</h2>
+            <section class="about inner_padding" id="about">
+                <h2 class="underline_title">About</h2>
                 <div class="about_text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </div>
                 <div class="about_slider">
                     <div class="about_slider_content-wrapper">
@@ -60,32 +60,40 @@
                      </div>
                 </div>
             </section>
-            <section class="favorites inner_padding">
-                <h2 class="underline_title"><a name="favorites"></a>Favorites</h2>
+            <section class="favorites inner_padding" id="favorites">
+                <h2 class="underline_title">Favorites</h2>
                 <div class="tabs">
                     <div class="tabs_header">Pick favorites of season</div>
                     <div class="tabs_category">
-                        <div class="tabs_category_wrapper">
-                            <input type="radio" value="winter" name="category" id="winter" class="tabs_category-item" checked>
-                            <label for="winter" class="tabs_category-label">Winter</label>
+                        <div class="interactive">
+                            <div class="tabs_category_wrapper">
+                                <input type="radio" value="winter" name="category" id="winter" class="tabs_category-item" checked>
+                                <label for="winter" class="tabs_category-label">Winter</label>
+                            </div>
                         </div>
-                        <div class="tabs_category_wrapper">
-                            <input type="radio" value="spring" name="category" id="spring" class="tabs_category-item">
-                            <label for="spring" class="tabs_category-label">Spring</label>
+                        <div class="interactive">
+                            <div class="tabs_category_wrapper">
+                                <input type="radio" value="spring" name="category" id="spring" class="tabs_category-item">
+                                <label for="spring" class="tabs_category-label">Spring</label>
+                            </div>
                         </div>
-                        <div class="tabs_category_wrapper">
-                            <input type="radio" value="summer" name="category" id="summer" class="tabs_category-item">
-                            <label for="summer" class="tabs_category-label">Summer</label>
+                        <div class="interactive">
+                            <div class="tabs_category_wrapper">
+                                <input type="radio" value="summer" name="category" id="summer" class="tabs_category-item">
+                                <label for="summer" class="tabs_category-label">Summer</label>
+                            </div>
                         </div>
-                        <div class="tabs_category_wrapper">
-                            <input type="radio" value="autumn" name="category" id="autumn" class="tabs_category-item">
-                            <label for="autumn" class="tabs_category-label">Autumn</label>
-                        </div>
+                        <div class="interactive">
+                            <div class="tabs_category_wrapper">
+                                <input type="radio" value="autumn" name="category" id="autumn" class="tabs_category-item">
+                                <label for="autumn" class="tabs_category-label">Autumn</label>
+                            </div>
+                        </div>        
 
                         
                     </div>
                     <div class="tabs_wrapper">
-                        <div class="tabs_item">
+                        <div class="tabs_item winter">
                             <div class="tabs_item-header">Staff Picks</div>
                             <div class="tabs_item-title">The Book Eaters</div>
                             <div class="tabs_item-subtitle">By Sunyi Dean</div>
@@ -93,7 +101,7 @@
                             <img src="img/favorites/b_eaters.png" alt="The Book Eaters" class="tabs_item-img">
                             <button class="active_btn button">Buy</button>
                         </div>
-                        <div class="tabs_item">
+                        <div class="tabs_item winter">
                             <div class="tabs_item-header">Staff Picks</div>
                             <div class="tabs_item-title">Cackle</div>
                             <div class="tabs_item-subtitle">By Rachel Harrison</div>
@@ -101,7 +109,7 @@
                             <img src="img/favorites/b_cackle.png" alt="Cackle" class="tabs_item-img">
                             <button class="active_btn button">Buy</button>
                         </div>
-                        <div class="tabs_item">
+                        <div class="tabs_item winter">
                             <div class="tabs_item-header">Staff Picks</div>
                             <div class="tabs_item-title">Dante: Poet of the Secular World</div>
                             <div class="tabs_item-subtitle">By Erich Auerbach</div>
@@ -109,7 +117,7 @@
                             <img src="img/favorites/b_dante.png" alt=">Dante: Poet of the Secular World" class="tabs_item-img">
                             <button class="active_btn button">Buy</button>
                         </div>
-                        <div class="tabs_item">
+                        <div class="tabs_item winter">
                             <div class="tabs_item-header">Staff Picks</div>
                             <div class="tabs_item-title">The Last Queen</div>
                             <div class="tabs_item-subtitle">By Clive Irving</div>
@@ -117,13 +125,124 @@
                             <img src="img/favorites/b_lastqueen.png" alt="The Last Queen" class="tabs_item-img">
                             <button disabled class="disabled">Own</button>
                         </div>
+<!-- hedden now -->
+<!-- spring -->
+<div class="tabs_item spring hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">The Body</div>
+    <div class="tabs_item-subtitle">By Stephen King</div>
+    <div class="tabs_item-descr">Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.</div>
+    <img src="img/favorites/b_kingbody.png" alt="The Body" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
 
+<div class="tabs_item spring hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">Carry: A Memoir of Survival on Stolen Land</div>
+    <div class="tabs_item-subtitle">By Toni Jenson</div>
+    <div class="tabs_item-descr">This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.</div>
+    <img src="img/favorites/b_carrymemoir.png" alt="Carry: A Memoir of Survival on Stolen Land" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<div class="tabs_item spring hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">Days of Distraction</div>
+    <div class="tabs_item-subtitle">By Alexandra Chang</div>
+    <div class="tabs_item-descr">A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.</div>
+    <img src="img/favorites/b_daysdistr.png" alt=">Days of Distraction" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<div class="tabs_item spring hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">Dominicana</div>
+    <div class="tabs_item-subtitle">By Angie Cruz</div>
+    <div class="tabs_item-descr">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</div>
+    <img src="img/favorites/b_dominicana.png" alt="Dominicana" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<!-- summer -->
+<div class="tabs_item summer hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">Crude: A Memoir</div>
+    <div class="tabs_item-subtitle">By Pablo Fajardo & ​​Sophie Tardy-Joubert</div>
+    <div class="tabs_item-descr">Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people</div>
+    <img src="img/favorites/b_crude.png" alt="Crude: A Memoir" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<div class="tabs_item summer hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">Let My People Go Surfing</div>
+    <div class="tabs_item-subtitle">By Yvon Chouinard</div>
+    <div class="tabs_item-descr">Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</div>
+    <img src="img/favorites/b_letsurfing.png" alt="Let My People Go Surfing" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<div class="tabs_item summer hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">The Octopus Museum: Poems</div>
+    <div class="tabs_item-subtitle">By Brenda Shaughnessy</div>
+    <div class="tabs_item-descr">This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.</div>
+    <img src="img/favorites/b_octopusmuseum.png" alt="The Octopus Museum: Poems" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<div class="tabs_item summer hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">Shark Dialogues: A Novel</div>
+    <div class="tabs_item-subtitle">By Kiana Davenport</div>
+    <div class="tabs_item-descr">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.</div>
+    <img src="img/favorites/b_sharknovel.png" alt="Shark Dialogues: A Novel" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<!-- autumn -->
+<div class="tabs_item autumn hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">Casual Conversation</div>
+    <div class="tabs_item-subtitle">By Renia White</div>
+    <div class="tabs_item-descr">White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.</div>
+    <img src="img/favorites/b_casualconv.png" alt="Casual Conversation" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<div class="tabs_item autumn hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">The Great Fire</div>
+    <div class="tabs_item-subtitle">By Lou Ureneck</div>
+    <div class="tabs_item-descr">The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide</div>
+    <img src="img/favorites/b_greatfire.png" alt="The Great Fire" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<div class="tabs_item autumn hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">Rickey: The Life and Legend</div>
+    <div class="tabs_item-subtitle">By Howard Bryant</div>
+    <div class="tabs_item-descr">With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?</div>
+    <img src="img/favorites/b_rickey.png" alt="Rickey: The Life and Legend" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+
+<div class="tabs_item autumn hidden">
+    <div class="tabs_item-header">Staff Picks</div>
+    <div class="tabs_item-title">Slug: And Other Stories</div>
+    <div class="tabs_item-subtitle"> By Megan Milks</div>
+    <div class="tabs_item-descr">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.</div>
+    <img src="img/favorites/b_slug.png" alt="Slug: And Other Stories" class="tabs_item-img">
+    <button class="active_btn button">Buy</button>
+</div>
+<!-- hedden now -->
                     </div>
                 </div>
 
             </section>
-            <section class="coffeshop inner_padding">
-                <h2 class="underline_title"><a name="coffeshop"></a>Coffee shop</h2>
+            <section class="coffeshop inner_padding" id="coffeshop">
+                <h2 class="underline_title">Coffee shop</h2>
                 <div class="coffeshop_descr">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</div>
                 <div class="coffeshop_wrapper">
                     <div class="coffeshop_category">
@@ -195,9 +314,8 @@
                 </div>
 
             </section>
-
-            <section class="contacts">
-                <h2 class="underline_title"><a name="contacts"></a>Our Contacts</h2>
+            <section class="contacts" id="contacts">
+                <h2 class="underline_title">Our Contacts</h2>
                 <div class="contacts_wrapper">
                     <div class="contacts_info">
                         <h3><span>For all Library inquiries:</span></h3>
@@ -212,8 +330,8 @@
                     </div>
                 </div>
             </section>
-            <section class="librarycard">
-                <h2 class="underline_title"><a name="librarycard"></a>Digital Library Cards</h2>
+            <section class="librarycard" id="librarycard">
+                <h2 class="underline_title">Digital Library Cards</h2>
                     <div class="librarycard_wrapper">
                         <div class="librarycard_card">
                             <div class="librarycard_card-title">Find your Library card</div>
@@ -221,8 +339,8 @@
                                
                                 <div class="input_wrapper">
                                         <div class="form_title">Brooklyn Public Library</div>
-                                       <input type="text" name="name" id="name" placeholder="Reader's name ">
-                                       <input type="text" name="card_number" id="card_number" placeholder="Card number">
+                                       <input type="text" name="name" id="name" placeholder="Reader's name" required>
+                                       <input type="text" name="card_number" id="card_number" placeholder="Card number" required>
                                 </div>
                              
                                 <button class="librarycard-form button">Check the card</button>
@@ -239,18 +357,18 @@
                     </div>
 
             </section>
-
+        </main>    
         <footer>
             <div class="footer_main">
-                <address><a href="https://www.google.com/maps/search/286+Cadman+Plaza,+New+York,+NY+11238,+United+States/@40.6956337,-73.9928847,17z/data=!3m1!4b1?entry=ttu">286 Cadman Plaza, New York,<br>NY 11238, United States</a></address>
+                <address><a href="https://www.google.com/maps/search/286+Cadman+Plaza,+New+York,+NY+11238,+United+States/@40.6956337,-73.9928847,17z/data=!3m1!4b1?entry=ttu" target="_blank">286 Cadman Plaza, New York,<br>NY 11238, United States</a></address>
                 <time datetime="08:00">Mon - Fri<br>08:00 am - 07:00 pm</time>
             </div>
             <div class="footer_main">
                 <div class="footer_social">
                     <ul>
-                        <li><a href="https://twitter.com/BrooklynNets"><img src="img/icons/twi.svg" alt="Twitter"></a>  </li>
-                        <li><a href="https://www.instagram.com/brooklynpeltzbeckham/"><img src="img/icons/inst.svg" alt="Instagram"></a></li>
-                        <li> <a href="https://www.facebook.com/Brooklyn/"> <img src="img/icons/fb.svg" alt="Facebook"></a> </li>
+                        <li><a href="https://twitter.com/BrooklynNets" target="_blank"><img src="img/icons/twi.svg" alt="Twitter"></a>  </li>
+                        <li><a href="https://www.instagram.com/brooklynpeltzbeckham/" target="_blank"><img src="img/icons/inst.svg" alt="Instagram"></a></li>
+                        <li> <a href="https://www.facebook.com/Brooklyn/" target="_blank"> <img src="img/icons/fb.svg" alt="Facebook"></a> </li>
                     </ul>
 
                 </div>
@@ -259,11 +377,11 @@
             <hr>
             <div class="footer_rss">
                 <span>2023</span>
-                <span>The Rolling Scopes School</span>
-                <span><a href="https://github.com/ulikemyway1">Aliaksandr</a></span>
+                <span> <a href="https://rs.school/js-stage0/" target="_blank">The Rolling Scopes School</a></span>
+                <span><a href="https://github.com/ulikemyway1">ulikemyway1</a></span>
             </div>
         </footer>
-        <script src=script.js></script>
     </div>
+<script src=script.js></script> 
 </body>
 </html>

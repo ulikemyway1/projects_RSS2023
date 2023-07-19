@@ -14,4 +14,7 @@ console.log(`
         секция CoffeShop +6.
         секция Contacts +6:
         секция LibraryCard +8:
-        блок <footer> +8:`)
+        блок <footer> +8:
+        
+        Общие требования к верстке +20
+        `)

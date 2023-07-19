@@ -10,7 +10,9 @@
     display: none;
 }
 
-
+html {
+    scroll-behavior: smooth;
+  }
 
 .inner_padding {
     display: block;
@@ -33,7 +35,11 @@ header {
         font-size: 30px;
         font-style: normal;
         font-weight: 400;
-        flex-grow: 1;
+        flex-grow: 1;              
+        transition: all 0.4s;
+        &:hover {
+            font-weight: 700;
+        }
 
         a {
             color: #FFF;
@@ -58,9 +64,6 @@ header {
                 padding: 0px;
                 display: inline-block;
                 text-decoration: none;
-
-                
-                
                 a {
                   color: #FFF;
                 font-family: Inter;
@@ -69,8 +72,9 @@ header {
                 font-weight: 400;
                 text-decoration: none;
                 position: relative;
+                transition: all 0.4s;
                     &:hover {
-                        text-decoration: underline;
+                        font-weight: 700;
                     }
                 }
                  
@@ -80,6 +84,11 @@ header {
     }
     .profile {
         margin-left: 40px;
+        border-radius: 100%;
+        transition: all 0.4s;
+        &:hover {
+            box-shadow: 0px 0px 20px #fff;
+        }
     }
 }
 
@@ -90,7 +99,7 @@ header {
     &_text{
         color: #FFF;
         text-align: center;
-        font-family: Forum;
+        font-family: 'Forum';
         font-size: 40px;
         font-style: normal;
         font-weight: 400;
@@ -162,6 +171,11 @@ header {
                 height: 26px;
                 position: relative;
                 cursor: pointer;
+                border-radius: 100%;
+                transition: all 0.4s;
+                &:hover {
+                    box-shadow: inset 0 0 20px rgba(13, 14, 13, 0.5)
+                }
 
                 &-fill {
                     position: absolute;
@@ -183,8 +197,17 @@ header {
 }
 
 
+.interactive {
+    cursor: pointer;
+    height: 33px;
+    min-width: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .tabs {
-    margin-top: 55px;
+    margin-top: 60px;
     &_header {
         margin-top: 30px;
         color: #000;
@@ -195,7 +218,7 @@ header {
         letter-spacing: 0.3px;
     }
     &_wrapper {
-        margin-top: 35px;
+        margin-top: 40px;
         display: grid;
         grid-template-columns: 550px 550px;
         grid-auto-rows: 555px;
@@ -203,18 +226,15 @@ header {
         row-gap: 40px;
     }
     &_category {
-        margin-top: 40px;
+        margin-top: 30px;
         display: flex;
-        width: 700px;
         justify-content: flex-start;
-        gap: 90px;
+        gap: 60px;
         &_wrapper {
+            margin-top: 15px;
             cursor: pointer;
             display: flex;
             align-items: center;
-
-            width: 120px;
-            height: 33px;
         }
         input{
             cursor: pointer;
@@ -226,6 +246,10 @@ header {
             outline: 2px solid #000; 
             height: 15px;
             width: 15px;
+            transition: all 0.4s;
+            &:hover {
+                box-shadow: inset 0 0 20px rgba(13, 14, 13, 0.5)
+            }
             &:checked {
                 background: #000; 
             }
@@ -243,6 +267,7 @@ header {
             font-style: normal;
             font-weight: 400;
             margin-left: 20px;
+            letter-spacing: 0.8px;
         }
 
         &-item {
@@ -257,6 +282,10 @@ header {
         height: 555px;
         border: 1px solid black;
         padding: 15px 20px;
+        transition: all 0.4s;
+        &:hover {
+            box-shadow: 0 0 20px rgba(13, 14, 13, 0.5)
+        }
         &-header {
             color: #000;
             font-family: Forum;
@@ -276,6 +305,7 @@ header {
                 bottom: 0px;
                 left: 0px;
             }
+            
         }
         &-title {
             margin-top: 20px;
@@ -425,7 +455,7 @@ header {
 }
 
 .contacts {
-    margin-top: 1px;
+    margin-top: 20px;
     &_wrapper {
         margin-top: 60px;
         display: flex;
@@ -475,7 +505,7 @@ header {
 }
 
 .librarycard {
-    margin-top: 40px;
+    margin-top: 35px;
     padding: 20px 20px 40px 20px;
     &_wrapper {
         margin-top: 60px;
@@ -521,12 +551,17 @@ header {
                 border-radius: 10px;
                 border: none;
                 padding: 8px 20px;
-                font-family: Forum;
+                font-family: 'Forum';
                 font-size: 30px;
                 font-style: normal;
                 font-weight: 400;
                 line-height: 50px;
                 letter-spacing: 0.6px;
+               
+                &:focus {
+                    outline: 3px solid #6e4915;
+                } 
+
                 &::placeholder {
                     color: #8E8E8E;
 
@@ -581,8 +616,7 @@ header {
             button {
                 width: 75px;
                 height: 30px;
-                padding: 10px 0px;
-                font-family: Inter;
+                font-family: 'Inter';
                 font-size: 10px;
                 font-style: normal;
                 font-weight: 700;
@@ -632,16 +666,30 @@ footer {
             font-style: normal;
             width: 24px;
             height: 24px;
+            transition: all 0.4s;
+            &:hover {
+                font-weight: 800;
+            }
+
         }
         .footer_social {
+
             ul {
                 list-style-type: none;
                 display: flex;
                 margin: 0px;
                 padding: 0px;
-            }
+                img {
+ transition: all 0.4s;
+                    &:hover {
+                        transform: translateY(-3px);
+                    }
+                }
+                }
+               
             a {
                 margin-right: 15px;
+                
             }
         }
     }
@@ -663,6 +711,10 @@ footer {
         a {
             color: inherit;
             font-style: inherit;
+            transition: all 0.4s;
+            &:hover {
+                font-weight: 800;
+            }
         }
     }
 }
