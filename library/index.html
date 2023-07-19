@@ -13,9 +13,10 @@
     
 </head>
 <body>
-    <div class="container">
+
 
         <header>
+            <div class="container_header">
             <h1 class="logo"> <a href="#">Brooklyn Public Library</a> </h1>
             <nav>
                 <ul>
@@ -27,12 +28,18 @@
                 </ul>
             </nav>
             <div class="profile"><a href="#"><img src="img/icons/profile.png" alt="profile"></a></div>
+        </div>
         </header>
-   
-        <main>
+
+        
             <section class="welcome">
+                <div class="overlay"></div>
+                <div class="container">
+                   
                 <h2 class="welcome_text">Welcome<br>to the Brooklyn<br>Library</h2>
+                </div>
             </section>
+            <div class="container">
             <section class="about inner_padding" id="about">
                 <h2 class="underline_title">About</h2>
                 <div class="about_text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </div>
@@ -125,7 +132,7 @@
                             <img src="img/favorites/b_lastqueen.png" alt="The Last Queen" class="tabs_item-img">
                             <button disabled class="disabled">Own</button>
                         </div>
-<!-- hedden now -->
+<!-- hidden now -->
 <!-- spring -->
 <div class="tabs_item spring hidden">
     <div class="tabs_item-header">Staff Picks</div>
@@ -236,7 +243,7 @@
     <img src="img/favorites/b_slug.png" alt="Slug: And Other Stories" class="tabs_item-img">
     <button class="active_btn button">Buy</button>
 </div>
-<!-- hedden now -->
+<!-- hidden now -->
                     </div>
                 </div>
 
@@ -357,8 +364,10 @@
                     </div>
 
             </section>
-        </main>    
+        </main> 
+    </div>   
         <footer>
+            <div class="container">
             <div class="footer_main">
                 <address><a href="https://www.google.com/maps/search/286+Cadman+Plaza,+New+York,+NY+11238,+United+States/@40.6956337,-73.9928847,17z/data=!3m1!4b1?entry=ttu" target="_blank">286 Cadman Plaza, New York,<br>NY 11238, United States</a></address>
                 <time datetime="08:00">Mon - Fri<br>08:00 am - 07:00 pm</time>
@@ -380,8 +389,9 @@
                 <span> <a href="https://rs.school/js-stage0/" target="_blank">The Rolling Scopes School</a></span>
                 <span><a href="https://github.com/ulikemyway1">ulikemyway1</a></span>
             </div>
+        </div>
         </footer>
-    </div>
+
 <script src=script.js></script> 
 </body>
 </html>
