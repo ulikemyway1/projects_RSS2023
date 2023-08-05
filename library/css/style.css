@@ -26,6 +26,8 @@ a {
 
 .container_header {
   position: relative;
+  z-index: 3;
+  background-color: #0C0C0E;
   margin: 0 auto;
   width: 1440px;
   display: flex;
@@ -92,6 +94,10 @@ header .profile {
 }
 header .profile:hover {
   box-shadow: 0px 0px 20px #fff;
+}
+
+.humburger_btn, .humburger_line {
+  display: none;
 }
 
 .welcome {
@@ -710,11 +716,10 @@ footer .footer_rss a:hover {
 .humburger_line {
   height: 2px;
   width: 45px;
-  margin-top: 5px;
   transition: all 0.5s;
   background-color: #ffffff;
+  margin-top: -5px;
 }
-
-.checked {
-  background-color: green;
+.humburger_line:not(:nth-child(1)) {
+  margin-top: 8px;
 }

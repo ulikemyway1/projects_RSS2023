@@ -6,26 +6,55 @@
 
    header nav {
     ul {
-
-        display: none;
-        right: 0px;
-        top: 90px;
+        position: absolute;
+        top: -800px;
+        right: 15px;
         flex-direction: column;
         align-items: center;
-        gap: 30px;
-        z-index: 2;
-        position: absolute;
+        gap: 28px;
+        height: 470px;
         background: #0C0C0E;
+        opacity: 0;
         width: 332px;
         line-height: 50px;
+        transition: all 0.5s;
       
     }
 
     }
 
     
+
+
+.humburger_btn, .humburger_line {
+    display: block;
+    cursor: pointer;
+    margin-right: 0px;
+
 }
 
 
+.humburger_btn.touched {
+
+    .humburger_line:nth-child(1) {
+        display: none;
+    }
+    .humburger_line:nth-child(2) {
+        transform: rotate(-45deg) translateX(-5px) translateY(-5px);
+    }
+    .humburger_line:nth-child(3) {
+        transform: rotate(45deg) translateX(-11px) translateY(-3px);
+    }
+
+}
+
+
+.open_nav {
+    display: flex;
+    top: 100px;
+    opacity: 1;
+    z-index: 2;
+}
+}
 
 // tablet 768px

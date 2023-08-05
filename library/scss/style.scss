@@ -24,6 +24,8 @@ a {
 }
 .container_header {
     position: relative;
+    z-index: 3;
+    background-color: #0C0C0E;
     margin: 0 auto;
     width: 1440px;
     display: flex;
@@ -97,6 +99,11 @@ header {
         }
     }
 }
+
+.humburger_btn, .humburger_line {
+    display: none;
+}
+
 
 .welcome {
     background:  url('../img/welcome/welcome_bg1.png') center center/cover;
@@ -698,7 +705,7 @@ footer {
                 margin: 0px;
                 padding: 0px;
                 img {
- transition: all 0.4s;
+                     transition: all 0.4s;
                     &:hover {
                         transform: translateY(-3px);
                     }
@@ -750,13 +757,12 @@ footer {
 
         height: 2px;
         width: 45px;
-        margin-top: 5px;
+
         transition: all 0.5s;
         background-color: #ffffff;
-
+        margin-top: -5px;
+        &:not(:nth-child(1)) {
+            margin-top: 8px;
+        }
      }
-}
-
-.checked {
-    background-color: green;
 }
