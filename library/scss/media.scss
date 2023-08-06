@@ -90,4 +90,13 @@
             }
         }
     }
+
+    .favorites {
+        .tabs {
+            &_wrapper {
+                grid-template-columns: 590px;
+                justify-content: center;
+            }
+        }
+    }
 }

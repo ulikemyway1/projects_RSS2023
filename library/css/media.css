@@ -65,4 +65,8 @@
   .about_slider_paginator {
     margin-top: 20px;
   }
+  .favorites .tabs_wrapper {
+    grid-template-columns: 590px;
+    justify-content: center;
+  }
 }
