@@ -39,6 +39,8 @@ header {
   width: 100%;
   background-color: #0C0C0E;
   height: 90px;
+  z-index: 1000;
+  position: relative;
 }
 header .logo {
   letter-spacing: 0.6px;
@@ -190,6 +192,9 @@ header .profile:hover {
   cursor: pointer;
   border-radius: 100%;
   transition: all 0.4s;
+}
+.about_slider_paginator-btn:not(:nth-child(2n+1)) {
+  display: none;
 }
 .about_slider_paginator-btn:hover {
   box-shadow: inset 0 0 20px rgba(13, 14, 13, 0.5);
@@ -462,7 +467,7 @@ header .profile:hover {
 }
 
 .contacts {
-  margin-top: 15px;
+  margin-top: 19px;
 }
 .contacts_wrapper {
   margin-top: 60px;
@@ -509,7 +514,7 @@ header .profile:hover {
 }
 
 .librarycard {
-  margin-top: 40px;
+  margin-top: 37px;
   padding: 20px 20px 40px 20px;
 }
 .librarycard_wrapper {
@@ -586,6 +591,9 @@ header .profile:hover {
   font-style: normal;
   font-weight: 700;
   letter-spacing: 1px;
+}
+.librarycard_info {
+  width: 456px;
 }
 .librarycard_info-title {
   color: #000;
@@ -700,6 +708,9 @@ footer .footer_rss {
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 2px;
+}
+footer .footer_rss span:nth-child(2) {
+  margin-left: 85px;
 }
 footer .footer_rss a {
   color: inherit;

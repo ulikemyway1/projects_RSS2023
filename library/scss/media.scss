@@ -1,8 +1,62 @@
-// mad-width 1024px
-@media (max-width: 1024px) {
+//max-width 1439px
+
+@media (max-width: 1439px) {
     .container_header {
         width: 100%;
     }
+    .container {
+        width: 100%;
+    }
+    .about {
+        &_slider {
+            
+            &_content-wrapper {
+                justify-content: center;
+                gap: 5%;
+            }
+            &_item {
+                &:nth-child(3) {
+                    display: none;
+                }
+            }
+        }
+    }
+    .coffeshop {
+        &_wrapper {
+            column-gap: 2%;
+            grid-template-columns: repeat(auto-fill, minmax(441px, 480px));
+            justify-content: center;
+        }
+    }
+    .tabs {
+        &_wrapper {
+        grid-template-columns: repeat(auto-fill, 550px);
+        column-gap: 100px;
+        justify-content: center;
+    }
+    &_category {
+        justify-content: center;
+        gap: 8%;
+    }
+}
+    .contacts {
+        &_wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+        &_info {
+            text-align: center;
+        }
+    }
+    .librarycard_wrapper {
+        gap: 40px;
+    }
+    }
+    
+
+// max-width 1024px
+@media (max-width: 1024px) {
+
 
    header nav {
     ul {
@@ -17,7 +71,8 @@
         opacity: 0;
         width: 332px;
         line-height: 50px;
-        transition: all 0.5s;
+        transition: all 0.5s cubic-bezier(0, 1.38, 1, 1);
+
       
     }
 
@@ -50,11 +105,143 @@
 
 
 .open_nav {
+
     display: flex;
     top: 100px;
     opacity: 1;
-    z-index: 2;
+
 }
+.container {
+    width: 100%;
+}
+
+.about {
+    &_slider {
+        position: relative;
+        img:not(:nth-child(1)) {
+            display: none;
+        }
+        &_content-wrapper {
+            justify-content: center;
+        }
+        &_arrow-left {
+            display: block;
+            position: absolute;
+            left: -82px;
+            top: 9px;
+        }
+        &_arrow-right {
+            display: block;
+            position: absolute;
+            right: -82px;
+            top: 9px;
+        }
+        &_paginator {
+            margin-top: 20px;
+        }
+        &_window-wrapper {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+        &_arrow-wrapper {
+            position: relative;
+            height: 100%;
+        }
+        &_paginator {
+              &-btn {
+            &:not(:nth-child(2n+1)) {
+                display: block;
+            }
+        } 
+        }
+     
+    }
+}
+
+.favorites {
+    .tabs {
+        margin-top: 64px;
+        &_wrapper {
+            grid-template-columns: 590px;
+            justify-content: center;
+        }
+        &_category {
+            justify-content: center;
+            gap: 8%;
+        }
+    }
+}
+
+.coffeshop {
+    margin-top: 1px;
+    &_wrapper {
+        grid-template-columns: 100%
+    }
+    &_category {
+        text-align: left;
+        &:nth-child(1) {
+            width: 441px;
+        }
+    }
+    .right_orient {
+        margin-top: 40px;
+        align-self: end;
+    }
+    &_descr {
+        width: 732px;
+    }
+ 
+}
+
+.contacts {
+    margin-top: 21px;
+    &_wrapper {
+        flex-direction: column;
+    }
+    &_map {
+        margin: 0 auto;
+        margin-top: 80px;
+    }
+}
+
+.librarycard {
+    margin-top: 37px;
+    &_wrapper {
+        flex-direction: column;
+        align-items: center
+    }
+    &_info {
+        width: 600px;
+        margin: 0 84px;
+        margin-top: 21px;
+        text-align: center;
+        &-title, &-descr {
+            text-align: center;
+        }
+        &-descr {
+            margin-top: 40px;
+
+        }
+        &-btns {
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        button {
+            margin: 0;
+
+        }
+    }
+}
+.footer_rss {
+    span:nth-child(2) {
+        margin-left: 29px;
+    }
+}
+
 }
 
 // tablet 768px
@@ -76,18 +263,36 @@
             &_arrow-left {
                 display: block;
                 position: absolute;
-                left: 57px;
-                top: 288px;
+                left: -82px;
+                top: 9px;
             }
             &_arrow-right {
                 display: block;
                 position: absolute;
-                right: 57px; 
-                top: 288px;
+                right: -82px;
+                top: 9px;
             }
             &_paginator {
                 margin-top: 20px;
             }
+            &_window-wrapper {
+                display: flex;
+                position: relative;
+                align-items: center;
+                justify-content: center;
+            }
+            &_arrow-wrapper {
+                position: relative;
+                height: 100%;
+            }
+            &_paginator {
+                  &-btn {
+                &:not(:nth-child(2n+1)) {
+                    display: block;
+                }
+            } 
+            }
+         
         }
     }
 
@@ -97,6 +302,10 @@
             &_wrapper {
                 grid-template-columns: 590px;
                 justify-content: center;
+            }
+            &_category {
+                justify-content: flex-start;
+                gap: 60px;
             }
         }
     }
@@ -126,10 +335,14 @@
         margin-top: 21px;
         &_wrapper {
             flex-direction: column;
+            align-items: flex-start;
         }
         &_map {
             margin: 0 auto;
             margin-top: 80px;
+        }
+        &_info {
+            text-align: left;
         }
     }
 
@@ -137,7 +350,8 @@
         margin-top: 37px;
         &_wrapper {
             flex-direction: column;
-            align-items: center
+            align-items: center;
+            gap: 0;
         }
         &_info {
             width: 600px;
@@ -163,9 +377,35 @@
             }
         }
     }
-    .footer_rss {
+    footer .footer_rss {
         span:nth-child(2) {
             margin-left: 29px;
         }
     }
 }
+
+
+// 640px
+@media (max-width: 767px) {
+    .favorites {
+            .tabs_category {
+        justify-content: center;
+        gap: 20px;}
+    }
+
+    .coffeshop {
+        &_descr {
+      width: 100%;
+  }
+  }
+  .contacts_map {
+    img {
+        width: 100%;
+    }
+}
+footer .footer_rss span:nth-child(2) {
+    margin-left: 0px;
+}
+}
+
+
