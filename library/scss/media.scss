@@ -121,4 +121,15 @@
         }
      
     }
+
+    .contacts {
+        margin-top: 21px;
+        &_wrapper {
+            flex-direction: column;
+        }
+        &_map {
+            margin: 0 auto;
+            margin-top: 80px;
+        }
+    }
 }

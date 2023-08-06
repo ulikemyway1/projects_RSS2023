@@ -91,4 +91,14 @@
   .coffeshop_descr {
     width: 732px;
   }
+  .contacts {
+    margin-top: 21px;
+  }
+  .contacts_wrapper {
+    flex-direction: column;
+  }
+  .contacts_map {
+    margin: 0 auto;
+    margin-top: 80px;
+  }
 }
