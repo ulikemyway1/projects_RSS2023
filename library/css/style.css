@@ -25,6 +25,9 @@ a {
 }
 
 .container_header {
+  position: relative;
+  z-index: 3;
+  background-color: #0C0C0E;
   margin: 0 auto;
   width: 1440px;
   display: flex;
@@ -36,6 +39,8 @@ header {
   width: 100%;
   background-color: #0C0C0E;
   height: 90px;
+  z-index: 1000;
+  position: relative;
 }
 header .logo {
   letter-spacing: 0.6px;
@@ -84,12 +89,17 @@ header nav ul li a:hover {
   font-weight: 700;
 }
 header .profile {
+  z-index: 2;
   margin-left: 40px;
   border-radius: 100%;
   transition: all 0.4s;
 }
 header .profile:hover {
   box-shadow: 0px 0px 20px #fff;
+}
+
+.humburger_btn, .humburger_line {
+  display: none;
 }
 
 .welcome {
@@ -159,6 +169,9 @@ header .profile:hover {
 .about_slider {
   margin-top: 20px;
 }
+.about_slider_arrow-right, .about_slider_arrow-left {
+  display: none;
+}
 .about_slider_content-wrapper {
   display: flex;
   justify-content: space-between;
@@ -179,6 +192,9 @@ header .profile:hover {
   cursor: pointer;
   border-radius: 100%;
   transition: all 0.4s;
+}
+.about_slider_paginator-btn:not(:nth-child(2n+1)) {
+  display: none;
 }
 .about_slider_paginator-btn:hover {
   box-shadow: inset 0 0 20px rgba(13, 14, 13, 0.5);
@@ -451,7 +467,7 @@ header .profile:hover {
 }
 
 .contacts {
-  margin-top: 15px;
+  margin-top: 19px;
 }
 .contacts_wrapper {
   margin-top: 60px;
@@ -498,7 +514,7 @@ header .profile:hover {
 }
 
 .librarycard {
-  margin-top: 40px;
+  margin-top: 37px;
   padding: 20px 20px 40px 20px;
 }
 .librarycard_wrapper {
@@ -575,6 +591,9 @@ header .profile:hover {
   font-style: normal;
   font-weight: 700;
   letter-spacing: 1px;
+}
+.librarycard_info {
+  width: 456px;
 }
 .librarycard_info-title {
   color: #000;
@@ -690,6 +709,9 @@ footer .footer_rss {
   line-height: 20px;
   letter-spacing: 2px;
 }
+footer .footer_rss span:nth-child(2) {
+  margin-left: 85px;
+}
 footer .footer_rss a {
   color: inherit;
   font-style: inherit;
@@ -697,4 +719,21 @@ footer .footer_rss a {
 }
 footer .footer_rss a:hover {
   font-weight: 800;
+}
+
+.humburger_btn {
+  margin-right: 20px;
+  margin-left: 40px;
+  z-index: 999;
+  transition: all 0.5s;
+}
+.humburger_line {
+  height: 2px;
+  width: 45px;
+  transition: all 0.5s;
+  background-color: #ffffff;
+  margin-top: -5px;
+}
+.humburger_line:not(:nth-child(1)) {
+  margin-top: 8px;
 }
