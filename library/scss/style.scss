@@ -23,6 +23,9 @@ a {
     text-decoration: none;
 }
 .container_header {
+    position: relative;
+    z-index: 3;
+    background-color: #0C0C0E;
     margin: 0 auto;
     width: 1440px;
     display: flex;
@@ -33,6 +36,8 @@ header {
     width: 100%;
     background-color: #0C0C0E;
     height: 90px;
+    z-index: 1000;
+    position: relative;
     .logo {
         letter-spacing: 0.6px;
         font-family: Forum;
@@ -56,6 +61,7 @@ header {
 
         
         ul {
+
             list-style-type: none;
             padding: 0px;
             margin: 0px;
@@ -87,6 +93,7 @@ header {
         }
     }
     .profile {
+        z-index: 2;
         margin-left: 40px;
         border-radius: 100%;
         transition: all 0.4s;
@@ -95,6 +102,11 @@ header {
         }
     }
 }
+
+.humburger_btn, .humburger_line {
+    display: none;
+}
+
 
 .welcome {
     background:  url('../img/welcome/welcome_bg1.png') center center/cover;
@@ -116,6 +128,7 @@ header {
         height: 220px;
         padding: 35px 40px;
         background: #0C0C0E;
+        
     }
 }
 
@@ -163,6 +176,9 @@ header {
     }
     &_slider {
         margin-top: 20px;
+        &_arrow-right, &_arrow-left {
+            display: none;
+        }
         &_content-wrapper {
             display: flex;
             justify-content: space-between;
@@ -182,6 +198,9 @@ header {
                 cursor: pointer;
                 border-radius: 100%;
                 transition: all 0.4s;
+                &:not(:nth-child(2n+1)) {
+                    display: none;
+                }
                 &:hover {
                     box-shadow: inset 0 0 20px rgba(13, 14, 13, 0.5)
                 }
@@ -468,7 +487,7 @@ header {
 }
 
 .contacts {
-    margin-top: 15px;
+    margin-top: 19px;
     &_wrapper {
         margin-top: 60px;
         display: flex;
@@ -518,7 +537,7 @@ header {
 }
 
 .librarycard {
-    margin-top: 40px;
+    margin-top: 37px;
     padding: 20px 20px 40px 20px;
     &_wrapper {
         margin-top: 60px;
@@ -601,6 +620,7 @@ header {
         
     }
     &_info {
+        width: 456px;
         &-title {
             color: #000;
             text-align: right;
@@ -696,7 +716,7 @@ footer {
                 margin: 0px;
                 padding: 0px;
                 img {
- transition: all 0.4s;
+                     transition: all 0.4s;
                     &:hover {
                         transform: translateY(-3px);
                     }
@@ -724,6 +744,11 @@ footer {
         font-weight: 400;
         line-height: 20px; 
         letter-spacing: 2px;
+        span {
+            &:nth-child(2) {
+                margin-left: 85px;
+            }
+        }
         a {
             color: inherit;
             font-style: inherit;
@@ -733,4 +758,27 @@ footer {
             }
         }
     }
+}
+
+.humburger {
+    &_btn {
+        margin-right: 20px;
+        margin-left: 40px;
+        z-index: 999;
+        transition: all 0.5s;
+
+
+    }
+    &_line {
+
+        height: 2px;
+        width: 45px;
+
+        transition: all 0.5s;
+        background-color: #ffffff;
+        margin-top: -5px;
+        &:not(:nth-child(1)) {
+            margin-top: 8px;
+        }
+     }
 }
