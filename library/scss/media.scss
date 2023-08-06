@@ -58,3 +58,36 @@
 }
 
 // tablet 768px
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    .about {
+        &_slider {
+            position: relative;
+            img:not(:nth-child(1)) {
+                display: none;
+            }
+            &_content-wrapper {
+                justify-content: center;
+            }
+            &_arrow-left {
+                display: block;
+                position: absolute;
+                left: 57px;
+                top: 288px;
+            }
+            &_arrow-right {
+                display: block;
+                position: absolute;
+                right: 57px; 
+                top: 288px;
+            }
+            &_paginator {
+                margin-top: 20px;
+            }
+        }
+    }
+}

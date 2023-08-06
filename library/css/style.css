@@ -167,6 +167,9 @@ header .profile:hover {
 .about_slider {
   margin-top: 20px;
 }
+.about_slider_arrow-right, .about_slider_arrow-left {
+  display: none;
+}
 .about_slider_content-wrapper {
   display: flex;
   justify-content: space-between;

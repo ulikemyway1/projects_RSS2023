@@ -37,3 +37,32 @@
     z-index: 2;
   }
 }
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .about_slider {
+    position: relative;
+  }
+  .about_slider img:not(:nth-child(1)) {
+    display: none;
+  }
+  .about_slider_content-wrapper {
+    justify-content: center;
+  }
+  .about_slider_arrow-left {
+    display: block;
+    position: absolute;
+    left: 57px;
+    top: 288px;
+  }
+  .about_slider_arrow-right {
+    display: block;
+    position: absolute;
+    right: 57px;
+    top: 288px;
+  }
+  .about_slider_paginator {
+    margin-top: 20px;
+  }
+}

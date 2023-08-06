@@ -172,6 +172,9 @@ header {
     }
     &_slider {
         margin-top: 20px;
+        &_arrow-right, &_arrow-left {
+            display: none;
+        }
         &_content-wrapper {
             display: flex;
             justify-content: space-between;
