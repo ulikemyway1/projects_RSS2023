@@ -65,8 +65,30 @@
   .about_slider_paginator {
     margin-top: 20px;
   }
+  .favorites .tabs {
+    margin-top: 64px;
+  }
   .favorites .tabs_wrapper {
     grid-template-columns: 590px;
     justify-content: center;
+  }
+  .coffeshop {
+    margin-top: 1px;
+  }
+  .coffeshop_wrapper {
+    grid-template-columns: 100%;
+  }
+  .coffeshop_category {
+    text-align: left;
+  }
+  .coffeshop_category:nth-child(1) {
+    width: 441px;
+  }
+  .coffeshop .right_orient {
+    margin-top: 40px;
+    align-self: end;
+  }
+  .coffeshop_descr {
+    width: 732px;
   }
 }

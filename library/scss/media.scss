@@ -93,10 +93,32 @@
 
     .favorites {
         .tabs {
+            margin-top: 64px;
             &_wrapper {
                 grid-template-columns: 590px;
                 justify-content: center;
             }
         }
+    }
+
+    .coffeshop {
+        margin-top: 1px;
+        &_wrapper {
+            grid-template-columns: 100%;
+        }
+        &_category {
+            text-align: left;
+            &:nth-child(1) {
+                width: 441px;
+            }
+        }
+        .right_orient {
+            margin-top: 40px;
+            align-self: end;
+        }
+        &_descr {
+            width: 732px;
+        }
+     
     }
 }
