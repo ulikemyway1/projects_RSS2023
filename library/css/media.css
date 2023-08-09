@@ -43,7 +43,7 @@
   header nav ul {
     position: absolute;
     top: -800px;
-    right: 15px;
+    right: 0px;
     flex-direction: column;
     align-items: center;
     gap: 28px;
@@ -63,10 +63,10 @@
     display: none;
   }
   .humburger_btn.touched .humburger_line:nth-child(2) {
-    transform: rotate(-45deg) translateX(-5px) translateY(-5px);
+    transform: rotate(-45deg);
   }
   .humburger_btn.touched .humburger_line:nth-child(3) {
-    transform: rotate(45deg) translateX(-11px) translateY(-3px);
+    transform: rotate(45deg) translateX(-6px) translateY(-8px);
   }
   .open_nav {
     display: flex;
