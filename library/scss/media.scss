@@ -56,29 +56,26 @@
 
 // max-width 1024px
 @media (max-width: 1024px) {
+    header nav {
 
-
-   header nav {
-    ul {
-        position: absolute;
-        top: -800px;
-        right: 0px;
-        flex-direction: column;
-        align-items: center;
-        gap: 28px;
-        height: 470px;
-        background: #0C0C0E;
-        opacity: 0;
-        width: 332px;
-        line-height: 50px;
-        transition: all 0.5s cubic-bezier(0, 1.38, 1, 1);
-
-      
-    }
-
-    }
-
+            position: absolute;
+            top: -800px;
+            right: 0px;
+            z-index: -1;
+            height: 470px;
+            background: #0C0C0E;
+           line-height: 50px;
+            transition: all 0.6s;
+            ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 28px;
+                justify-content: center;
+                width: 332px;
+            }
+          
     
+        }
 
 
 .humburger_btn, .humburger_line {
@@ -108,11 +105,15 @@
 
     display: flex;
     top: 100px;
-    opacity: 1;
+    position: absolute;
+
 
 }
 .container {
     width: 100%;
+    &_header {
+        z-index: unset;
+    }
 }
 
 .about {
