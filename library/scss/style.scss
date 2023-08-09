@@ -24,7 +24,6 @@ a {
 }
 .container_header {
     position: relative;
-    z-index: 3;
     background-color: #0C0C0E;
     margin: 0 auto;
     width: 1440px;
@@ -177,11 +176,13 @@ header {
     &_slider {
         margin-top: 20px;
         &_arrow-right, &_arrow-left {
+            cursor: pointer;
             display: none;
         }
         &_content-wrapper {
             display: flex;
             justify-content: space-between;
+           
         }
         &_paginator {
             display: flex;
