@@ -169,6 +169,7 @@ header .profile:hover {
   margin-top: 20px;
 }
 .about_slider_arrow-right, .about_slider_arrow-left {
+  cursor: pointer;
   display: none;
 }
 .about_slider_content-wrapper {

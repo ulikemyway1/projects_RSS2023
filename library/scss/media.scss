@@ -82,9 +82,16 @@
     display: block;
     cursor: pointer;
     margin-right: 0px;
-
 }
 
+.humburger_btn:hover {
+    .humburger_line:nth-child(1) {
+        transform: translateY(-3px);
+    }
+    .humburger_line:nth-child(3) {
+        transform: translateY(3px);
+    }
+}
 
 .humburger_btn.touched {
 
