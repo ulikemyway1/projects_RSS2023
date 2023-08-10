@@ -57,6 +57,15 @@
     justify-content: center;
     width: 332px;
   }
+  header nav ul li {
+    width: 100%;
+  }
+  header nav ul li a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 52px;
+  }
   .humburger_btn, .humburger_line {
     display: block;
     cursor: pointer;
