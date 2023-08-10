@@ -1,5 +1,4 @@
 //max-width 1439px
-
 @media (max-width: 1439px) {
     .container_header {
         width: 100%;
@@ -72,6 +71,16 @@
                 gap: 28px;
                 justify-content: center;
                 width: 332px;
+                li {
+                    width: 100%;
+                       a {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    line-height: 52px;
+                } 
+                }
+            
             }
           
     
