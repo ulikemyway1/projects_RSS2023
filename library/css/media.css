@@ -12,6 +12,9 @@
   .about_slider_item:nth-child(3) {
     display: none;
   }
+  .about_slider_paginator-btn:nth-child(4) {
+    display: block;
+  }
   .coffeshop_wrapper {
     -moz-column-gap: 2%;
          column-gap: 2%;

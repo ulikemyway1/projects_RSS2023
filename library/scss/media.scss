@@ -18,8 +18,16 @@
                     display: none;
                 }
             }
+            &_paginator {
+                &-btn {
+              &:nth-child(4){
+                  display: block;
+              }
+          } 
+            
         }
     }
+}
     .coffeshop {
         &_wrapper {
             column-gap: 2%;
