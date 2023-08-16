@@ -174,8 +174,9 @@ header .profile:hover {
 }
 .about_slider_content {
   display: flex;
-  justify-content: center;
   gap: 25px;
+  position: relative;
+  left: 0;
 }
 .about_slider_content-wrapper {
   margin: 0 auto;

@@ -145,20 +145,18 @@
 .about {
     &_slider {
         position: relative;
-        img:not(:nth-child(1)) {
-            display: none;
-        }
+       
         &_arrow-left {
             display: block;
             position: absolute;
-            left: 75px;
             top: 9px;
+            left: -82px;
         }
         &_arrow-right {
             display: block;
             position: absolute;
-            right: 75px;
             top: 9px;
+            right: -82px;
         }
         &_paginator {
             margin-top: 20px;
@@ -169,6 +167,7 @@
             position: relative;
             align-items: center;
             justify-content: center;
+            width: 475px;
         }
         &_arrow-wrapper {
             position: relative;
@@ -279,22 +278,19 @@
     .about {
         &_slider {
             position: relative;
-            img:not(:nth-child(1)) {
-                display: none;
-            }
             &_content-wrapper {
                 justify-content: center;
             }
             &_arrow-left {
                 display: block;
                 position: absolute;
-                left: 57px;
+                left: -82px;
                 top: 9px;
             }
             &_arrow-right {
                 display: block;
                 position: absolute;
-                right: 57px;
+                right: -82px;
                 top: 9px;
             }
             &_paginator {
@@ -305,6 +301,7 @@
                 position: relative;
                 align-items: center;
                 justify-content: center;
+                width: 450px;
             }
             &_arrow-wrapper {
                 position: relative;
@@ -421,13 +418,13 @@
         &_arrow-left {
             display: block;
             position: absolute;
-            left: 30px;
+            left: -60px;
             top: 9px;
         }
         &_arrow-right {
             display: block;
             position: absolute;
-            right: 30px;
+            right: -60px;
             top: 9px;
         }
     }

@@ -181,8 +181,10 @@ header {
         }
         &_content {
             display: flex;
-            justify-content: center;
             gap: 25px;
+            position: relative;
+            
+            left: 0;
         }
         &_content-wrapper {
             margin: 0 auto;

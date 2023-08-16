@@ -104,20 +104,17 @@
   .about_slider {
     position: relative;
   }
-  .about_slider img:not(:nth-child(1)) {
-    display: none;
-  }
   .about_slider_arrow-left {
     display: block;
     position: absolute;
-    left: 75px;
     top: 9px;
+    left: -82px;
   }
   .about_slider_arrow-right {
     display: block;
     position: absolute;
-    right: 75px;
     top: 9px;
+    right: -82px;
   }
   .about_slider_paginator {
     margin-top: 20px;
@@ -128,6 +125,7 @@
     position: relative;
     align-items: center;
     justify-content: center;
+    width: 475px;
   }
   .about_slider_arrow-wrapper {
     position: relative;
@@ -215,22 +213,19 @@
   .about_slider {
     position: relative;
   }
-  .about_slider img:not(:nth-child(1)) {
-    display: none;
-  }
   .about_slider_content-wrapper {
     justify-content: center;
   }
   .about_slider_arrow-left {
     display: block;
     position: absolute;
-    left: 57px;
+    left: -82px;
     top: 9px;
   }
   .about_slider_arrow-right {
     display: block;
     position: absolute;
-    right: 57px;
+    right: -82px;
     top: 9px;
   }
   .about_slider_paginator {
@@ -241,6 +236,7 @@
     position: relative;
     align-items: center;
     justify-content: center;
+    width: 450px;
   }
   .about_slider_arrow-wrapper {
     position: relative;
@@ -334,13 +330,13 @@
   .about_slider_arrow-left {
     display: block;
     position: absolute;
-    left: 30px;
+    left: -60px;
     top: 9px;
   }
   .about_slider_arrow-right {
     display: block;
     position: absolute;
-    right: 30px;
+    right: -60px;
     top: 9px;
   }
   .coffeshop_descr {
