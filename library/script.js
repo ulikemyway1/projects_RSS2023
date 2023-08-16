@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', ()=> {
+// BURGER-MENU
     const humburgerBtn = document.querySelector('.humburger_btn'),
     nav = document.querySelector('nav'),
     humburgerBtnLines = document.querySelectorAll('.humburger_line');
@@ -15,4 +16,10 @@ document.addEventListener('click', (event)=>{
         nav.classList.remove('open_nav');
     };
 });
+
+
+//About SLIDER
+
 });
+
+

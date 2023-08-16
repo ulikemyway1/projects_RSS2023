@@ -172,9 +172,14 @@ header .profile:hover {
   cursor: pointer;
   display: none;
 }
-.about_slider_content-wrapper {
+.about_slider_content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 25px;
+}
+.about_slider_content-wrapper {
+  margin: 0 auto;
+  overflow: hidden;
 }
 .about_slider_paginator {
   display: flex;

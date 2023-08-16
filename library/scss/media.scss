@@ -9,9 +9,11 @@
     .about {
         &_slider {
             
+            
             &_content-wrapper {
                 justify-content: center;
                 gap: 5%;
+                width: 950px;
             }
             &_item {
                 &:nth-child(3) {
@@ -146,19 +148,16 @@
         img:not(:nth-child(1)) {
             display: none;
         }
-        &_content-wrapper {
-            justify-content: center;
-        }
         &_arrow-left {
             display: block;
             position: absolute;
-            left: -82px;
+            left: 75px;
             top: 9px;
         }
         &_arrow-right {
             display: block;
             position: absolute;
-            right: -82px;
+            right: 75px;
             top: 9px;
         }
         &_paginator {
@@ -166,6 +165,7 @@
         }
         &_window-wrapper {
             display: flex;
+            margin: 0 auto;
             position: relative;
             align-items: center;
             justify-content: center;
@@ -288,13 +288,13 @@
             &_arrow-left {
                 display: block;
                 position: absolute;
-                left: -82px;
+                left: 57px;
                 top: 9px;
             }
             &_arrow-right {
                 display: block;
                 position: absolute;
-                right: -82px;
+                right: 57px;
                 top: 9px;
             }
             &_paginator {
@@ -417,7 +417,20 @@
         justify-content: center;
         gap: 20px;}
     }
-
+    .about_slider {
+        &_arrow-left {
+            display: block;
+            position: absolute;
+            left: 30px;
+            top: 9px;
+        }
+        &_arrow-right {
+            display: block;
+            position: absolute;
+            right: 30px;
+            top: 9px;
+        }
+    }
     .coffeshop {
         &_descr {
       width: 100%;

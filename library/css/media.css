@@ -8,6 +8,7 @@
   .about_slider_content-wrapper {
     justify-content: center;
     gap: 5%;
+    width: 950px;
   }
   .about_slider_item:nth-child(3) {
     display: none;
@@ -106,19 +107,16 @@
   .about_slider img:not(:nth-child(1)) {
     display: none;
   }
-  .about_slider_content-wrapper {
-    justify-content: center;
-  }
   .about_slider_arrow-left {
     display: block;
     position: absolute;
-    left: -82px;
+    left: 75px;
     top: 9px;
   }
   .about_slider_arrow-right {
     display: block;
     position: absolute;
-    right: -82px;
+    right: 75px;
     top: 9px;
   }
   .about_slider_paginator {
@@ -126,6 +124,7 @@
   }
   .about_slider_window-wrapper {
     display: flex;
+    margin: 0 auto;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -225,13 +224,13 @@
   .about_slider_arrow-left {
     display: block;
     position: absolute;
-    left: -82px;
+    left: 57px;
     top: 9px;
   }
   .about_slider_arrow-right {
     display: block;
     position: absolute;
-    right: -82px;
+    right: 57px;
     top: 9px;
   }
   .about_slider_paginator {
@@ -331,6 +330,18 @@
   .favorites .tabs_category {
     justify-content: center;
     gap: 20px;
+  }
+  .about_slider_arrow-left {
+    display: block;
+    position: absolute;
+    left: 30px;
+    top: 9px;
+  }
+  .about_slider_arrow-right {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 9px;
   }
   .coffeshop_descr {
     width: 100%;

@@ -179,9 +179,14 @@ header {
             cursor: pointer;
             display: none;
         }
-        &_content-wrapper {
+        &_content {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 25px;
+        }
+        &_content-wrapper {
+            margin: 0 auto;
+            overflow: hidden;
            
         }
         &_paginator {
