@@ -177,6 +177,7 @@ header .profile:hover {
   gap: 25px;
   position: relative;
   left: 0;
+  transition: all 0.5s;
 }
 .about_slider_content-wrapper {
   margin: 0 auto;
@@ -199,7 +200,10 @@ header .profile:hover {
   border-radius: 100%;
   transition: all 0.4s;
 }
-.about_slider_paginator-btn:not(:nth-child(2n+1)) {
+.about_slider_paginator-btn:nth-child(4) {
+  display: none;
+}
+.about_slider_paginator-btn:nth-child(5) {
   display: none;
 }
 .about_slider_paginator-btn:hover {

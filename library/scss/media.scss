@@ -8,18 +8,12 @@
     }
     .about {
         &_slider {
-            
-            
             &_content-wrapper {
                 justify-content: center;
                 gap: 5%;
                 width: 950px;
             }
-            &_item {
-                &:nth-child(3) {
-                    display: none;
-                }
-            }
+
             &_paginator {
                 &-btn {
               &:nth-child(4){
@@ -175,15 +169,18 @@
         }
         &_paginator {
               &-btn {
-            &:not(:nth-child(2n+1)) {
+            
                 display: block;
-            }
+            
         } 
         }
      
     }
 }
 
+.about_slider_paginator-btn:nth-child(5) {
+    display: block;
+}
 .favorites {
     .tabs {
         margin-top: 64px;
