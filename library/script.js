@@ -21,11 +21,11 @@ document.addEventListener('click', (event)=>{
 const sliderContent = document.querySelector('.about_slider_content');
 const sliderBtns = document.querySelectorAll('.about_slider_paginator-btn-fill');
 const sliderBtnsWithPadding = document.querySelectorAll('.about_slider_paginator-btn');
-const sliderBtnsPanel = document.querySelector('.about_slider_paginator_wrapper');
 const sliderArrowLeft = document.querySelector('.about_slider_arrow-left');
-const sliderArrowRigth = document.querySelector('.about_slider_arrow-rigth');
+const sliderArrowRight = document.querySelector('.about_slider_arrow-right');
 const sliderShift = 475;
 let sliderIndex = 1;
+sliderContent.style.left = 0;
 
 sliderBtnsWithPadding.forEach((item, index)=>{
     item.addEventListener('click', (e)=>{
@@ -36,18 +36,54 @@ sliderBtnsWithPadding.forEach((item, index)=>{
            sliderBtnsWithPadding[i].classList.remove('no-shadow');
            btn.disabled = false;
         })  
-        sliderBtns[index].classList.add('paginator-btn_active');
-        sliderBtns[index].disabled = true;
-        sliderBtnsWithPadding[index].classList.add('no-shadow');
+        switchSliderPaginator(index);
         sliderIndex = index + 1;
-        console.log(sliderIndex)
+        checkSliderArrows()
         }
        
     })
 })
-sliderArrowLeft.addEventListener('click', (e) => {
 
+sliderArrowLeft.addEventListener('click', (e) => {
+    if (sliderIndex !=1) {
+        sliderContent.style.left = `${parseInt(sliderContent.style.left) + sliderShift}px`;
+        sliderIndex -= 1;
+        sliderBtns.forEach((btn, i)=>{
+            btn.classList.remove('paginator-btn_active');
+            sliderBtnsWithPadding[i].classList.remove('no-shadow');
+            btn.disabled = false;
+         })
+         switchSliderPaginator(sliderIndex - 1);
+    }
+    checkSliderArrows()
+});
+
+sliderArrowRight.addEventListener('click', (e) => {
+    if (sliderIndex !=5) {
+        sliderContent.style.left = `${parseInt(sliderContent.style.left) - sliderShift}px`;
+        sliderIndex += 1;
+        sliderBtns.forEach((btn, i)=>{
+            btn.classList.remove('paginator-btn_active');
+            sliderBtnsWithPadding[i].classList.remove('no-shadow');
+            btn.disabled = false;
+         })
+         switchSliderPaginator(sliderIndex - 1);
+    }
+    checkSliderArrows()
 })
+
+function switchSliderPaginator(index) {
+    sliderBtns[index].classList.add('paginator-btn_active');
+    sliderBtns[index].disabled = true;
+    sliderBtnsWithPadding[index].classList.add('no-shadow');
+    sliderArrowRight.classList.remove('no-pointer');
+    sliderArrowLeft.classList.remove('no-pointer');
+}
+
+function checkSliderArrows() {
+    if (sliderIndex == 1) sliderArrowLeft.classList.add('no-pointer');
+    if (sliderIndex == 5) sliderArrowRight.classList.add('no-pointer');
+}
 
 });
 

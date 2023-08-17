@@ -169,15 +169,19 @@ header .profile:hover {
   margin-top: 20px;
 }
 .about_slider_arrow-right, .about_slider_arrow-left {
+  transition: all 0.6s;
   cursor: pointer;
   display: none;
+}
+.about_slider_arrow-right :hover path, .about_slider_arrow-left :hover path {
+  stroke: #BB945F;
 }
 .about_slider_content {
   display: flex;
   gap: 25px;
   position: relative;
-  left: 0;
-  transition: all 0.5s;
+  left: 0px;
+  transition: all 0.4s;
 }
 .about_slider_content-wrapper {
   margin: 0 auto;
@@ -225,6 +229,14 @@ header .profile:hover {
 .about .no-shadow:hover {
   box-shadow: none;
   cursor: auto;
+}
+
+.about_slider_arrow-right.no-pointer, .about_slider_arrow-left.no-pointer {
+  transition: all 0.6s;
+  cursor: default;
+}
+.about_slider_arrow-right.no-pointer path, .about_slider_arrow-left.no-pointer path {
+  stroke: rgb(184, 184, 184);
 }
 
 .paginator-btn_active {
