@@ -25,26 +25,29 @@ const sliderBtnsPanel = document.querySelector('.about_slider_paginator_wrapper'
 const sliderArrowLeft = document.querySelector('.about_slider_arrow-left');
 const sliderArrowRigth = document.querySelector('.about_slider_arrow-rigth');
 const sliderShift = 475;
+let sliderIndex = 1;
 
 sliderBtnsWithPadding.forEach((item, index)=>{
     item.addEventListener('click', (e)=>{
         if (!item.classList.contains('paginator-btn_active')) {
            sliderContent.style.left = `-${sliderShift*index}px`;
-           sliderBtns.forEach((btn)=>{
+           sliderBtns.forEach((btn, i)=>{
            btn.classList.remove('paginator-btn_active');
-           sliderBtns[index].classList.add('paginator-btn_active');
-
+           sliderBtnsWithPadding[i].classList.remove('no-shadow');
+           btn.disabled = false;
         })  
+        sliderBtns[index].classList.add('paginator-btn_active');
+        sliderBtns[index].disabled = true;
+        sliderBtnsWithPadding[index].classList.add('no-shadow');
+        sliderIndex = index + 1;
+        console.log(sliderIndex)
         }
        
     })
 })
-// sliderBtnsPanel.addEventListener('click', (event)=>{
-//     console.log(event.target)
-//     if (event.target == sliderBtns[0]) {
-//         sliderContent.style.left = '-475px';
-//     }
-// })
+sliderArrowLeft.addEventListener('click', (e) => {
+
+})
 
 });
 

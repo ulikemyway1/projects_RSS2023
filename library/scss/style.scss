@@ -10,6 +10,7 @@
     display: none;
 }
 
+
 html {
     scroll-behavior: smooth;
   }
@@ -224,16 +225,25 @@ header {
                     transform: translate(-50%, -50%);
                     width: 16px;
                     height: 16px;
+                    border: none;
+                    cursor: pointer;
                     border-radius: 100%;
                     background-color: #0C0C0E;
+                    
                 }
             }
         }
     }
 }
+.about .no-shadow:hover {
+    box-shadow: none;
+    cursor: auto;
+}
 
 .paginator-btn_active {
     background-color: #BB945F;
+    box-shadow: none;
+    cursor: auto;
 }
 
 
