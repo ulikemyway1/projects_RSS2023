@@ -85,6 +85,106 @@ function checkSliderArrows() {
     if (sliderIndex == 5) sliderArrowRight.classList.add('no-pointer');
 }
 
+
+//Favorites tabs
+
+const inputWinter = document.getElementById('winter');
+const inputSummer = document.getElementById('summer');
+const inputSpring = document.getElementById('spring');
+const inputAutumn = document.getElementById('autumn');
+const contentWinter = document.querySelectorAll('.winter');
+const contentSummer = document.querySelectorAll('.summer');
+const contentSpring = document.querySelectorAll('.spring');
+const contentAutumn = document.querySelectorAll('.autumn');
+const contentAll = document.querySelectorAll('.tabs_item');
+console.dir(inputWinter);
+const tabsCategory = document.querySelector('.tabs_category');
+// inputWinter.addEventListener('input', ()=>{
+//     contentAll.forEach((item)=>{
+//         item.classList
+//     })
+//     contentWinter.classList.remove('hidden');
+// })
+
+tabsCategory.addEventListener('click', (e)=>{
+    if (e.target.value == 'spring') {
+            if (contentSpring[0].classList.contains('hidden')) {
+                contentAll.forEach((item)=> {
+                    item.classList.add('transparent');
+                setTimeout(()=>{
+                    item.classList.add('hidden');
+                }, 400)
+                });
+                setTimeout(()=> {
+                    contentSpring.forEach((item)=> {
+                        item.classList.remove('hidden');
+                        setTimeout(()=>{
+                            item.classList.remove('transparent');
+                        }, 100)
+          
+                    })
+                }, 450)
+          
+        }
+    }
+    if (e.target.value == 'winter') {
+        if (contentWinter[0].classList.contains('hidden')) {
+            contentAll.forEach((item)=> {
+                item.classList.add('transparent');
+                setTimeout(()=>{
+                    item.classList.add('hidden');
+                }, 400)
+                
+            });
+            setTimeout(()=>{
+                contentWinter.forEach((item)=> {
+                    item.classList.remove('hidden');
+                    setTimeout(()=>{
+                        item.classList.remove('transparent');
+                    }, 100)
+                })
+            }, 450)
+       
+    }
+}
+if (e.target.value == 'summer') {
+    if (contentSummer[0].classList.contains('hidden')) {
+        contentAll.forEach((item)=> {
+            item.classList.add('transparent');
+            setTimeout(()=>{
+                item.classList.add('hidden');
+            }, 400)
+        });
+        setTimeout(()=>{
+            contentSummer.forEach((item)=> {
+                item.classList.remove('hidden');
+                setTimeout(()=>{
+                    item.classList.remove('transparent');
+                }, 100)
+            })
+        }, 450)
+}
+}
+if (e.target.value == 'autumn') {
+    if (contentAutumn[0].classList.contains('hidden')) {
+        contentAll.forEach((item)=> {
+            item.classList.add('transparent');
+            setTimeout(()=>{
+                item.classList.add('hidden');
+            }, 400)
+        });
+        setTimeout(()=>{
+            contentAutumn.forEach((item)=> {
+                item.classList.remove('hidden');
+                setTimeout(()=>{
+                    item.classList.remove('transparent');
+                }, 100)
+            })
+        }, 450)
+}
+}
+})
+
 });
 
 

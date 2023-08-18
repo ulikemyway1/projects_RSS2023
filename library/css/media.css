@@ -145,6 +145,9 @@
     justify-content: center;
     gap: 8%;
   }
+  .favorites .tabs_wrapper {
+    height: 2340px;
+  }
   .coffeshop {
     margin-top: 1px;
   }

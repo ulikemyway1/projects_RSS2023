@@ -7,8 +7,16 @@
   width: 1440px;
 }
 
-.hidden {
+.tabs_item.hidden {
   display: none;
+}
+
+.tabs_item.transparent {
+  opacity: 0;
+}
+
+.tabs_item.visible {
+  opacity: 1;
 }
 
 html {
@@ -271,6 +279,7 @@ header .profile:hover {
   letter-spacing: 0.3px;
 }
 .tabs_wrapper {
+  height: 1150px;
   margin-top: 40px;
   display: grid;
   grid-template-columns: 550px 550px;
@@ -332,7 +341,8 @@ header .profile:hover {
   height: 555px;
   border: 1px solid black;
   padding: 15px 20px;
-  transition: all 0.4s;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
 }
 .tabs_item:hover {
   box-shadow: 0 0 20px rgba(13, 14, 13, 0.5);
