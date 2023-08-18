@@ -87,24 +87,12 @@ function checkSliderArrows() {
 
 
 //Favorites tabs
-
-const inputWinter = document.getElementById('winter');
-const inputSummer = document.getElementById('summer');
-const inputSpring = document.getElementById('spring');
-const inputAutumn = document.getElementById('autumn');
 const contentWinter = document.querySelectorAll('.winter');
 const contentSummer = document.querySelectorAll('.summer');
 const contentSpring = document.querySelectorAll('.spring');
 const contentAutumn = document.querySelectorAll('.autumn');
 const contentAll = document.querySelectorAll('.tabs_item');
-console.dir(inputWinter);
 const tabsCategory = document.querySelector('.tabs_category');
-// inputWinter.addEventListener('input', ()=>{
-//     contentAll.forEach((item)=>{
-//         item.classList
-//     })
-//     contentWinter.classList.remove('hidden');
-// })
 
 tabsCategory.addEventListener('click', (e)=>{
     if (e.target.value == 'spring') {
@@ -184,7 +172,6 @@ if (e.target.value == 'autumn') {
 }
 }
 })
-
 });
 
 

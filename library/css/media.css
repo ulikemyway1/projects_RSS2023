@@ -352,3 +352,13 @@
     margin-left: 0px;
   }
 }
+@media (max-width: 1239px) {
+  .tabs_sticky {
+    position: sticky;
+    top: 0px;
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+  }
+}
