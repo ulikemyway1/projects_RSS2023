@@ -14,6 +14,12 @@ document.addEventListener('click', (event)=>{
         humburgerBtn.classList.remove('touched');
         nav.classList.remove('open_nav');
     };
+    console.log(event.target);
+    if(event.target != profileBtn & event.target != dropMenu & event.target != dropMenuTitle & dropMenu.classList.contains('dropped')) {
+        dropMenu.classList.remove('dropped');
+        dropMenu.classList.remove('nonetransparent');
+    }
+
 });
 
 
@@ -93,9 +99,9 @@ const contentSpring = document.querySelectorAll('.spring');
 const contentAutumn = document.querySelectorAll('.autumn');
 const contentAll = document.querySelectorAll('.tabs_item');
 const tabsCategory = document.querySelector('.tabs_category');
-
 tabsCategory.addEventListener('click', (e)=>{
     if (e.target.value == 'spring') {
+            inputChecked = true;
             if (contentSpring[0].classList.contains('hidden')) {
                 contentAll.forEach((item)=> {
                     item.classList.add('transparent');
@@ -172,6 +178,32 @@ if (e.target.value == 'autumn') {
 }
 }
 })
+
+
+//drop-menu
+
+const profileBtn = document.querySelector('.profile img');
+const dropMenu = document.querySelector('.drop_menu');
+const dropMenuTitle = document.querySelector('.drop_menu-title');
+profileBtn.addEventListener('click', ()=>{
+    dropMenu.classList.toggle('dropped');
+    dropMenu.classList.toggle('nonetransparent');
+})
 });
 
+//register
+const registerBtns = document.querySelectorAll('.register_btn');
+const modalOverlay = document.querySelector('.modal_overlay');
+const formRegister = document.querySelector('.form_register');
+const btnCloseModalRegister = document.querySelector('.modal_register .close_modal');
+
+registerBtns.forEach((btn)=>{
+    btn.addEventListener('click', ()=>{
+        modalOverlay.style.display = 'block'
+    })
+});
+btnCloseModalRegister.addEventListener('click', ()=> {
+    formRegister.reset();
+    modalOverlay.style.display = 'none';
+})
 
