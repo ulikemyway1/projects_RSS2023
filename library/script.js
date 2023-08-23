@@ -14,7 +14,6 @@ document.addEventListener('click', (event)=>{
         humburgerBtn.classList.remove('touched');
         nav.classList.remove('open_nav');
     };
-    console.log(event.target);
     if(event.target != document.querySelector('.drop_menu-links') & event.target != profileBtn & event.target != dropMenu & event.target != dropMenuTitle & dropMenu.classList.contains('dropped')) {
         dropMenu.classList.remove('dropped');
         dropMenu.classList.remove('nonetransparent');
@@ -223,6 +222,7 @@ btnCloseModalLogin.addEventListener('click', ()=> {
 //login
 const loginBtns = document.querySelectorAll('.login_btn');
 const modalLogin = document.querySelector('.modal_login');
+const formLogin = document.querySelector('.form_login');
 
 loginBtns.forEach((btn)=>{
     btn.addEventListener('click', ()=>{
@@ -246,3 +246,13 @@ modalOverlay.addEventListener('click', (event) => {
 
 
 }) 
+
+//registration
+formLogin.addEventListener('submit', (event)=>{
+    event.preventDefault();
+
+});
+formRegister.addEventListener('submit', (event)=>{
+    event.preventDefault();
+
+})
