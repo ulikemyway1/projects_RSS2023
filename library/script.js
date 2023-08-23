@@ -15,7 +15,7 @@ document.addEventListener('click', (event)=>{
         nav.classList.remove('open_nav');
     };
     console.log(event.target);
-    if(event.target != profileBtn & event.target != dropMenu & event.target != dropMenuTitle & dropMenu.classList.contains('dropped')) {
+    if(event.target != document.querySelector('.drop_menu-links') & event.target != profileBtn & event.target != dropMenu & event.target != dropMenuTitle & dropMenu.classList.contains('dropped')) {
         dropMenu.classList.remove('dropped');
         dropMenu.classList.remove('nonetransparent');
     }
@@ -191,19 +191,58 @@ profileBtn.addEventListener('click', ()=>{
 })
 });
 
+//modals
+modals = document.querySelectorAll('.modal');
 //register
 const registerBtns = document.querySelectorAll('.register_btn');
 const modalOverlay = document.querySelector('.modal_overlay');
+const modalRegister = document.querySelector('.modal_register');
 const formRegister = document.querySelector('.form_register');
 const btnCloseModalRegister = document.querySelector('.modal_register .close_modal');
+const btnCloseModalLogin = document.querySelector('.modal_login .close_modal');
 
 registerBtns.forEach((btn)=>{
     btn.addEventListener('click', ()=>{
-        modalOverlay.style.display = 'block'
+        closeAll(modals);
+        modalOverlay.style.display = 'block';
+        modalRegister.style.display = 'block';
     })
 });
 btnCloseModalRegister.addEventListener('click', ()=> {
     formRegister.reset();
+    modalRegister.style.display = 'none';
     modalOverlay.style.display = 'none';
-})
+});
 
+btnCloseModalLogin.addEventListener('click', ()=> {
+    formRegister.reset();
+    modalLogin.style.display = 'none';
+    modalOverlay.style.display = 'none';
+});
+
+//login
+const loginBtns = document.querySelectorAll('.login_btn');
+const modalLogin = document.querySelector('.modal_login');
+
+loginBtns.forEach((btn)=>{
+    btn.addEventListener('click', ()=>{
+        closeAll(modals);
+        modalOverlay.style.display = 'block';
+        modalLogin.style.display = 'block';
+    })
+});
+
+function closeAll(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].style.display = 'none';
+    };
+};
+
+modalOverlay.addEventListener('click', (event) => {
+    if (event.target == modalOverlay) {
+         closeAll(modals);
+    }
+
+
+
+}) 

@@ -63,6 +63,9 @@
   font-weight: 400;
   line-height: 20px;
 }
+.drop_menu-links li {
+  cursor: pointer;
+}
 .drop_menu-links li:not(:nth-child(1)) {
   margin-top: 10px;
 }
@@ -84,7 +87,8 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
-.modal_register {
+.modal_register, .modal_login {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -96,7 +100,7 @@
   flex-direction: column;
   background: #FFF;
 }
-.modal_register button.close_modal {
+.modal_register button.close_modal, .modal_login button.close_modal {
   border: none;
   padding: 0;
   margin: 0;
@@ -108,14 +112,14 @@
   top: 13px;
   right: 13px;
 }
-.modal_register button.close_modal:hover path {
+.modal_register button.close_modal:hover path, .modal_login button.close_modal:hover path {
   transition: all 0.3s;
   stroke: #afafaf;
 }
-.modal_register form {
+.modal_register form, .modal_login form {
   display: block;
 }
-.modal_register form label {
+.modal_register form label, .modal_login form label {
   margin-bottom: 10px;
   display: block;
   font-family: Inter;
@@ -125,14 +129,14 @@
   line-height: 20px;
   letter-spacing: 0.3px;
 }
-.modal_register form label input {
+.modal_register form label input, .modal_login form label input {
   margin-top: 10px;
   display: block;
   width: 200px;
   height: 20px;
   border: 1px solid #BB945F;
 }
-.modal_register form .modal_btn {
+.modal_register form .modal_btn, .modal_login form .modal_btn {
   cursor: pointer;
   width: 75px;
   height: 30px;
@@ -149,11 +153,11 @@
   margin-top: 10px;
   transition: all 0.4s;
 }
-.modal_register form .modal_btn:hover {
+.modal_register form .modal_btn:hover, .modal_login form .modal_btn:hover {
   border: 1px solid #BB945F;
   background: #BB945F;
 }
-.modal_register h2 {
+.modal_register h2, .modal_login h2 {
   margin: 0;
   margin-bottom: 20px;
   text-align: center;
@@ -165,7 +169,7 @@
   letter-spacing: 0.4px;
   text-transform: uppercase;
 }
-.modal_register p {
+.modal_register p, .modal_login p {
   color: #000;
   text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
   font-family: Inter;
@@ -173,7 +177,8 @@
   font-style: normal;
   font-weight: 400;
 }
-.modal_register p span {
+.modal_register p span, .modal_login p span {
+  cursor: pointer;
   color: #0C0C0E;
   text-align: center;
   font-family: Inter;
@@ -186,6 +191,15 @@
           text-decoration-line: underline;
   display: inline-block;
   margin-left: 10px;
+}
+
+.modal_register {
+  display: none;
+}
+
+.modal_login {
+  height: 262px;
+  display: none;
 }
 
 html {

@@ -39,6 +39,9 @@
         font-style: normal;
         font-weight: 400;
         line-height: 20px;
+        li {
+            cursor: pointer;
+        }
         li:not(:nth-child(1)) {
             margin-top: 10px;
         }
@@ -62,7 +65,9 @@
     z-index: 10000;
     background: rgba(0,0,0, 0.8)
   }
-  .modal_register {
+ 
+  .modal_register, .modal_login {
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -152,6 +157,7 @@
         font-style: normal;
         font-weight: 400;
         span {
+            cursor: pointer;
             color: #0C0C0E;
             text-align: center;
             font-family: Inter;
@@ -167,6 +173,12 @@
         
     }
     
+  }
+  .modal_register {
+    display: none;}
+  .modal_login { 
+    height: 262px;
+    display: none;
   }
 
  
