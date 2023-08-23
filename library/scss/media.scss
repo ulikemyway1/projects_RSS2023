@@ -320,14 +320,18 @@
 
     .favorites {
         .tabs {
-            margin-top: 64px;
+            margin-top: 50px;
             &_wrapper {
                 grid-template-columns: 590px;
                 justify-content: center;
+                margin-top: 27px;
             }
             &_category {
                 justify-content: flex-start;
                 gap: 60px;
+            }
+            &_header {
+                margin-top: 63px;
             }
         }
     }

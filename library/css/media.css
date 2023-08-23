@@ -249,15 +249,19 @@
     display: block;
   }
   .favorites .tabs {
-    margin-top: 64px;
+    margin-top: 50px;
   }
   .favorites .tabs_wrapper {
     grid-template-columns: 590px;
     justify-content: center;
+    margin-top: 27px;
   }
   .favorites .tabs_category {
     justify-content: flex-start;
     gap: 60px;
+  }
+  .favorites .tabs_header {
+    margin-top: 63px;
   }
   .coffeshop {
     margin-top: 1px;
