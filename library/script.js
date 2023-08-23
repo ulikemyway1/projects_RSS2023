@@ -276,3 +276,14 @@ formRegister.addEventListener('submit', (event)=>{
 
 let loadedUsersDB = JSON.parse(localStorage.getItem('usersDB'));
 console.log(loadedUsersDB);
+
+
+function generateReaderCardNumber() {
+    let readerCardNumberULIKE = Math.floor(Math.random() * 4294967295).toString(16).toUpperCase();
+    while (readerCardNumberULIKE.length < 8) {
+        readerCardNumberULIKE = readerCardNumberULIKE + '' + 0;
+    }
+    return readerCardNumberULIKE
+}
+
+console.log(generateReaderCardNumber())
