@@ -247,12 +247,32 @@ modalOverlay.addEventListener('click', (event) => {
 
 }) 
 
+//
+const libraryCardForm = document.querySelector('.librarycard_card-form')
+libraryCardForm.addEventListener('submit', (event)=>{
+    event.preventDefault();
+})
+
 //registration
 formLogin.addEventListener('submit', (event)=>{
     event.preventDefault();
 
 });
+
+let usersDB = [];
+
 formRegister.addEventListener('submit', (event)=>{
     event.preventDefault();
+    let newUser = {
+        'userNameULIKE': formRegister.elements.first_name.value,
+        'userLastNameULIKE': formRegister.elements.last_name.value,
+        'userEmailULIKE': formRegister.elements.e_mail.value,
+        'userPasswordULIKE': formRegister.elements.password.value,
+    };
+    usersDB.push(newUser);
+    localStorage.setItem('usersDB', JSON.stringify(usersDB));
 
 })
+
+let loadedUsersDB = JSON.parse(localStorage.getItem('usersDB'));
+console.log(loadedUsersDB);
