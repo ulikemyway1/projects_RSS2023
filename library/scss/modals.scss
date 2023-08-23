@@ -1,3 +1,9 @@
+.hidden {
+    display: none;
+};
+.shown {
+    display: block;
+}
 .profile_icon_wrapper {
     position: relative;
 }
@@ -181,4 +187,159 @@
     display: none;
   }
 
- 
+ .user_profile {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    width: 600px;
+    height: 400px;
+    background-color: #FFFFFF;
+    .close_btn {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+    }
+    .user_photo {
+        background: #0C0C0E;
+        width: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        &-abbr {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            background: #FFF;
+            color: #BB945F;
+            text-align: center;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            text-transform: capitalize;
+        }
+        &-name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            width: 120px;
+            height: 30px;
+            background: #FFF;
+        }
+
+    }
+    &_content {
+        padding: 7px 25px 40px 20px;
+        .profile_title {
+            font-family: Forum;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin: 0;
+            margin-top: 33px;
+            margin-bottom: 40px;
+        }
+        .user_profile_icons-wrapper {
+            color: #000;
+            text-align: center;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            letter-spacing: 0.4px;
+            text-transform: capitalize;
+            display: flex;
+            gap: 20px;
+
+        }
+        .user_profile_icons-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            div {
+                text-align: center;
+                font-family: Inter;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+                letter-spacing: 0.2px;
+                text-transform: capitalize;
+            }
+        }
+        h3 {
+            color: #0C0C0E;
+            font-family: Inter;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            margin: 0px;
+            margin-top: 20px;
+        }
+        #rented_books_list {
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px; /* 100% */
+            letter-spacing: 2px;
+            text-transform: capitalize;
+            ul {
+             margin: 0;
+             margin-top: 30px;
+             margin-bottom: 30px;
+             padding-left: 31px;
+             li {
+                padding-bottom: 10px;
+             }
+            
+            }
+        }
+        .card_number-wrapper {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+         span {
+            color: #0C0C0E;
+            text-align: center;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+        }
+        #card_number {
+            color: #BB945F;
+            text-align: center;
+            font-family: Inter;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+        }
+    }
+
+    }
+ }
