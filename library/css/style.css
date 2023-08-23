@@ -363,6 +363,115 @@
   line-height: 20px;
 }
 
+.buy_card {
+  position: relative;
+  width: 640px;
+  height: 540px;
+  background: #FFFFFF;
+}
+.buy_card .close_btn {
+  position: absolute;
+  top: 23px;
+  right: 13px;
+}
+.buy_card_header {
+  background: #0C0C0E;
+  width: 640px;
+  height: 60px;
+  color: #FFF;
+  text-align: center;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.buy_card_content-wrapper {
+  padding: 30px 40px 40px 40px;
+  display: flex;
+  gap: 40px;
+}
+.buy_card_content-wrapper form {
+  display: block;
+}
+.buy_card_content-wrapper form label {
+  margin-bottom: 10px;
+  display: block;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+.buy_card_content-wrapper form label:nth-of-type(4) {
+  margin-top: 19px;
+}
+.buy_card_content-wrapper form label input {
+  margin-top: 10px;
+  display: block;
+  width: 200px;
+  height: 20px;
+  border: 1px solid #BB945F;
+}
+.buy_card_content-wrapper form label .expiration_code {
+  display: inline-block;
+  width: 45px;
+  height: 20px;
+}
+.buy_card_content-wrapper form label .expiration_code:not(:nth-of-type(1)) {
+  margin-left: 5px;
+}
+.buy_card_content-wrapper form label .expiration_code:nth-of-type(3) {
+  margin-bottom: 5px;
+}
+.buy_card_descr {
+  width: 330px;
+  color: #8E8E8E;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+.buy_card .card_price {
+  position: absolute;
+  left: 140px;
+  bottom: 40px;
+  color: #0C0C0E;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.modal_btn {
+  cursor: pointer;
+  width: 75px;
+  height: 30px;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  padding: 9px 15px;
+  background: #ffffff;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  margin-top: 10px;
+  transition: all 0.4s;
+}
+.modal_btn:hover {
+  border: 1px solid #BB945F;
+  background: #BB945F;
+}
+
 html {
   scroll-behavior: smooth;
 }
