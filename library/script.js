@@ -297,6 +297,7 @@ formRegister.addEventListener('submit', (event)=>{
     localStorage.setItem('usersDB', JSON.stringify(usersDB));
     userLogIn(formRegister.elements.e_mail.value, formRegister.elements.password.value);
     closeAll(modals);
+    updateProfile();
 
 });
 
@@ -324,12 +325,14 @@ function userLogIn(login, password) {
             localStorage.setItem('usersDB', JSON.stringify(usersDB));
             renderAfterLogin();
             activateFeaturesAfterLogin();
-          
+            updateProfile()
         }
     })
 }
 const  buyBookBtns = document.querySelectorAll('button.active_btn');
 let dropMenuLinks = document.querySelector('.drop_menu-links');
+const libraryCardCheckBtn = document.querySelector('button.librarycard-form');
+const cardInfo = document.querySelector('.user_profile_icons-wrapper.card_info');
 function renderAfterLogin() {
     usersDB.forEach((user) => {
         if (user.isActive_ULIKE) {
@@ -340,7 +343,6 @@ function renderAfterLogin() {
             dropMenuLinks.innerHTML = '<li class="profile_btn">My profile</li><li class="logout_btn">Log Out</li>'
             //change drop menu
             const logOutBtn = document.querySelector('.logout_btn');
-
             if (logOutBtn) {
                 logOutBtn.addEventListener('click', ()=> {
                     usersDB.forEach((user) => {
@@ -351,23 +353,15 @@ function renderAfterLogin() {
                     })
                     location.reload();
                 })
-            }
-            const profileBtns = document.querySelectorAll('.profile_btn');
+            };
+            let profileBtns = document.querySelectorAll('.profile_btn');
             for (let i = 0; i<profileBtns.length; i++) {
             profileBtns[i].addEventListener('click', () => {
                 renderAfterLogin();
                 modalOverlay.style.display = 'block';
                 profileCard.style.display = 'flex';
-        
-        
             })
             }
-            document.querySelector('.user_photo-abbr').textContent =  userAbr.toUpperCase();
-            document.querySelector('.user_photo-name').textContent =  '' + user.userName_ULIKE + ' ' + user.userLastName_ULIKE;
-            document.querySelector('#visits').textContent =  user.userVisits_ULIKE;
-            document.querySelector('#bonuses').textContent =  user.userBonuses_ULIKE;
-            document.querySelector('#rented_books_amount').textContent =  user.userRentedBooksAmount_ULIKE;
-            document.querySelector('#card_number').textContent =  user.readerCardNumber_ULIKE;
            
             //create list of bought books
             const rentedBookList = document.querySelector('#rented_books_list ul');
@@ -380,9 +374,7 @@ function renderAfterLogin() {
                 rentedBookList.innerHTML = rentedBookList.innerHTML = 'ss';
 
             }
-
-            
-            
+                      
             user.userRentedBooksList_ULIKE.forEach((book)=> {
                let item = document.createElement('li');
                item.textContent = `${book.title}, ${book.author} `
@@ -398,7 +390,8 @@ function renderAfterLogin() {
                     btn.classList.remove('active_btn');
                     btn.classList.add('disabled');
                 }
-            })
+            });
+            
         }
     })
 
@@ -425,11 +418,27 @@ function showByCardModal() {
     modalOverlay.style.display = 'block';
     buyCardModal.style.display = 'block';
 }
+function  updateProfile() {
+    usersDB.forEach((user) => {
+        if (user.isActive_ULIKE) {
+        const userAbr = '' + user.userName_ULIKE[0] + user.userLastName_ULIKE[0];
+        document.querySelector('.user_photo-abbr').textContent =  userAbr.toUpperCase();
+        document.querySelector('.user_photo-name').textContent =  '' + user.userName_ULIKE + ' ' + user.userLastName_ULIKE;
+        document.querySelectorAll('#visits').forEach((item)=>item.textContent =  user.userVisits_ULIKE);
+        document.querySelectorAll('#bonuses').forEach((item)=>item.textContent =  user.userBonuses_ULIKE);
+        document.querySelectorAll('#rented_books_amount').forEach((item)=>item.textContent =  user.userRentedBooksAmount_ULIKE);
+        document.querySelector('#card_number').textContent =  user.readerCardNumber_ULIKE;    
+        document.querySelector('input#name').placeholder =  '' + user.userName_ULIKE + ' ' + user.userLastName_ULIKE;
+        document.querySelector('input#card_number').placeholder =  user.readerCardNumber_ULIKE; 
+        document.querySelector('input#card_number').disabled = true;
+        document.querySelector('input#name').disabled = true;
+        }})
+    }
 
+      
 function activateFeaturesAfterLogin() {
     usersDB.forEach((user) => {
         if (user.isActive_ULIKE) {
-    
     buyBookBtns.forEach((btn)=> {
         btn.removeEventListener('click', closeAllfunct);
         if (user.hasSubcription_ULIKE) {
@@ -440,7 +449,21 @@ function activateFeaturesAfterLogin() {
         } else {
             btn.addEventListener('click', showByCardModal)
         }
-    })}})
+    });
+    libraryCardCheckBtn.style.display = 'none';
+    cardInfo.style.display = 'flex';
+    document.querySelector('.librarycard_info-title').textContent = 'Visit your profile';
+    document.querySelector('.librarycard_info-descr').textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
+    document.querySelector('.librarycard_info.button.register_btn').style.display = 'none';
+    document.querySelector('.librarycard_info.button.login_btn').removeEventListener('click', closeAllfunct);
+    document.querySelector('.librarycard_info.button.login_btn').classList.add('profile_btn');
+    document.querySelector('.librarycard_info.button.login_btn').textContent = 'Profile';
+    document.querySelector('.librarycard_info.button.login_btn').classList.remove('login_btn');
+    renderAfterLogin(); 
+    
+
+}
+})
 
 }
 
@@ -461,12 +484,12 @@ function addBook(btn) {
     btn.disabled = true;
     btn.classList.remove('active_btn');
     btn.classList.add('disabled');
-    // renderAfterLogin();
+    updateProfile();
 };
 
 renderAfterLogin();
 activateFeaturesAfterLogin();
-
+updateProfile();
 
 const profileCard = document.querySelector('.user_profile');
 
