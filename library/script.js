@@ -285,7 +285,7 @@ formRegister.addEventListener('submit', (event)=>{
         'userEmail_ULIKE': formRegister.elements.e_mail.value,
         'userPassword_ULIKE': formRegister.elements.password.value,
         'readerCardNumber_ULIKE': generateReaderCardNumber(),
-        'userVisits_ULIKE': 1,
+        'userVisits_ULIKE': 0,
         'userRentedBooksAmount_ULIKE': 0,
         'userRentedBooksList_ULIKE': [],
         'userBonuses_ULIKE': 1240,
@@ -319,8 +319,8 @@ const profileImg = document.querySelector('.profile a')
 function userLogIn(login, password) {
     usersDB.forEach((user) => {
         if ((login == user.userEmail_ULIKE && password == user.userPassword_ULIKE) || (login == user.readerCardNumber_ULIKE && password == user.userPassword_ULIKE)) {
-            console.log('Login');
             user.isActive_ULIKE = true; 
+            user.userVisits_ULIKE++;
             localStorage.setItem('usersDB', JSON.stringify(usersDB));
             renderAfterLogin();
             activateFeaturesAfterLogin();
