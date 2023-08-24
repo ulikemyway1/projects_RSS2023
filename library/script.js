@@ -336,7 +336,7 @@ function renderAfterLogin() {
             //change user icon
             profileImg.style.backgroundColor  = '#ffffff'
             const userAbr = '' + user.userName_ULIKE[0] + user.userLastName_ULIKE[0];
-            profileImg.innerHTML = userAbr;
+            profileImg.innerHTML = userAbr.toUpperCase();
             dropMenuLinks.innerHTML = '<li class="profile_btn">My profile</li><li class="logout_btn">Log Out</li>'
             //change drop menu
             const logOutBtn = document.querySelector('.logout_btn');
@@ -362,15 +362,27 @@ function renderAfterLogin() {
         
             })
             }
-            document.querySelector('.user_photo-abbr').textContent =  userAbr;
+            document.querySelector('.user_photo-abbr').textContent =  userAbr.toUpperCase();
             document.querySelector('.user_photo-name').textContent =  '' + user.userName_ULIKE + ' ' + user.userLastName_ULIKE;
             document.querySelector('#visits').textContent =  user.userVisits_ULIKE;
             document.querySelector('#bonuses').textContent =  user.userBonuses_ULIKE;
             document.querySelector('#rented_books_amount').textContent =  user.userRentedBooksAmount_ULIKE;
             document.querySelector('#card_number').textContent =  user.readerCardNumber_ULIKE;
+           
             //create list of bought books
             const rentedBookList = document.querySelector('#rented_books_list ul');
             let bookList = document.createElement('ul');
+            if (user.userRentedBooksList_ULIKE.length == 0) {
+                let item = document.createElement('div');
+                item.style.fontSize = '16px'
+                item.textContent = "You haven't rented any books yet"
+                bookList.append(item);
+                rentedBookList.innerHTML = rentedBookList.innerHTML = 'ss';
+
+            }
+
+            
+            
             user.userRentedBooksList_ULIKE.forEach((book)=> {
                let item = document.createElement('li');
                item.textContent = `${book.title}, ${book.author} `
