@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
 // BURGER-MENU
     const humburgerBtn = document.querySelector('.humburger_btn'),
     nav = document.querySelector('nav'),
+    ul = document.querySelector('nav ul'),
     humburgerBtnLines = document.querySelectorAll('.humburger_line');
 
 humburgerBtn.addEventListener('click', ()=>{
@@ -10,8 +11,7 @@ humburgerBtn.addEventListener('click', ()=>{
 });
 
 document.addEventListener('click', (event)=>{
-    event.stopPropagation();
-    if(event.target != humburgerBtn && event.target != nav && event.target != humburgerBtnLines[0] &&  event.target != humburgerBtnLines[1] &&  event.target != humburgerBtnLines[2] ) {
+    if(event.target != humburgerBtn && event.target != nav && event.target != ul && event.target != humburgerBtnLines[0] &&  event.target != humburgerBtnLines[1] &&  event.target != humburgerBtnLines[2] ) {
         humburgerBtn.classList.remove('touched');
         nav.classList.remove('open_nav');
     };
