@@ -14,7 +14,7 @@ document.addEventListener('click', (event)=>{
         humburgerBtn.classList.remove('touched');
         nav.classList.remove('open_nav');
     };
-    if(event.target != document.querySelector('.drop_menu-links') & event.target != profileBtn & event.target != dropMenu & event.target != dropMenuTitle & dropMenu.classList.contains('dropped')) {
+    if(event.target != document.querySelector('.drop_menu-links') && event.target != profileBtn && event.target != dropMenu && event.target != dropMenuTitle && dropMenu.classList.contains('dropped')) {
         dropMenu.classList.remove('dropped');
         dropMenu.classList.remove('nonetransparent');
     }
@@ -181,12 +181,16 @@ if (e.target.value == 'autumn') {
 
 //drop-menu
 
-const profileBtn = document.querySelector('.profile img');
+const profileBtn = document.querySelector('.profile_icon_wrapper');
 const dropMenu = document.querySelector('.drop_menu');
 const dropMenuTitle = document.querySelector('.drop_menu-title');
-profileBtn.addEventListener('click', ()=>{
-    dropMenu.classList.toggle('dropped');
-    dropMenu.classList.toggle('nonetransparent');
+profileBtn.addEventListener('click', (event)=>{
+    event.stopPropagation();
+    if (event.target == document.querySelector('.profile_icon_wrapper img') || event.target == document.querySelector('.profile_icon_wrapper a')) {
+           dropMenu.classList.toggle('dropped');
+           dropMenu.classList.toggle('nonetransparent'); 
+    }
+
 })
 });
 
@@ -251,31 +255,43 @@ modalOverlay.addEventListener('click', (event) => {
 const libraryCardForm = document.querySelector('.librarycard_card-form')
 libraryCardForm.addEventListener('submit', (event)=>{
     event.preventDefault();
-})
-
-//registration
-formLogin.addEventListener('submit', (event)=>{
-    event.preventDefault();
-
 });
 
+
+formLogin.addEventListener('submit', (event)=>{
+    event.preventDefault();
+    userLogIn(formLogin.elements.login.value, formLogin.elements.password.value);
+    closeAll(modals);
+
+});
+//registration
 let usersDB = [];
+if (localStorage.getItem('usersDB')) {
+    usersDB = JSON.parse(localStorage.getItem('usersDB'));
+};
+
 
 formRegister.addEventListener('submit', (event)=>{
     event.preventDefault();
     let newUser = {
-        'userNameULIKE': formRegister.elements.first_name.value,
-        'userLastNameULIKE': formRegister.elements.last_name.value,
-        'userEmailULIKE': formRegister.elements.e_mail.value,
-        'userPasswordULIKE': formRegister.elements.password.value,
+        'userName_ULIKE': formRegister.elements.first_name.value,
+        'userLastName_ULIKE': formRegister.elements.last_name.value,
+        'userEmail_ULIKE': formRegister.elements.e_mail.value,
+        'userPassword_ULIKE': formRegister.elements.password.value,
+        'readerCardNumber_ULIKE': generateReaderCardNumber(),
+        'userVisits_ULIKE': 1,
+        'userRentedBooksAmount_ULIKE': 0,
+        'userRentedBooksList_ULIKE': null,
+        'userBonuses_ULIKE': 1240,
+        'isActive_ULIKE': false,  
     };
     usersDB.push(newUser);
     localStorage.setItem('usersDB', JSON.stringify(usersDB));
+    closeAll(modals);
+});
 
-})
 
-let loadedUsersDB = JSON.parse(localStorage.getItem('usersDB'));
-console.log(loadedUsersDB);
+console.log(usersDB);
 
 
 function generateReaderCardNumber() {
@@ -284,6 +300,50 @@ function generateReaderCardNumber() {
         readerCardNumberULIKE = readerCardNumberULIKE + '' + 0;
     }
     return readerCardNumberULIKE
+};
+
+
+//Log In
+const profile = document.querySelector('.profile')
+const profileImg = document.querySelector('.profile a')
+function userLogIn(login, password) {
+    usersDB.forEach((user) => {
+        if ((login == user.userEmail_ULIKE && password == user.userPassword_ULIKE) || (login == user.readerCardNumber_ULIKE && password == user.userPassword_ULIKE)) {
+            console.log('Login');
+            user.isActive_ULIKE = true; 
+            localStorage.setItem('usersDB', JSON.stringify(usersDB));
+            renderAfterLogin()
+        }
+    })
+}
+let dropMenuLinks = document.querySelector('.drop_menu-links');
+function renderAfterLogin() {
+    usersDB.forEach((user) => {
+        if (user.isActive_ULIKE) {
+            //change user icon
+            profileImg.style.backgroundColor  = '#ffffff'
+            const userAbr = '' + user.userName_ULIKE[0] + user.userLastName_ULIKE[0];
+            profileImg.innerHTML = userAbr;
+            dropMenuLinks.innerHTML = '<li class="profile_btn">My profile</li><li class="logout_btn">Log Out</li>'
+            //change drop menu
+            const logOutBtn = document.querySelector('.logout_btn');
+
+            if (logOutBtn) {
+                logOutBtn.addEventListener('click', ()=> {
+                    usersDB.forEach((user) => {
+                        if (user.isActive_ULIKE) {
+                            user.isActive_ULIKE = false;
+                            localStorage.setItem('usersDB', JSON.stringify(usersDB));
+                        }
+                    })
+                    location.reload();
+                })
+            }
+        }
+    })
 }
 
-console.log(generateReaderCardNumber())
+renderAfterLogin()
+
+
+
