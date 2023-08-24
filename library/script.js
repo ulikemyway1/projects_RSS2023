@@ -322,7 +322,9 @@ function userLogIn(login, password) {
             console.log('Login');
             user.isActive_ULIKE = true; 
             localStorage.setItem('usersDB', JSON.stringify(usersDB));
-            renderAfterLogin()
+            renderAfterLogin();
+            activateFeaturesAfterLogin();
+          
         }
     })
 }
@@ -366,18 +368,6 @@ function renderAfterLogin() {
             document.querySelector('#bonuses').textContent =  user.userBonuses_ULIKE;
             document.querySelector('#rented_books_amount').textContent =  user.userRentedBooksAmount_ULIKE;
             document.querySelector('#card_number').textContent =  user.readerCardNumber_ULIKE;
-            buyBookBtns.forEach((btn)=> {
-                btn.removeEventListener('click', closeAllfunct);
-                if (user.hasSubcription_ULIKE) {
-                    btn.removeEventListener('click', showByCardModal)
-                    btn.addEventListener('click', () => {
-                         addBook(btn)
-                    });
-                } else {
-                    btn.addEventListener('click', showByCardModal)
-                }
-            })
-
             //create list of bought books
             const rentedBookList = document.querySelector('#rented_books_list ul');
             let bookList = document.createElement('ul');
@@ -416,6 +406,7 @@ buyCardForm.addEventListener('submit', (event)=>{
     })
     closeAll(modals)
     renderAfterLogin();
+    activateFeaturesAfterLogin();
 })
 
 function showByCardModal() {
@@ -423,6 +414,23 @@ function showByCardModal() {
     buyCardModal.style.display = 'block';
 }
 
+function activateFeaturesAfterLogin() {
+    usersDB.forEach((user) => {
+        if (user.isActive_ULIKE) {
+    
+    buyBookBtns.forEach((btn)=> {
+        btn.removeEventListener('click', closeAllfunct);
+        if (user.hasSubcription_ULIKE) {
+            btn.removeEventListener('click', showByCardModal)
+            btn.addEventListener('click', () => {
+                 addBook(btn)
+            });
+        } else {
+            btn.addEventListener('click', showByCardModal)
+        }
+    })}})
+
+}
 
 function addBook(btn) {
     usersDB.forEach((user) => {
@@ -445,7 +453,7 @@ function addBook(btn) {
 };
 
 renderAfterLogin();
-
+activateFeaturesAfterLogin();
 
 
 const profileCard = document.querySelector('.user_profile');
