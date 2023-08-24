@@ -470,10 +470,13 @@ header {
             
             }
             &.disabled {
-                cursor: pointer;
                 border: 1px solid #BB945F;
                 color: #BB945F;
                 cursor: default;
+                &:hover {
+                    border: 1px solid #BB945F;
+                    background: #ffffff
+                }
             }
           
         }

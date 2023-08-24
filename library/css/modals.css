@@ -195,7 +195,6 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  display: flex;
   width: 600px;
   height: 400px;
   background-color: #FFFFFF;
@@ -233,6 +232,7 @@
 .user_profile .user_photo-name {
   display: flex;
   justify-content: center;
+  padding: 2px;
   align-items: center;
   text-align: center;
   font-family: Inter;
@@ -241,7 +241,7 @@
   font-weight: 400;
   line-height: 20px;
   width: 120px;
-  height: 30px;
+  max-height: 90px;
   background: #FFF;
 }
 .user_profile_content {
@@ -300,10 +300,13 @@
   margin-top: 20px;
 }
 .user_profile_content #rented_books_list {
+  overflow: auto;
+  margin-top: 10px;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
+  height: 110px;
   line-height: 20px; /* 100% */
   letter-spacing: 2px;
   text-transform: capitalize;
@@ -343,7 +346,11 @@
 }
 
 .buy_card {
+  display: none;
   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   width: 640px;
   height: 540px;
   background: #FFFFFF;
@@ -449,4 +456,8 @@
 .modal_btn:hover {
   border: 1px solid #BB945F;
   background: #BB945F;
+}
+
+.close_modal {
+  cursor: pointer;
 }
