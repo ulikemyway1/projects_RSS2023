@@ -10,6 +10,7 @@ humburgerBtn.addEventListener('click', ()=>{
 });
 
 document.addEventListener('click', (event)=>{
+    event.stopPropagation();
     if(event.target != humburgerBtn && event.target != nav && event.target != humburgerBtnLines[0] &&  event.target != humburgerBtnLines[1] &&  event.target != humburgerBtnLines[2] ) {
         humburgerBtn.classList.remove('touched');
         nav.classList.remove('open_nav');
@@ -186,10 +187,10 @@ const dropMenu = document.querySelector('.drop_menu');
 const dropMenuTitle = document.querySelector('.drop_menu-title');
 profileBtn.addEventListener('click', (event)=>{
     event.stopPropagation();
-    if (event.target == document.querySelector('.profile_icon_wrapper img') || event.target == document.querySelector('.profile_icon_wrapper a')) {
            dropMenu.classList.toggle('dropped');
            dropMenu.classList.toggle('nonetransparent'); 
-    }
+           humburgerBtn.classList.remove('touched');
+           nav.classList.remove('open_nav');
 
 })
 
