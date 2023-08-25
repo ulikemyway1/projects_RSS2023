@@ -358,6 +358,7 @@ function renderAfterLogin() {
             profileImg.style.backgroundColor  = '#ffffff'
             const userAbr = '' + user.userName_ULIKE[0] + user.userLastName_ULIKE[0];
             profileImg.innerHTML = userAbr.toUpperCase();
+            profileImg.setAttribute('title', user.userName_ULIKE + ' ' + user.userLastName_ULIKE)
             dropMenuLinks.innerHTML = '<li class="profile_btn">My profile</li><li class="logout_btn">Log Out</li>'
             //change drop menu
             const logOutBtn = document.querySelector('.logout_btn');
