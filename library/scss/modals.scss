@@ -324,6 +324,16 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
+            svg {
+                position: relative;
+                cursor: pointer;
+                &:hover {
+                    rect {
+                        transition: all 0.5s;
+                        fill : #bb955fc5;}
+                }
+            }
+           
          span {
             color: #0C0C0E;
             text-align: center;
@@ -347,7 +357,25 @@
     }
  }
 
-
+.copy_toClipBoard {
+    position: relative;
+    &:hover {
+        &:after {
+        content: attr(data-info);
+        position: absolute;
+        left: 14px;
+        bottom: -15px;
+        background: rgba(209, 156, 95, 0.65);
+        text-align: center;
+        font-family: Inter;
+        font-size: 11px;
+        padding: 3px 0;
+        width: 137px;
+        opacity: 0.7;
+        }
+    }
+    
+}
  .buy_card {
         display: none;
         position: relative;

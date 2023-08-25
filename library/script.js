@@ -494,7 +494,10 @@ function activateFeaturesAfterLogin() {
       }
       document.querySelector('.drop_menu-title').textContent = user.readerCardNumber_ULIKE;
       document.querySelector('.drop_menu-title').style.fontSize = '12px';
-    
+      document.querySelector('.copy_toClipBoard').addEventListener(('click'), (event)=>{
+        event.stopPropagation();
+        navigator.clipboard.writeText(document.querySelector('#card_number').textContent);
+    })
       
 }
 })
@@ -526,5 +529,9 @@ activateFeaturesAfterLogin();
 updateProfile();
 
 const profileCard = document.querySelector('.user_profile');
+
+
+
+
 
 });
