@@ -492,9 +492,10 @@ function activateFeaturesAfterLogin() {
             document.querySelector('.librarycard_info.button.login_btn').classList.remove('login_btn');
             renderAfterLogin(); 
       }
-
+      document.querySelector('.drop_menu-title').textContent = user.readerCardNumber_ULIKE;
+      document.querySelector('.drop_menu-title').style.fontSize = '12px';
     
-
+      
 }
 })
 
