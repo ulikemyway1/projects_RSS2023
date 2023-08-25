@@ -484,12 +484,15 @@ function activateFeaturesAfterLogin() {
     cardInfo.style.display = 'flex';
     document.querySelector('.librarycard_info-title').textContent = 'Visit your profile';
     document.querySelector('.librarycard_info-descr').textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
-    document.querySelector('.librarycard_info.button.register_btn').style.display = 'none';
-    document.querySelector('.librarycard_info.button.login_btn').removeEventListener('click', closeAllfunct);
-    document.querySelector('.librarycard_info.button.login_btn').classList.add('profile_btn');
-    document.querySelector('.librarycard_info.button.login_btn').textContent = 'Profile';
-    document.querySelector('.librarycard_info.button.login_btn').classList.remove('login_btn');
-    renderAfterLogin(); 
+      if(document.querySelector('.librarycard_info.button.register_btn').style.display  != 'none')  {
+            document.querySelector('.librarycard_info.button.register_btn').style.display = 'none';
+            document.querySelector('.librarycard_info.button.login_btn').removeEventListener('click', closeAllfunct);
+            document.querySelector('.librarycard_info.button.login_btn').classList.add('profile_btn');
+            document.querySelector('.librarycard_info.button.login_btn').textContent = 'Profile';
+            document.querySelector('.librarycard_info.button.login_btn').classList.remove('login_btn');
+            renderAfterLogin(); 
+      }
+
     
 
 }
