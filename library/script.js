@@ -262,7 +262,24 @@ modalOverlay.addEventListener('click', (event) => {
 const libraryCardForm = document.querySelector('.librarycard_card-form')
 libraryCardForm.addEventListener('submit', (event)=>{
     event.preventDefault();
+    usersDB.forEach((user) => {
+        if ( (libraryCardForm.elements.name.value.split(' ').join('') == (user.userName_ULIKE + user.userLastName_ULIKE) || libraryCardForm.elements.name.value.split(' ').join('') == (user.userLastName_ULIKE + user.userName_ULIKE) ) && libraryCardForm.elements.card_number.value == user.readerCardNumber_ULIKE) {
+            user.isActive_ULIKE = true;
+            updateMetrica(); 
+           console.log('est takoi')
+           libraryCardCheckBtn.style.display = 'none';
+           cardInfo.style.display = 'flex';
+           setTimeout(()=> {
+            libraryCardCheckBtn.style.display = 'block';
+            cardInfo.style.display = 'none';
+            user.isActive_ULIKE = false;
+           }, 10000)
+        }
+    })
+    
+    libraryCardForm.elements.card_number.value
 });
+
 
 
 formLogin.addEventListener('submit', (event)=>{
@@ -435,7 +452,19 @@ function  updateProfile() {
         document.querySelector('input#name').disabled = true;
         }})
     }
-
+    function  updateMetrica() {
+        usersDB.forEach((user) => {
+            if (user.isActive_ULIKE) {
+            document.querySelectorAll('#visits').forEach((item)=>item.textContent =  user.userVisits_ULIKE);
+            document.querySelectorAll('#bonuses').forEach((item)=>item.textContent =  user.userBonuses_ULIKE);
+            document.querySelectorAll('#rented_books_amount').forEach((item)=>item.textContent =  user.userRentedBooksAmount_ULIKE);
+            document.querySelector('#card_number').textContent =  user.readerCardNumber_ULIKE;    
+            document.querySelector('input#name').placeholder =  '' + user.userName_ULIKE + ' ' + user.userLastName_ULIKE;
+            document.querySelector('input#card_number').placeholder =  user.readerCardNumber_ULIKE; 
+            document.querySelector('input#card_number').disabled = true;
+            document.querySelector('input#name').disabled = true;
+            }})
+        }
       
 function activateFeaturesAfterLogin() {
     usersDB.forEach((user) => {

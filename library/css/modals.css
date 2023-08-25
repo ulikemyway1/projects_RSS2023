@@ -482,6 +482,7 @@
   letter-spacing: 0.4px;
   text-transform: capitalize;
   gap: 33px;
+  transition: all 0.4s;
 }
 
 .user_profile_icons-item {
