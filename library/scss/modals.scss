@@ -361,6 +361,7 @@
 
 .copy_toClipBoard {
     position: relative;
+    margin-left: 3px;
     &:hover {
         &:after {
         content: attr(data-info);
