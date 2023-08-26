@@ -420,18 +420,26 @@ const buyCardModal = document.querySelector('.buy_card');
 const buyCardForm = document.querySelector('.form_buy_card');
 const buyCardAllInputs = document.querySelectorAll('.form_buy_card input')
 const buyCardBtn = document.querySelector('.form_buy_card button')
+
 buyCardForm.addEventListener('input', (event) =>{
     let allInputsNotEmpty = true;
+    let allInputsValid = true;
     buyCardAllInputs.forEach((input)=>{
         if (input.value == '') {
             allInputsNotEmpty = false;
             buyCardBtn.classList.add('disabled_purch'); 
             buyCardBtn.disabled = true;
         }
+        if (input.classList.contains('validate_error')) {
+            allInputsValid = false;
+        }
     })
     if (allInputsNotEmpty) {
         buyCardBtn.classList.remove('disabled_purch');
-        buyCardBtn.disabled = false;
+        if (allInputsValid) {
+            
+            buyCardBtn.disabled = false;
+        };
     }
 })
 
@@ -449,36 +457,62 @@ buyCardForm.addEventListener('submit', (event)=>{
     activateFeaturesAfterLogin();
 })
 
-// by card validation
+function validate(input, regExpr, message, length) {
+    const err = document.createElement('div');
+    err.classList.add('buy_card_error')
+
+    input.addEventListener("keypress", (event) => {
+        if (!regExpr.test(event.key)) {
+          event.preventDefault();
+        }});
+
+    input.addEventListener('blur', (event) => {
+        if (input.value.split(' ').join('').length != length  && event.target == input) {
+            err.textContent = message;
+            input.classList.add('validate_error')
+            input.parentNode.append(err)
+            input.parentNode.style.height = '90px';
+        }
+    })
+    input.addEventListener('focus', (event) => {
+        if (err && input.classList.contains('validate_error') && event.target == input) {
+            err.remove();
+            input.parentNode.style.height = '50px';
+            input.classList.remove('validate_error');
+        }
+    })
+}
+
+
+// buy card validation
 buyCardAllInputs.forEach((input)=>{
     if (input.name == 'bankcard_number') {
-        const err = document.createElement('div');
-        err.classList.add('buy_card_error')
-        // axcept only digits and spaces
-        input.addEventListener("keypress", (event) => {
-            if (!/[0-9\s]+/.test(event.key)) {
-              event.preventDefault();
-            }});
-        //
-        input.addEventListener('blur', () => {
-            if (input.value.split(' ').join('').length != 16) {
-                err.textContent = 'Card number must contain only 16 digits';
-                input.classList.add('validate_error')
-                input.parentNode.append(err)
-                input.parentNode.style.height = '90px'
-            }
-        })
-        input.addEventListener('focus', () => {
-            if (err) {
-                err.remove();
-                input.parentNode.style.height = '50px';
-                input.classList.remove('validate_error')
-            }
-        })
+        validate(input, /[0-9\s]+/, 'The bank card number must contain only 16 digits' , 16) 
+    };
+
+    if (input.name == 'expiration_code_month') {
+        validate(input, /[0-9]+/, 'Enter months in the format mm', 2);
     }
-    // input.addEventListener('blur', () => {
-    //     console.dir(input)
-    // })
+
+    if (input.name == 'expiration_code_year') {
+        validate(input, /[0-9]+/, 'Enter months in the format yy', 2);
+    }
+
+    if (input.name == 'cvc') {
+        validate(input, /[0-9]+/, 'The CVC must contain only 3 digits', 3);
+    }
+
+    if (input.name == 'cardholder_name') {
+        validate(input, /^[а-яА-ЯёЁa-zA-Z0-9]+$/, 'Please enter card holder name', 1);
+    }
+
+    if (input.name == 'postal_code') {
+        validate(input, /^[а-яА-ЯёЁa-zA-Z0-9]+$/, 'Please enter postal code', 1);
+    }
+
+    if (input.name == 'cardholder_city') {
+        validate(input, /^[а-яА-ЯёЁa-zA-Z0-9]+$/, 'Please enter City / Town', 1);
+    }
 })
 
 
