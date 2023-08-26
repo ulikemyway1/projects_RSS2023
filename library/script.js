@@ -325,8 +325,8 @@ console.log(usersDB);
 
 function generateReaderCardNumber() {
     let readerCardNumberULIKE = Math.floor(Math.random() * 4294967295).toString(16).toUpperCase();
-    while (readerCardNumberULIKE.length < 8) {
-        readerCardNumberULIKE = readerCardNumberULIKE + '' + 0;
+    while (readerCardNumberULIKE.length < 9) {
+        readerCardNumberULIKE = '0' + readerCardNumberULIKE;
     }
     return readerCardNumberULIKE
 };
