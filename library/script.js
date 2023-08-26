@@ -418,6 +418,22 @@ function renderAfterLogin() {
 }
 const buyCardModal = document.querySelector('.buy_card');
 const buyCardForm = document.querySelector('.form_buy_card');
+const buyCardAllInputs = document.querySelectorAll('.form_buy_card input')
+const buyCardBtn = document.querySelector('.form_buy_card button')
+buyCardForm.addEventListener('input', (event) =>{
+    let allInputsNotEmpty = true;
+    buyCardAllInputs.forEach((input)=>{
+        if (input.value == '') {
+            allInputsNotEmpty = false;
+            buyCardBtn.classList.add('disabled_purch'); 
+            buyCardBtn.disabled = true;
+        }
+    })
+    if (allInputsNotEmpty) {
+        buyCardBtn.classList.remove('disabled_purch');
+        buyCardBtn.disabled = false;
+    }
+})
 
 buyCardForm.addEventListener('submit', (event)=>{
     event.preventDefault();

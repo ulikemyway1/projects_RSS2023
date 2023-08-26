@@ -545,3 +545,13 @@
 input:disabled {
     background-color: #FFFFFF;
 }
+
+.disabled_purch {
+    border: 1px solid #6e6e6e;
+    color: #6e6e6e;
+    cursor: default;
+    &:hover {
+        border: 1px solid  #6e6e6e;
+        background: #ffffff
+    }
+}
