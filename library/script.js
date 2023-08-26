@@ -449,6 +449,43 @@ buyCardForm.addEventListener('submit', (event)=>{
     activateFeaturesAfterLogin();
 })
 
+// by card validation
+buyCardAllInputs.forEach((input)=>{
+    if (input.name == 'bankcard_number') {
+        const err = document.createElement('div');
+        err.classList.add('buy_card_error')
+        // axcept only digits and spaces
+        input.addEventListener("keypress", (event) => {
+            if (!/[0-9\s]+/.test(event.key)) {
+              event.preventDefault();
+            }});
+        //
+        input.addEventListener('blur', () => {
+            if (input.value.split(' ').join('').length != 16) {
+                err.textContent = 'Card number must contain only 16 digits';
+                input.classList.add('validate_error')
+                input.parentNode.append(err)
+                input.parentNode.style.height = '90px'
+            }
+        })
+        input.addEventListener('focus', () => {
+            if (err) {
+                err.remove();
+                input.parentNode.style.height = '50px';
+                input.classList.remove('validate_error')
+            }
+        })
+    }
+    // input.addEventListener('blur', () => {
+    //     console.dir(input)
+    // })
+})
+
+
+//
+
+
+
 function showByCardModal() {
     modalOverlay.style.display = 'block';
     buyCardModal.style.display = 'block';
