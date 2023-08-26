@@ -1,3 +1,15 @@
+*::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
 .hidden {
   display: none;
 }
@@ -301,24 +313,25 @@
 }
 .user_profile_content #rented_books_list {
   overflow: auto;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  height: 120px;
+  height: 100px;
   line-height: 20px; /* 100% */
   letter-spacing: 2px;
   text-transform: capitalize;
 }
 .user_profile_content #rented_books_list ul {
   margin: 0;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  width: 368px;
   padding-left: 31px;
 }
 .user_profile_content #rented_books_list ul li {
+  white-space: nowrap;
   padding-bottom: 10px;
 }
 .user_profile_content .card_number-wrapper {
