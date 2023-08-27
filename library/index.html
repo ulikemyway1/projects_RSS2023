@@ -131,20 +131,20 @@
                     <form action="#" class="form_buy_card">
                         <label>
                             Bank card number
-                            <input type="text" name="bankcard_number" required>
+                            <input type="number" name="bankcard_number" min="0" required>
                         </label>
             
                         <label>
                             Expiration code
                             <br>
-                            <input  class="expiration_code"  type="number" min="1" pattern="\d{2,2}"  name="expiration_code_month" required>
-                            <input class="expiration_code"   type="number" pattern="\d{2,2}"  name="expiration_code_year" required> 
+                            <input  class="expiration_code"  type="number" min="0"  name="expiration_code_month" required>
+                            <input class="expiration_code"  type="number" min="0"  name="expiration_code_year" required> 
                         </label>
 
                         <label>
                             CVC
                             <br>
-                            <input  class="expiration_code" pattern="\d{3,3}"  type="number" name="cvc" required>
+                            <input  class="expiration_code" type="number" min="0" name="cvc" required>
                         </label>
 
                         <label>

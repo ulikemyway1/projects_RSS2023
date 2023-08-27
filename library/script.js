@@ -265,8 +265,7 @@ libraryCardForm.addEventListener('submit', (event)=>{
     usersDB.forEach((user) => {
         if ( (libraryCardForm.elements.name.value.split(' ').join('') == (user.userName_ULIKE + user.userLastName_ULIKE) || libraryCardForm.elements.name.value.split(' ').join('') == (user.userLastName_ULIKE + user.userName_ULIKE) ) && libraryCardForm.elements.card_number.value == user.readerCardNumber_ULIKE) {
             user.isActive_ULIKE = true;
-            updateMetrica(); 
-           console.log('est takoi')
+            updateMetrica();
            libraryCardCheckBtn.style.display = 'none';
            cardInfo.style.display = 'flex';
            setTimeout(()=> {
@@ -355,11 +354,6 @@ function generateReaderCardNumber() {
     }
     return readerCardNumberULIKE
 };
-
-for (let i =0; i<1000; i ++) {
-    console.log(generateReaderCardNumber())
-}
-
 
 //Log In
 const profile = document.querySelector('.profile')
@@ -474,16 +468,25 @@ buyCardForm.addEventListener('input', (event) =>{
 
 buyCardForm.addEventListener('submit', (event)=>{
     event.preventDefault();
-    usersDB.forEach((user) => {
-        if (user.isActive_ULIKE) {
-            user.hasSubcription_ULIKE = true;
-            localStorage.setItem('usersDB', JSON.stringify(usersDB));
+    let allInputsValid = true;
+    buyCardAllInputs.forEach((input)=>{
+              if (input.classList.contains('validate_error')) {
+            allInputsValid = false;
         }
-        
-    })
-    closeAll(modals)
-    renderAfterLogin();
-    activateFeaturesAfterLogin();
+    });
+    if (allInputsValid) {
+        usersDB.forEach((user) => {
+            if (user.isActive_ULIKE) {
+                user.hasSubcription_ULIKE = true;
+                localStorage.setItem('usersDB', JSON.stringify(usersDB));
+            }
+            
+        })
+        closeAll(modals)
+        renderAfterLogin();
+        activateFeaturesAfterLogin();
+    }
+
 })
 
 function validate(input, regExpr, message, length) {
@@ -511,7 +514,31 @@ function validate(input, regExpr, message, length) {
         }
     })
 }
+function validateMinLength(input, regExpr, message, length) {
+    const err = document.createElement('div');
+    err.classList.add('buy_card_error')
 
+    input.addEventListener("keypress", (event) => {
+        if (!regExpr.test(event.key)) {
+          event.preventDefault();
+        }});
+
+    input.addEventListener('blur', (event) => {
+        if (input.value.split(' ').join('').length < length  && event.target == input) {
+            err.textContent = message;
+            input.classList.add('validate_error')
+            input.parentNode.append(err)
+            input.parentNode.style.height = '90px';
+        }
+    })
+    input.addEventListener('focus', (event) => {
+        if (err && input.classList.contains('validate_error') && event.target == input) {
+            err.remove();
+            input.parentNode.style.height = '50px';
+            input.classList.remove('validate_error');
+        }
+    })
+}
 
 // buy card validation
 buyCardAllInputs.forEach((input)=>{
@@ -532,15 +559,15 @@ buyCardAllInputs.forEach((input)=>{
     }
 
     if (input.name == 'cardholder_name') {
-        validate(input, /^[а-яА-ЯёЁa-zA-Z0-9]+$/, 'Please enter card holder name', 1);
+        validateMinLength(input, /^[а-яА-ЯёЁa-zA-Z0-9]+$/, 'Please enter card holder name', 1);
     }
 
     if (input.name == 'postal_code') {
-        validate(input, /^[а-яА-ЯёЁa-zA-Z0-9]+$/, 'Please enter postal code', 1);
+        validateMinLength(input, /^[а-яА-ЯёЁa-zA-Z0-9]+$/, 'Please enter postal code', 1);
     }
 
     if (input.name == 'cardholder_city') {
-        validate(input, /^[а-яА-ЯёЁa-zA-Z0-9]+$/, 'Please enter City / Town', 1);
+        validateMinLength(input, /^[а-яА-ЯёЁa-zA-Z0-9]+$/, 'Please enter City / Town', 1);
     }
 })
 
@@ -630,7 +657,6 @@ function addBook(btn) {
                 title: btn.dataset.title,
             });
             user.boughtBooksBtns_ULIKE.push(btn.dataset.title);
-            console.dir(btn)
         }
     })
     localStorage.setItem('usersDB', JSON.stringify(usersDB));
