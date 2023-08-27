@@ -344,12 +344,21 @@ formRegister.addEventListener('submit', (event)=>{
 
 
 function generateReaderCardNumber() {
-    let readerCardNumberULIKE = Math.floor(Math.random() * 4294967295).toString(16).toUpperCase();
+    let readerCardNumberULIKE = Math.floor(Math.random() * 68719476735).toString(16).toUpperCase();
+    usersDB.forEach((user) => {
+        if (readerCardNumberULIKE == user.readerCardNumberULIKE) {
+            return generateReaderCardNumber()
+        }
+    })
     while (readerCardNumberULIKE.length < 9) {
-        readerCardNumberULIKE = '0' + readerCardNumberULIKE;
+        return generateReaderCardNumber()
     }
     return readerCardNumberULIKE
 };
+
+for (let i =0; i<1000; i ++) {
+    console.log(generateReaderCardNumber())
+}
 
 
 //Log In
