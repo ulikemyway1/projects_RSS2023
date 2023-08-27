@@ -302,7 +302,7 @@ formRegister.addEventListener('submit', (event)=>{
             err.textContent = 'User with this E-mail already exists';
             formRegister.elements.e_mail.classList.add('validate_error')
             formRegister.elements.e_mail.parentNode.append(err)
-            formRegister.elements.e_mail.parentNode.style.height = '70px';
+            formRegister.elements.e_mail.parentNode.style.height = '60px';
             formRegister.elements.sign_up.disabled = true;
             formRegister.elements.e_mail.addEventListener('focus', ()=> {
                 formRegister.elements.sign_up.disabled = false;

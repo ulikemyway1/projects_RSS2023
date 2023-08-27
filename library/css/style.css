@@ -110,8 +110,8 @@ input[type=number] {
 
 .modal_overlay {
   display: none;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   z-index: 10000;
   background: rgba(0, 0, 0, 0.8);
@@ -120,8 +120,8 @@ input[type=number] {
 .modal_register, .modal_login {
   display: none;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50vh;
+  left: 50vw;
   transform: translateX(-50%) translateY(-50%);
   width: 250px;
   min-height: 382px;
@@ -226,10 +226,12 @@ input[type=number] {
 }
 
 .modal_register {
+  height: 382px;
   display: none;
 }
 
 .modal_login {
+  min-height: 262px;
   height: 262px;
   display: none;
 }
