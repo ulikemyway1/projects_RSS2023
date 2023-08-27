@@ -276,8 +276,6 @@ libraryCardForm.addEventListener('submit', (event)=>{
            }, 10000)
         }
     })
-    
-    libraryCardForm.elements.card_number.value
 });
 
 
@@ -297,30 +295,52 @@ if (localStorage.getItem('usersDB')) {
 
 formRegister.addEventListener('submit', (event)=>{
     event.preventDefault();
-    let newUser = {
-        'userName_ULIKE': formRegister.elements.first_name.value,
-        'userLastName_ULIKE': formRegister.elements.last_name.value,
-        'userEmail_ULIKE': formRegister.elements.e_mail.value,
-        'userPassword_ULIKE': formRegister.elements.password.value,
-        'readerCardNumber_ULIKE': generateReaderCardNumber(),
-        'userVisits_ULIKE': 0,
-        'userRentedBooksAmount_ULIKE': 0,
-        'userRentedBooksList_ULIKE': [],
-        'userBonuses_ULIKE': 1240,
-        'hasSubcription_UlIKE': false,
-        'boughtBooksBtns_ULIKE': [],
-        'isActive_ULIKE': false,  
-    };
-    usersDB.push(newUser);
-    localStorage.setItem('usersDB', JSON.stringify(usersDB));
-    userLogIn(formRegister.elements.e_mail.value, formRegister.elements.password.value);
-    closeAll(modals);
-    updateProfile();
+    usersDB.forEach((user) => {
+        if  (formRegister.elements.e_mail.value.trim() == user.userEmail_ULIKE) {
+            formRegister.classList.add('not_valid');
+            const err = document.createElement('div');
+            err.classList.add('register_error');
+            err.textContent = 'User with this E-mail already exists';
+            formRegister.elements.e_mail.classList.add('validate_error')
+            formRegister.elements.e_mail.parentNode.append(err)
+            formRegister.elements.e_mail.parentNode.style.height = '70px';
+            formRegister.elements.sign_up.disabled = true;
+            formRegister.elements.e_mail.addEventListener('focus', ()=> {
+                formRegister.elements.sign_up.disabled = false;
+                err.remove();
+                formRegister.elements.e_mail.parentNode.style.height = '50px';
+            })
+        } else {
+            formRegister.classList.remove('not_valid')
+        } 
+    })
+    
+    
+    if (!formRegister.classList.contains('not_valid')) {
+        let newUser = {
+            'userName_ULIKE': formRegister.elements.first_name.value.trim(),
+            'userLastName_ULIKE': formRegister.elements.last_name.value.trim(),
+            'userEmail_ULIKE': formRegister.elements.e_mail.value.trim(),
+            'userPassword_ULIKE': formRegister.elements.password.value.trim(),
+            'readerCardNumber_ULIKE': generateReaderCardNumber(),
+            'userVisits_ULIKE': 0,
+            'userRentedBooksAmount_ULIKE': 0,
+            'userRentedBooksList_ULIKE': [],
+            'userBonuses_ULIKE': 1240,
+            'hasSubcription_UlIKE': false,
+            'boughtBooksBtns_ULIKE': [],
+            'isActive_ULIKE': false,  
+        };
+        usersDB.push(newUser);
+        localStorage.setItem('usersDB', JSON.stringify(usersDB));
+        userLogIn(formRegister.elements.e_mail.value, formRegister.elements.password.value);
+        closeAll(modals);
+        updateProfile();
+    }
+   
 
 });
 
-
-console.log(usersDB);
 
 
 function generateReaderCardNumber() {

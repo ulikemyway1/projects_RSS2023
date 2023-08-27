@@ -103,7 +103,7 @@ input[type=number] {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   width: 250px;
-  height: 382px;
+  min-height: 382px;
   padding: 20px 25px;
   display: flex;
   flex-direction: column;
@@ -136,7 +136,9 @@ input[type=number] {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  height: 50px;
   letter-spacing: 0.3px;
+  transition: all 0.4s;
 }
 .modal_register form label input, .modal_login form label input {
   margin-top: 10px;
@@ -573,4 +575,14 @@ input:disabled {
 .disabled_purch:hover {
   border: 1px solid #6e6e6e;
   background: #ffffff;
+}
+
+.register_error {
+  width: 200px;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  color: #ff0000;
 }
