@@ -8,9 +8,10 @@
   .about_slider_content-wrapper {
     justify-content: center;
     gap: 5%;
+    width: 950px;
   }
-  .about_slider_item:nth-child(3) {
-    display: none;
+  .about_slider_paginator-btn:nth-child(4) {
+    display: block;
   }
   .coffeshop_wrapper {
     -moz-column-gap: 2%;
@@ -100,38 +101,37 @@
   .about_slider {
     position: relative;
   }
-  .about_slider img:not(:nth-child(1)) {
-    display: none;
-  }
-  .about_slider_content-wrapper {
-    justify-content: center;
-  }
   .about_slider_arrow-left {
     display: block;
     position: absolute;
-    left: -82px;
     top: 9px;
+    left: -82px;
   }
   .about_slider_arrow-right {
     display: block;
     position: absolute;
-    right: -82px;
     top: 9px;
+    right: -82px;
   }
   .about_slider_paginator {
     margin-top: 20px;
   }
   .about_slider_window-wrapper {
     display: flex;
+    margin: 0 auto;
     position: relative;
     align-items: center;
     justify-content: center;
+    width: 475px;
   }
   .about_slider_arrow-wrapper {
     position: relative;
     height: 100%;
   }
-  .about_slider_paginator-btn:not(:nth-child(2n+1)) {
+  .about_slider_paginator-btn {
+    display: block;
+  }
+  .about_slider_paginator-btn:nth-child(5) {
     display: block;
   }
   .favorites .tabs {
@@ -144,6 +144,9 @@
   .favorites .tabs_category {
     justify-content: center;
     gap: 8%;
+  }
+  .favorites .tabs_wrapper {
+    height: 2340px;
   }
   .coffeshop {
     margin-top: 1px;
@@ -213,9 +216,6 @@
   .about_slider {
     position: relative;
   }
-  .about_slider img:not(:nth-child(1)) {
-    display: none;
-  }
   .about_slider_content-wrapper {
     justify-content: center;
   }
@@ -239,6 +239,7 @@
     position: relative;
     align-items: center;
     justify-content: center;
+    width: 450px;
   }
   .about_slider_arrow-wrapper {
     position: relative;
@@ -248,15 +249,19 @@
     display: block;
   }
   .favorites .tabs {
-    margin-top: 64px;
+    margin-top: 50px;
   }
   .favorites .tabs_wrapper {
     grid-template-columns: 590px;
     justify-content: center;
+    margin-top: 27px;
   }
   .favorites .tabs_category {
     justify-content: flex-start;
     gap: 60px;
+  }
+  .favorites .tabs_header {
+    margin-top: 63px;
   }
   .coffeshop {
     margin-top: 1px;
@@ -329,6 +334,18 @@
     justify-content: center;
     gap: 20px;
   }
+  .about_slider_arrow-left {
+    display: block;
+    position: absolute;
+    left: -60px;
+    top: 9px;
+  }
+  .about_slider_arrow-right {
+    display: block;
+    position: absolute;
+    right: -60px;
+    top: 9px;
+  }
   .coffeshop_descr {
     width: 100%;
   }
@@ -337,5 +354,18 @@
   }
   footer .footer_rss span:nth-child(2) {
     margin-left: 0px;
+  }
+}
+@media (max-width: 1239px) {
+  .tabs_sticky {
+    position: sticky;
+    top: 0px;
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+  }
+  .tabs_wrapper {
+    height: 2340px;
   }
 }
