@@ -6,12 +6,23 @@
     width: 1440px;
     
 }
-.hidden {
+.tabs_item.hidden {
     display: none;
 }
+.tabs_item.transparent {
+    opacity: 0;
+}
+.tabs_item.visible {
+    opacity: 1;
+}
+
+@import 'modals';
 
 html {
     scroll-behavior: smooth;
+    // position: absolute;
+    // width: 100%;
+    // height: 100%;
   }
 
 .inner_padding {
@@ -92,12 +103,37 @@ header {
         }
     }
     .profile {
+        position: relative;
         z-index: 2;
         margin-left: 40px;
-        border-radius: 100%;
         transition: all 0.4s;
+        width: 28px;
+        height: 28px;
+        border-radius: 28px;
+        
         &:hover {
             box-shadow: 0px 0px 20px #fff;
+        }
+        a {
+            width: 28px;
+            height: 28px;
+            border-radius: 28px;
+            position: relative;
+            z-index: -1;
+            color: #BB945F;
+            font-family: Inter;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            width: 28px;
+            height: 28px;
+            border-radius: 28px;
         }
     }
 }
@@ -176,12 +212,26 @@ header {
     &_slider {
         margin-top: 20px;
         &_arrow-right, &_arrow-left {
+            transition: all 0.6s;
             cursor: pointer;
             display: none;
+            :hover {
+                path {
+                    stroke: #BB945F;
+                }
+            }
+        }
+        &_content {
+            display: flex;
+            gap: 25px;
+            position: relative;
+            left: 0px;
+            transition: all 0.4s;
+
         }
         &_content-wrapper {
-            display: flex;
-            justify-content: space-between;
+            margin: 0 auto;
+            overflow: hidden;
            
         }
         &_paginator {
@@ -199,9 +249,13 @@ header {
                 cursor: pointer;
                 border-radius: 100%;
                 transition: all 0.4s;
-                &:not(:nth-child(2n+1)) {
+                &:nth-child(4) {
                     display: none;
                 }
+                &:nth-child(5) {
+                    display: none;
+                }
+
                 &:hover {
                     box-shadow: inset 0 0 20px rgba(13, 14, 13, 0.5)
                 }
@@ -213,16 +267,34 @@ header {
                     transform: translate(-50%, -50%);
                     width: 16px;
                     height: 16px;
+                    border: none;
+                    cursor: pointer;
                     border-radius: 100%;
                     background-color: #0C0C0E;
+                    
                 }
             }
         }
     }
 }
+.about .no-shadow:hover {
+    box-shadow: none;
+    cursor: auto;
+}
+
+.about_slider_arrow-right.no-pointer, .about_slider_arrow-left.no-pointer {
+    transition: all 0.6s;
+            cursor: default;
+            path {
+                stroke: rgb(184, 184, 184);   
+              }
+        }     
+
 
 .paginator-btn_active {
     background-color: #BB945F;
+    box-shadow: none;
+    cursor: auto;
 }
 
 
@@ -251,6 +323,7 @@ header {
         letter-spacing: 0.3px;
     }
     &_wrapper {
+        height: 1150px;
         margin-top: 40px;
         display: grid;
         grid-template-columns: 550px 550px;
@@ -315,7 +388,8 @@ header {
         height: 555px;
         border: 1px solid black;
         padding: 15px 20px;
-        transition: all 0.4s;
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
         &:hover {
             box-shadow: 0 0 20px rgba(13, 14, 13, 0.5)
         }
@@ -396,10 +470,13 @@ header {
             
             }
             &.disabled {
-                cursor: pointer;
                 border: 1px solid #BB945F;
                 color: #BB945F;
                 cursor: default;
+                &:hover {
+                    border: 1px solid #BB945F;
+                    background: #ffffff
+                }
             }
           
         }
