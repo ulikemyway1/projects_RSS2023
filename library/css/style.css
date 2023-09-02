@@ -51,12 +51,17 @@ input[type=number] {
 
 .profile_icon_wrapper {
   position: relative;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .drop_menu {
-  transition: all 0.9s;
+  transition: all 0.5s;
   position: absolute;
-  top: -500px;
+  bottom: 500px;
+  z-index: -1;
   opacity: 0;
   right: 0;
   width: 80px;
@@ -101,7 +106,8 @@ input[type=number] {
 }
 
 .dropped {
-  top: unset;
+  bottom: 0;
+  transform: translateY(109%);
 }
 
 .nonetransparent {
@@ -143,7 +149,7 @@ input[type=number] {
   right: 13px;
 }
 .modal_register button.close_modal:hover path, .modal_login button.close_modal:hover path {
-  transition: all 0.3s;
+  transition: all 0.5s;
   stroke: #afafaf;
 }
 .modal_register form, .modal_login form {
@@ -159,7 +165,7 @@ input[type=number] {
   line-height: 20px;
   height: 50px;
   letter-spacing: 0.3px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 .modal_register form label input, .modal_login form label input {
   margin-top: 10px;
@@ -183,7 +189,7 @@ input[type=number] {
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   margin-top: 10px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 .modal_register form .modal_btn:hover, .modal_login form .modal_btn:hover {
   border: 1px solid #BB945F;
@@ -540,7 +546,7 @@ input[type=number] {
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   margin-top: 10px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 .modal_btn:hover {
   border: 1px solid #BB945F;
@@ -571,7 +577,7 @@ input[type=number] {
   letter-spacing: 0.4px;
   text-transform: capitalize;
   gap: 33px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 
 .user_profile_icons-item {
@@ -630,7 +636,7 @@ a {
   width: 1440px;
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0px 20px;
 }
 
 header {
@@ -647,7 +653,7 @@ header .logo {
   font-style: normal;
   font-weight: 400;
   flex-grow: 1;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 header .logo:hover {
   font-weight: 700;
@@ -681,7 +687,7 @@ header nav ul li a {
   font-weight: 400;
   text-decoration: none;
   position: relative;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 header nav ul li a:hover {
   font-weight: 700;
@@ -690,7 +696,7 @@ header .profile {
   position: relative;
   z-index: 2;
   margin-left: 40px;
-  transition: all 0.4s;
+  transition: all 0.5s;
   width: 28px;
   height: 28px;
   border-radius: 28px;
@@ -792,7 +798,7 @@ header .profile img {
   margin-top: 20px;
 }
 .about_slider_arrow-right, .about_slider_arrow-left {
-  transition: all 0.6s;
+  transition: all 0.5s;
   cursor: pointer;
   display: none;
 }
@@ -804,7 +810,7 @@ header .profile img {
   gap: 25px;
   position: relative;
   left: 0px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 .about_slider_content-wrapper {
   margin: 0 auto;
@@ -825,7 +831,7 @@ header .profile img {
   position: relative;
   cursor: pointer;
   border-radius: 100%;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 .about_slider_paginator-btn:nth-child(4) {
   display: none;
@@ -926,7 +932,7 @@ header .profile img {
   outline: 2px solid #000;
   height: 15px;
   width: 15px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 .tabs_category input:hover {
   box-shadow: inset 0 0 20px rgba(13, 14, 13, 0.5);
@@ -1293,7 +1299,7 @@ header .profile img {
 }
 
 .button {
-  transition: all 0.6s;
+  transition: all 0.5s;
   cursor: pointer;
   border-radius: 2px;
   border: 1px solid #0C0C0E;
@@ -1332,7 +1338,7 @@ footer .footer_main a {
   font-style: normal;
   width: 24px;
   height: 24px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 footer .footer_main a:hover {
   font-weight: 800;
@@ -1344,7 +1350,7 @@ footer .footer_main .footer_social ul {
   padding: 0px;
 }
 footer .footer_main .footer_social ul img {
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 footer .footer_main .footer_social ul img:hover {
   transform: translateY(-3px);
@@ -1374,7 +1380,7 @@ footer .footer_rss span:nth-child(2) {
 footer .footer_rss a {
   color: inherit;
   font-style: inherit;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 footer .footer_rss a:hover {
   font-weight: 800;
