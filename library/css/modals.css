@@ -30,12 +30,17 @@ input[type=number] {
 
 .profile_icon_wrapper {
   position: relative;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .drop_menu {
-  transition: all 0.9s;
+  transition: all 0.5s;
   position: absolute;
-  top: -500px;
+  bottom: 500px;
+  z-index: -1;
   opacity: 0;
   right: 0;
   width: 80px;
@@ -80,7 +85,8 @@ input[type=number] {
 }
 
 .dropped {
-  top: unset;
+  bottom: 0;
+  transform: translateY(109%);
 }
 
 .nonetransparent {
@@ -122,7 +128,7 @@ input[type=number] {
   right: 13px;
 }
 .modal_register button.close_modal:hover path, .modal_login button.close_modal:hover path {
-  transition: all 0.3s;
+  transition: all 0.5s;
   stroke: #afafaf;
 }
 .modal_register form, .modal_login form {
@@ -138,7 +144,7 @@ input[type=number] {
   line-height: 20px;
   height: 50px;
   letter-spacing: 0.3px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 .modal_register form label input, .modal_login form label input {
   margin-top: 10px;
@@ -162,7 +168,7 @@ input[type=number] {
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   margin-top: 10px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 .modal_register form .modal_btn:hover, .modal_login form .modal_btn:hover {
   border: 1px solid #BB945F;
@@ -519,7 +525,7 @@ input[type=number] {
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   margin-top: 10px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 .modal_btn:hover {
   border: 1px solid #BB945F;
@@ -550,7 +556,7 @@ input[type=number] {
   letter-spacing: 0.4px;
   text-transform: capitalize;
   gap: 33px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 
 .user_profile_icons-item {
