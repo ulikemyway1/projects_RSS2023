@@ -107,7 +107,7 @@ input[type=number] {
 
 .dropped {
   bottom: 0;
-  transform: translateY(109%);
+  transform: translateY(100%);
 }
 
 .nonetransparent {
