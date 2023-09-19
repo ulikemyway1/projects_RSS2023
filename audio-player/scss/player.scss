@@ -3,6 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+*::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+    background-color: #0000007c;
+    border-radius: 5px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #117072;
+    border-radius: 5px;
+  }
+  
 header {
     height: 10vh;
 }
@@ -36,13 +48,17 @@ button {
     background: url('/img/svg/pause.svg') center center/cover no-repeat;
 }
 
-
 .loop {
     position: relative;
     background: url('/img/svg/loop.svg') center center/cover no-repeat;
 
 }
-.isLoop::after {
+
+.text {
+    position: relative;
+}
+
+.isActive::after {
     content: '';
     display: block;
     position: absolute;
@@ -81,7 +97,7 @@ button {
     appearance: none;
     height: 10px;
     background: #d3e2e2;
-    width: 100%;
+    width: 96%;
     border-radius: 30px;
   }
   
@@ -107,10 +123,13 @@ button {
   .img {
     height: 500px;
     transition: all 0.2s;
+    overflow: auto;
+    margin: 10px;
   }
 
   .player {
-    border: 1px solid #000000
+    border: 1px solid #000000;
+    background-color: #0000007c;
   }
   
   .description {
@@ -138,4 +157,24 @@ button {
     width: 100vw;
     z-index: -1;
     filter: blur(12px);
+  }
+
+
+  .lyricks {
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    padding: 5px;
+    padding-left: 50px;
+    position: relative;
+    background:#000000c9;
+    min-height: 500px;
+  }
+
+  .progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0 0 0 / 50%);
+    
   }
