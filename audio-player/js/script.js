@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     document.querySelector('.player').append(audio);
     // audio.controls = 'true';
     audio.loop = false;
+    audio.preload = 'auto';
 
     //set buttons functions to control player
     document.querySelector('.next').addEventListener('click', ()=> {
