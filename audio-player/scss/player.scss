@@ -1,0 +1,57 @@
+header {
+    height: 10vh;
+}
+
+.controls {
+    display: flex;
+    column-gap: 25px;
+}
+
+button {
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+}
+.next {
+    background: url('/img/svg/next.svg') center center/cover no-repeat;
+}
+
+.prev {
+    background: url('/img/svg/prev.svg') center center/cover no-repeat;
+}
+
+.play {
+    background: url('/img/svg/play.svg') center center/cover no-repeat;
+}
+.pause {
+    background: url('/img/svg/pause.svg') center center/cover no-repeat;
+}
+
+
+.loop {
+    background: url('/img/svg/loop.svg') center center/cover no-repeat;
+}
+
+.go-last {
+    background: url('/img/svg/end.svg') center center/cover no-repeat;
+}
+
+.go-first {
+    background: url('/img/svg/start.svg') center center/cover no-repeat;
+}
+
+.text {
+    background: url('/img/svg/text.svg') center center/cover no-repeat;
+}
+
+
+.container {
+    width: 500px;
+    height: 80vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

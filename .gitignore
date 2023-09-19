@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+<<<<<<< HEAD
+=======
+
+gulpfile.js
+package-lock.json
+package.json
+>>>>>>> 5732d42 (feat: add basic functionality (Sun, Sep 17, 2023 05:47:39 PM))
