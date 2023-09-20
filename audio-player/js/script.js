@@ -256,6 +256,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     audio.addEventListener('timeupdate', (event) => {
         changeProgressByPlayin();
+        document.querySelector('.time_current').textContent = convertDuration(audio.currentTime);
     })
   
 
@@ -274,8 +275,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
     audio.addEventListener('loadedmetadata', ()=>{
-        progressBar.max = audio.duration
-
+        progressBar.max = audio.duration;
+        if (audio.duration) {
+            document.querySelector('.time_total').textContent = convertDuration(audio.duration);
+        }
+        
     })
 
     progressBar.addEventListener('change', setTimeByProgressBar)
@@ -319,6 +323,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
             document.querySelector('.lyricks').remove();    
             
         }
+    }
+    function convertDuration(value) {
+        const minutes = Math.floor(value / 60);
+        const seconds = Math.floor(value % 60);
+        return `${addZero(minutes)}:${addZero(seconds)}`
+    };
+
+    function addZero(value) {
+        if (value < 10) {
+            return `0${value}`
+        } else return value
     }
 })
 
