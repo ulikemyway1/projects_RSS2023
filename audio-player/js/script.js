@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         {'src': 'audio/kish_anar.mp3',
          'author': 'Король и Шут',
          'title': "Мертвый Анархист",
-         'img': '/img/dead_anar.jpg',
+         'img': 'img/dead_anar.jpg',
         'lyricks': `[Интро]<br>
         Ослепший старый маг<br>
         Ночью по лесу бродил<br>

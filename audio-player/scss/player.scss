@@ -34,23 +34,23 @@ button {
     cursor: pointer;
 }
 .next {
-    background: url('/img/svg/next.svg') center center/cover no-repeat;
+    background: url('../img/svg/next.svg') center center/cover no-repeat;
 }
 
 .prev {
-    background: url('/img/svg/prev.svg') center center/cover no-repeat;
+    background: url('../img/svg/prev.svg') center center/cover no-repeat;
 }
 
 .play {
-    background: url('/img/svg/play.svg') center center/cover no-repeat;
+    background: url('../img/svg/play.svg') center center/cover no-repeat;
 }
 .pause {
-    background: url('/img/svg/pause.svg') center center/cover no-repeat;
+    background: url('../img/svg/pause.svg') center center/cover no-repeat;
 }
 
 .loop {
     position: relative;
-    background: url('/img/svg/loop.svg') center center/cover no-repeat;
+    background: url('../img/svg/loop.svg') center center/cover no-repeat;
 
 }
 
@@ -71,15 +71,15 @@ button {
 }
 
 .go-last {
-    background: url('/img/svg/end.svg') center center/cover no-repeat;
+    background: url('../img/svg/end.svg') center center/cover no-repeat;
 }
 
 .go-first {
-    background: url('/img/svg/start.svg') center center/cover no-repeat;
+    background: url('../img/svg/start.svg') center center/cover no-repeat;
 }
 
 .text {
-    background: url('/img/svg/text.svg') center center/cover no-repeat;
+    background: url('../img/svg/text.svg') center center/cover no-repeat;
 }
 
 
