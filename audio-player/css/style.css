@@ -19,7 +19,7 @@
 }
 
 header {
-  height: 10vh;
+  height: 5vh;
 }
 
 body {
@@ -191,6 +191,7 @@ button {
 
 .player {
   border: 1px solid #000000;
+  border-bottom: none;
   background-color: rgba(0, 0, 0, 0.4862745098);
   width: 90vw;
   height: 80vh;
@@ -263,4 +264,34 @@ button {
   color: #d3e2e2;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: 9vh;
+  padding: 2vh;
+  width: 90vw;
+  max-width: 1000px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid #000000;
+  border-top: none;
+}
+footer img {
+  height: 5vmin;
+}
+footer a, footer span {
+  font-size: 3.5vmin;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #d3e2e2;
+  font-weight: 600;
+}
+footer a {
+  text-decoration: none;
+  transition: all 0.4s;
+}
+footer a:hover {
+  filter: drop-shadow(0 0 5px #117072) brightness(1.1);
 }
