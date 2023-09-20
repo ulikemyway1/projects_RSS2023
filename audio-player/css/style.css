@@ -14,6 +14,8 @@
 *::-webkit-scrollbar-thumb {
   background-color: #117072;
   border-radius: 5px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 header {
@@ -47,24 +49,40 @@ button {
   background: url("../img/svg/next.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
+  transition: all 0.4s;
+}
+.next:hover {
+  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .prev {
   background: url("../img/svg/prev.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
+  transition: all 0.4s;
+}
+.prev:hover {
+  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .play {
   background: url("../img/svg/play.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
+  transition: all 0.4s;
+}
+.play:hover {
+  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .pause {
   background: url("../img/svg/pause.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
+  transition: all 0.4s;
+}
+.pause:hover {
+  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .loop {
@@ -72,12 +90,10 @@ button {
   background: url("../img/svg/loop.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
+  transition: all 0.4s;
 }
-
-.text {
-  position: relative;
-  height: 10vmin;
-  width: 10vmin;
+.loop:hover {
+  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .isActive::after {
@@ -96,18 +112,31 @@ button {
   background: url("../img/svg/end.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
+  transition: all 0.4s;
+}
+.go-last:hover {
+  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .go-first {
   background: url("../img/svg/start.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
+  transition: all 0.4s;
+}
+.go-first:hover {
+  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .text {
+  position: relative;
   background: url("../img/svg/text.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
+  transition: all 0.4s;
+}
+.text:hover {
+  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .container {
@@ -129,6 +158,10 @@ button {
   background: #d3e2e2;
   width: 96%;
   border-radius: 30px;
+  transition: all 0.4s;
+}
+#progress-bar:hover {
+  filter: drop-shadow(0 0 5px #117072) brightness(1.1);
 }
 
 #progress-bar::-webkit-slider-thumb {
@@ -177,11 +210,13 @@ button {
   font-size: 3vh;
   font-weight: 600;
   color: #117072;
+  filter: drop-shadow(0 0 1px #117072);
 }
 
 .title {
   font-size: 2.5vh;
   color: #d3e2e2;
+  filter: drop-shadow(0 0 1px #d3e2e2);
   padding-left: 1vw;
 }
 
