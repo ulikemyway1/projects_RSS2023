@@ -20,12 +20,19 @@ header {
   height: 10vh;
 }
 
+body {
+  background-color: #000000;
+}
+
 .controls {
   display: flex;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 2vw;
+       column-gap: 2vw;
   background-color: rgba(0, 0, 0, 0.4862745098);
-  padding: 5px;
+  padding: 1vh 5px;
+  height: 10.5vh;
 }
 
 button {
@@ -38,27 +45,39 @@ button {
 
 .next {
   background: url("../img/svg/next.svg") center center/cover no-repeat;
+  height: 10vmin;
+  width: 10vmin;
 }
 
 .prev {
   background: url("../img/svg/prev.svg") center center/cover no-repeat;
+  height: 10vmin;
+  width: 10vmin;
 }
 
 .play {
   background: url("../img/svg/play.svg") center center/cover no-repeat;
+  height: 10vmin;
+  width: 10vmin;
 }
 
 .pause {
   background: url("../img/svg/pause.svg") center center/cover no-repeat;
+  height: 10vmin;
+  width: 10vmin;
 }
 
 .loop {
   position: relative;
   background: url("../img/svg/loop.svg") center center/cover no-repeat;
+  height: 10vmin;
+  width: 10vmin;
 }
 
 .text {
   position: relative;
+  height: 10vmin;
+  width: 10vmin;
 }
 
 .isActive::after {
@@ -75,18 +94,25 @@ button {
 
 .go-last {
   background: url("../img/svg/end.svg") center center/cover no-repeat;
+  height: 10vmin;
+  width: 10vmin;
 }
 
 .go-first {
   background: url("../img/svg/start.svg") center center/cover no-repeat;
+  height: 10vmin;
+  width: 10vmin;
 }
 
 .text {
   background: url("../img/svg/text.svg") center center/cover no-repeat;
+  height: 10vmin;
+  width: 10vmin;
 }
 
 .container {
-  width: 500px;
+  max-width: 1000px;
+  width: 90vw;
   height: 80vh;
   margin: 0 auto;
   display: flex;
@@ -124,35 +150,39 @@ button {
 }
 
 .img {
-  height: 500px;
+  height: 50vh;
   transition: all 0.2s;
   overflow: auto;
-  margin: 10px;
+  margin: 1vh;
 }
 
 .player {
   border: 1px solid #000000;
   background-color: rgba(0, 0, 0, 0.4862745098);
+  width: 90vw;
+  height: 80vh;
 }
 
 .description {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   font-family: Arial, Helvetica, sans-serif;
-  padding: 10px 15px;
+  padding: 0 2vw;
   background-color: rgba(0, 0, 0, 0.4862745098);
+  height: 10vh;
 }
 
 .author {
-  font-size: 2rem;
+  font-size: 3vh;
   font-weight: 600;
   color: #117072;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 2.5vh;
   color: #d3e2e2;
-  padding-left: 10px;
+  padding-left: 1vw;
 }
 
 .background {
@@ -171,12 +201,31 @@ button {
   padding-left: 50px;
   position: relative;
   background: rgba(0, 0, 0, 0.7882352941);
-  min-height: 500px;
+  min-height: 50vh;
 }
 
 .progress {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 80%;
+}
+
+.wrapper {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  padding: 0 10px;
   background: rgba(0, 0, 0, 0.5);
+  height: 6vh;
+}
+
+.time_total, .time_current, .wrapper span {
+  display: inline;
+  font-size: 1.5rem;
+  color: #d3e2e2;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
 }
