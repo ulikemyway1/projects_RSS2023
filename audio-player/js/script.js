@@ -145,10 +145,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if (isPlaying) {
             play();
         };
-        showDescription(trackNumber);
-        changeBacground(trackNumber);
-        changeCover(trackNumber);
-        showLyricks(trackNumber);
     })
 
     document.querySelector('.prev').addEventListener('click', ()=> {
@@ -156,10 +152,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if (isPlaying) {
             play();
         };
-        showDescription(trackNumber);
-        changeBacground(trackNumber);
-        changeCover(trackNumber);
-        showLyricks(trackNumber);
     })
 
     document.querySelector('.go-first').addEventListener('click', ()=> {
@@ -167,10 +159,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if (isPlaying) {
             play();
         }
-        showDescription(trackNumber);
-        changeBacground(trackNumber);
-        changeCover(trackNumber);
-        showLyricks(trackNumber);
     })
 
     document.querySelector('.go-last').addEventListener('click', ()=> {
@@ -279,6 +267,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if (audio.duration) {
             document.querySelector('.time_total').textContent = convertDuration(audio.duration);
         }
+        showDescription(trackNumber);
+        changeBacground(trackNumber);
+        changeCover(trackNumber);
+        showLyricks(trackNumber);
         
     })
 
