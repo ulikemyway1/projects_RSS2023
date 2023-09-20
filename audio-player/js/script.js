@@ -274,15 +274,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         
     })
 
-    progressBar.addEventListener('change', setTimeByProgressBar)
+    progressBar.addEventListener('change', setTimeByProgressBar);
+    progressBar.addEventListener('input', setTimeByProgressBar);
     function setTimeByProgressBar () {
         audio.currentTime = progressBar.value;
     }
-
-    // progressBar.addEventListener('click', setTimeByProgressBar)
-    // function setTimeByProgressBar () {
-    //     audio.currentTime = progressBar.value;
-    // }
 
     
     function showDescription(i) {
