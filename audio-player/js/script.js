@@ -1,10 +1,22 @@
 document.addEventListener('DOMContentLoaded', ()=>{
+        //create player
+        const audio = new Audio();
+        document.querySelector('.player').append(audio);
+        // audio.controls = 'true';
+        audio.preload = 'auto';
     //global paramets
-    let trackNumber = 1;
+    let trackNumber;
+    if (localStorage.getItem('trackNumber_ULIKE')) {
+        trackNumber = localStorage.getItem('trackNumber_ULIKE')
+    } else trackNumber = 1;
     let isPlaying = false;
     let trackDuration = 0;
-    let trackLoop = false;
-    //
+    let trackLoop;
+
+    if (localStorage.getItem('loop_ULIKE') == 'true') {
+        document.querySelector('.loop').classList.add('isActive');
+        trackLoop = true;
+    } else trackLoop = false;
 
     const playList = [
         {'src': 'audio/kish_anar.mp3',
@@ -39,6 +51,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         В кожаном плаще, Мёртвый анархист<br>
         Крикнул он: «Хой! Челюсть долой!»<br>
         Трупов вёл он за собой<br>
+        <br>
         [Бридж]<br>
         Хой, хой!<br>
         Пого-пого!<br>
@@ -132,12 +145,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         'img': 'img/polish-dancing-cow.gif',
     'lyricks':'Непереводимая игра слов...'}
     ]
-    //create player
-    const audio = new Audio();
-    document.querySelector('.player').append(audio);
-    // audio.controls = 'true';
-    audio.loop = false;
-    audio.preload = 'auto';
+
 
     //set buttons functions to control player
     document.querySelector('.next').addEventListener('click', ()=> {
@@ -180,9 +188,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if (trackLoop) {
             audio.loop = false;
             trackLoop = false;
+            localStorage.setItem('loop_ULIKE', trackLoop);
         } else {
             audio.loop = true;
             trackLoop = true;
+            localStorage.setItem('loop_ULIKE', trackLoop);
         }
     })
 
@@ -192,6 +202,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             num = 1;
         }
         trackNumber = num;
+        localStorage.setItem('trackNumber_ULIKE', trackNumber);
         return playList[num - 1].src
     }
 
@@ -201,10 +212,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
             num = playList.length;
         }
         trackNumber = num;
+        localStorage.setItem('trackNumber_ULIKE', trackNumber);
         return playList[num - 1].src
     }
 
     function playControl() {
+        document.querySelector('.img').classList.toggle('img_not_playing');
         if (isPlaying) {
             isPlaying = false;
             audio.pause();
@@ -225,20 +238,31 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     function goToLast() {
         trackNumber = playList.length;
+        localStorage.setItem('trackNumber_ULIKE', trackNumber);
         return playList[playList.length - 1].src
     }
 
     function goToFirst() {
         trackNumber = 1;
+        localStorage.setItem('trackNumber_ULIKE', trackNumber);
         return playList[0].src
     }
 
 
     //init player onload
-    audio.src = playList[0].src;
+    audio.src = playList[trackNumber - 1].src;
     showDescription(trackNumber);
     changeBacground(trackNumber);
     changeCover(trackNumber);
+
+    if (localStorage.getItem('currentTime_ULIKE')) {
+        audio.currentTime = localStorage.getItem('currentTime_ULIKE')
+    } else  audio.currentTime = 0;
+    if (trackLoop) {
+        audio.loop = true;
+        document.querySelector('.loop').classList.add('isActive');
+    }
+
     
     const progressBar = document.getElementById('progress-bar');
 
@@ -251,8 +275,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
    
     function changeProgressByPlayin () {
         progressBar.value = audio.currentTime;
+        localStorage.setItem('currentTime_ULIKE', audio.currentTime);
         if (audio.currentTime >= audio.duration && !trackLoop) {
             audio.src = next(trackNumber);
+            localStorage.setItem('trackNumber_ULIKE', trackNumber);
             if (isPlaying) {
                 play();
             }
@@ -323,5 +349,44 @@ document.addEventListener('DOMContentLoaded', ()=>{
             return `0${value}`
         } else return value
     }
+
+    const volume = document.querySelector('#volume');
+
+    volume.addEventListener('input', () => {
+        document.querySelector('.volume_btn').classList.remove('muted');
+        audio.volume = volume.value / 100;
+        localStorage.setItem('volume_ULIKE', volume.value / 100);
+        if (volume.value == 0) {
+            document.querySelector('.volume_btn').classList.add('muted');
+        }
+        console.log(volume.value)
+    })
+
+    
+    if (localStorage.getItem('volume_ULIKE')) {
+        audio.volume = localStorage.getItem('volume_ULIKE');
+        volume.value = localStorage.getItem('volume_ULIKE') * 100;
+        if (volume.value == 0) {
+            document.querySelector('.volume_btn').classList.add('muted');
+        }
+    } else audio.volume = 0.5;
+
+    let muted = false;
+    document.querySelector('.volume_btn').addEventListener('click', () => {
+        if (muted) {
+            document.querySelector('.volume_btn').classList.remove('muted');
+            audio.muted = false;
+            muted = false;
+            volume.disabled = false;
+            volume.classList.remove('disabled');
+        } else {
+            document.querySelector('.volume_btn').classList.add('muted');
+            audio.muted = true;
+            muted = true;
+            volume.disabled = true;
+            volume.classList.add('disabled');
+        }
+        
+    })
 })
 

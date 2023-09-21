@@ -12,11 +12,19 @@
     <header></header>
     <div class="container">
         <div class="player">
-            <div class="img"></div>
-            <div class="description">
-                <div class="author"></div>
-                <div class="title"></div>
+            <div class="img img_not_playing"></div>
+            <div class="wrap">
+               <div class="description">
+                    <div class="author"></div>
+                    <div class="title"></div>
+                </div> 
+                <div class="volume_control">
+                <button class="volume_btn"></button>
+                <input type="range" name="volume" id="volume" min="0" max="100" value="50">
+                </div>
+
             </div>
+            
             <div class="wrapper">
               <div class="progress">
                 <input type="range" name="progress" id="progress-bar" min="0" max="100" value="0">
