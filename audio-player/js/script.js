@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     //global paramets
-    let trackNumber = 1;
+    let trackNumber;
+    if (localStorage.getItem('trackNumber_ULIKE')) {
+        trackNumber = localStorage.getItem('trackNumber_ULIKE')
+    } else trackNumber = 1;
     let isPlaying = false;
     let trackDuration = 0;
     let trackLoop = false;
@@ -192,6 +195,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             num = 1;
         }
         trackNumber = num;
+        localStorage.setItem('trackNumber_ULIKE', trackNumber);
         return playList[num - 1].src
     }
 
@@ -201,6 +205,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             num = playList.length;
         }
         trackNumber = num;
+        localStorage.setItem('trackNumber_ULIKE', trackNumber);
         return playList[num - 1].src
     }
 
@@ -226,11 +231,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     function goToLast() {
         trackNumber = playList.length;
+        localStorage.setItem('trackNumber_ULIKE', trackNumber);
         return playList[playList.length - 1].src
     }
 
     function goToFirst() {
         trackNumber = 1;
+        localStorage.setItem('trackNumber_ULIKE', trackNumber);
         return playList[0].src
     }
 
@@ -240,6 +247,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     showDescription(trackNumber);
     changeBacground(trackNumber);
     changeCover(trackNumber);
+
+    if (localStorage.getItem('currentTime_ULIKE')) {
+        audio.currentTime = localStorage.getItem('currentTime_ULIKE')
+    } else  audio.currentTime = 0;
+
     
     const progressBar = document.getElementById('progress-bar');
 
@@ -252,6 +264,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
    
     function changeProgressByPlayin () {
         progressBar.value = audio.currentTime;
+        localStorage.setItem('currentTime_ULIKE', audio.currentTime);
         if (audio.currentTime >= audio.duration && !trackLoop) {
             audio.src = next(trackNumber);
             if (isPlaying) {
@@ -324,5 +337,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             return `0${value}`
         } else return value
     }
+
+
 })
 
