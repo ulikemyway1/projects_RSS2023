@@ -6,8 +6,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     } else trackNumber = 1;
     let isPlaying = false;
     let trackDuration = 0;
-    let trackLoop = false;
-    //
+    let trackLoop;
+
+    if (localStorage.getItem('loop_ULIKE') == 'true') {
+        document.querySelector('.loop').classList.add('isActive');
+        trackLoop = true;
+    } else trackLoop = false;
 
     const playList = [
         {'src': 'audio/kish_anar.mp3',
@@ -139,7 +143,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const audio = new Audio();
     document.querySelector('.player').append(audio);
     // audio.controls = 'true';
-    audio.loop = false;
     audio.preload = 'auto';
 
     //set buttons functions to control player
@@ -183,9 +186,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if (trackLoop) {
             audio.loop = false;
             trackLoop = false;
+            localStorage.setItem('loop_ULIKE', trackLoop);
         } else {
             audio.loop = true;
             trackLoop = true;
+            localStorage.setItem('loop_ULIKE', trackLoop);
         }
     })
 
@@ -251,6 +256,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if (localStorage.getItem('currentTime_ULIKE')) {
         audio.currentTime = localStorage.getItem('currentTime_ULIKE')
     } else  audio.currentTime = 0;
+    if (trackLoop) {
+        audio.loop = true;
+        document.querySelector('.loop').classList.add('isActive');
+    }
 
     
     const progressBar = document.getElementById('progress-bar');
