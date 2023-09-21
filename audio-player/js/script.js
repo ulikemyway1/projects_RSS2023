@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', ()=>{
+        //create player
+        const audio = new Audio();
+        document.querySelector('.player').append(audio);
+        // audio.controls = 'true';
+        audio.preload = 'auto';
     //global paramets
     let trackNumber;
     if (localStorage.getItem('trackNumber_ULIKE')) {
@@ -46,6 +51,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         В кожаном плаще, Мёртвый анархист<br>
         Крикнул он: «Хой! Челюсть долой!»<br>
         Трупов вёл он за собой<br>
+        <br>
         [Бридж]<br>
         Хой, хой!<br>
         Пого-пого!<br>
@@ -139,11 +145,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         'img': 'img/polish-dancing-cow.gif',
     'lyricks':'Непереводимая игра слов...'}
     ]
-    //create player
-    const audio = new Audio();
-    document.querySelector('.player').append(audio);
-    // audio.controls = 'true';
-    audio.preload = 'auto';
+
 
     //set buttons functions to control player
     document.querySelector('.next').addEventListener('click', ()=> {
@@ -248,7 +250,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
     //init player onload
-    audio.src = playList[0].src;
+    audio.src = playList[trackNumber - 1].src;
     showDescription(trackNumber);
     changeBacground(trackNumber);
     changeCover(trackNumber);
@@ -276,6 +278,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         localStorage.setItem('currentTime_ULIKE', audio.currentTime);
         if (audio.currentTime >= audio.duration && !trackLoop) {
             audio.src = next(trackNumber);
+            localStorage.setItem('trackNumber_ULIKE', trackNumber);
             if (isPlaying) {
                 play();
             }
@@ -347,6 +350,43 @@ document.addEventListener('DOMContentLoaded', ()=>{
         } else return value
     }
 
+    const volume = document.querySelector('#volume');
 
+    volume.addEventListener('input', () => {
+        document.querySelector('.volume_btn').classList.remove('muted');
+        audio.volume = volume.value / 100;
+        localStorage.setItem('volume_ULIKE', volume.value / 100);
+        if (volume.value == 0) {
+            document.querySelector('.volume_btn').classList.add('muted');
+        }
+        console.log(volume.value)
+    })
+
+    
+    if (localStorage.getItem('volume_ULIKE')) {
+        audio.volume = localStorage.getItem('volume_ULIKE');
+        volume.value = localStorage.getItem('volume_ULIKE') * 100;
+        if (volume.value == 0) {
+            document.querySelector('.volume_btn').classList.add('muted');
+        }
+    } else audio.volume = 0.5;
+
+    let muted = false;
+    document.querySelector('.volume_btn').addEventListener('click', () => {
+        if (muted) {
+            document.querySelector('.volume_btn').classList.remove('muted');
+            audio.muted = false;
+            muted = false;
+            volume.disabled = false;
+            volume.classList.remove('disabled');
+        } else {
+            document.querySelector('.volume_btn').classList.add('muted');
+            audio.muted = true;
+            muted = true;
+            volume.disabled = true;
+            volume.classList.add('disabled');
+        }
+        
+    })
 })
 
