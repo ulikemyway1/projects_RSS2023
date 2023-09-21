@@ -184,6 +184,13 @@ button {
     transition: all 0.2s;
     overflow: auto;
     margin: 1vh;
+    transition: all 0.4s ease-in;
+  }
+
+  .img_not_playing {
+    transition: all 0.4s ease-in;
+    filter: brightness(0.5);
+    transform: scale(0.98);
   }
 
   .player {

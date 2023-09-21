@@ -205,6 +205,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
     function playControl() {
+        document.querySelector('.img').classList.toggle('img_not_playing');
         if (isPlaying) {
             isPlaying = false;
             audio.pause();

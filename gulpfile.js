@@ -9,25 +9,25 @@ gulp.task('server', function() {
 
     browserSync({
         server: {
-            baseDir: "./library/"
+            baseDir: "./audio-player/"
         }
     });
 
-    gulp.watch("./library/*.html").on('change', browserSync.reload);
+    gulp.watch("./audio-player/*.html").on('change', browserSync.reload);
 });
 
 gulp.task('styles', function() {
-    return gulp.src("./library/scss/*.+(scss|sass)")
+    return gulp.src("./audio-player/scss/*.+(scss|sass)")
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         // .pipe(rename({suffix: '.min', prefix: ''}))
         .pipe(autoprefixer())
         // .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest("./library/css"))
+        .pipe(gulp.dest("./audio-player/css"))
         .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function() {
-    gulp.watch("./library/scss/**/*.+(scss|sass)", gulp.parallel('styles'));
+    gulp.watch("./audio-player/scss/**/*.+(scss|sass)", gulp.parallel('styles'));
 })
 
 gulp.task('default', gulp.parallel('watch', 'server', 'styles'));
