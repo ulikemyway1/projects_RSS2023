@@ -51,18 +51,12 @@ button {
   width: 10vmin;
   transition: all 0.4s;
 }
-.next:hover {
-  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
-}
 
 .prev {
   background: url("../img/svg/prev.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
   transition: all 0.4s;
-}
-.prev:hover {
-  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .play {
@@ -71,18 +65,12 @@ button {
   width: 10vmin;
   transition: all 0.4s;
 }
-.play:hover {
-  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
-}
 
 .pause {
   background: url("../img/svg/pause.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
   transition: all 0.4s;
-}
-.pause:hover {
-  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .loop {
@@ -92,8 +80,14 @@ button {
   width: 10vmin;
   transition: all 0.4s;
 }
-.loop:hover {
+
+.button_effect:hover {
   filter: drop-shadow(0 0 10px #117072) brightness(1.1);
+}
+.button_effect:active {
+  transition: all 0.4s;
+  transform: scale(0.9);
+  filter: drop-shadow(0 0 3px #000000) brightness(1.1);
 }
 
 .isActive::after {
@@ -114,18 +108,12 @@ button {
   width: 10vmin;
   transition: all 0.4s;
 }
-.go-last:hover {
-  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
-}
 
 .go-first {
   background: url("../img/svg/start.svg") center center/cover no-repeat;
   height: 10vmin;
   width: 10vmin;
   transition: all 0.4s;
-}
-.go-first:hover {
-  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .text {
@@ -134,9 +122,6 @@ button {
   height: 10vmin;
   width: 10vmin;
   transition: all 0.4s;
-}
-.text:hover {
-  filter: drop-shadow(0 0 10px #117072) brightness(1.1);
 }
 
 .container {
@@ -174,9 +159,6 @@ button {
   background: rgba(211, 226, 226, 0.6235294118);
   border-radius: 30px;
   transition: all 0.4s;
-}
-#volume:hover {
-  filter: drop-shadow(0 0 5px #117072) brightness(1.1);
 }
 
 #progress-bar::-webkit-slider-thumb {
