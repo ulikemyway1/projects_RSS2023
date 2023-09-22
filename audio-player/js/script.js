@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', ()=>{
-        //create player
-        const audio = new Audio();
-        document.querySelector('.player').append(audio);
-        // audio.controls = 'true';
-        audio.preload = 'auto';
+    //create player
+    const audio = new Audio();
+    document.querySelector('.player').append(audio);
+    audio.preload = 'auto';
+    
     //global paramets
     let trackNumber;
     if (localStorage.getItem('trackNumber_ULIKE')) {
@@ -162,7 +162,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     'lyricks':'Непереводимая игра слов...'}
     ]
 
-
     //set buttons functions to control player
     document.querySelector('.next').addEventListener('click', ()=> {
         audio.src = next(trackNumber);
@@ -219,7 +218,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
         trackNumber = num;
         localStorage.setItem('trackNumber_ULIKE', trackNumber);
-        return playList[num - 1].src
+        return playList[num - 1].src;
     }
 
     function prev (num) {
@@ -229,7 +228,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
         trackNumber = num;
         localStorage.setItem('trackNumber_ULIKE', trackNumber);
-        return playList[num - 1].src
+        return playList[num - 1].src;
     }
 
     function playControl() {
@@ -255,13 +254,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
     function goToLast() {
         trackNumber = playList.length;
         localStorage.setItem('trackNumber_ULIKE', trackNumber);
-        return playList[playList.length - 1].src
+        return playList[playList.length - 1].src;
     }
 
     function goToFirst() {
         trackNumber = 1;
         localStorage.setItem('trackNumber_ULIKE', trackNumber);
-        return playList[0].src
+        return playList[0].src;
     }
 
 
@@ -270,7 +269,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     showDescription(trackNumber);
     changeBacground(trackNumber);
     changeCover(trackNumber);
-    document.querySelector('.volume_line').style.width = `${localStorage.getItem('volume_ULIKE') * 100 }%`
+    document.querySelector('.volume_line').style.width = `${localStorage.getItem('volume_ULIKE') * 100 }%`;
 
     if (localStorage.getItem('currentTime_ULIKE')) {
         audio.currentTime = localStorage.getItem('currentTime_ULIKE')
@@ -292,7 +291,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
    
     function changeProgressByPlayin () {
         progressBar.value = audio.currentTime;
-        document.querySelector('.progress_line').style.width = `${progressBar.value / progressBar.max * 100 + 0.5}%`
+        document.querySelector('.progress_line').style.width = `${progressBar.value / progressBar.max * 100 + 0.5}%`;
         localStorage.setItem('currentTime_ULIKE', audio.currentTime);
         if (audio.currentTime >= audio.duration && !trackLoop) {
             audio.src = next(trackNumber);
@@ -322,7 +321,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     progressBar.addEventListener('input', setTimeByProgressBar);
     function setTimeByProgressBar () {
         audio.currentTime = progressBar.value;
-        document.querySelector('.progress_line').style.width = `${progressBar.value / progressBar.max * 96}%`
+        document.querySelector('.progress_line').style.width = `${progressBar.value / progressBar.max * 96}%`;
     }
 
     
@@ -366,8 +365,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     function addZero(value) {
         if (value < 10) {
             return `0${value}`
-        } else return value
-    }
+        } else return value;
+    };
 
 
 
@@ -375,7 +374,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         document.querySelector('.volume_btn').classList.remove('muted');
         audio.volume = volume.value / 100;
         localStorage.setItem('volume_ULIKE', volume.value / 100);
-        document.querySelector('.volume_line').style.width = `${audio.volume * 100 }%`
+        document.querySelector('.volume_line').style.width = `${audio.volume * 100 }%`;
         if (volume.value == 0) {
             document.querySelector('.volume_btn').classList.add('muted');
         }
