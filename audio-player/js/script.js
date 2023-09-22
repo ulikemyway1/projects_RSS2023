@@ -264,6 +264,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     showDescription(trackNumber);
     changeBacground(trackNumber);
     changeCover(trackNumber);
+    document.querySelector('.volume_line').style.width = `${localStorage.getItem('volume_ULIKE') * 100 }%`
 
     if (localStorage.getItem('currentTime_ULIKE')) {
         audio.currentTime = localStorage.getItem('currentTime_ULIKE')
@@ -285,6 +286,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
    
     function changeProgressByPlayin () {
         progressBar.value = audio.currentTime;
+        document.querySelector('.progress_line').style.width = `${progressBar.value / progressBar.max * 100 + 0.5}%`
         localStorage.setItem('currentTime_ULIKE', audio.currentTime);
         if (audio.currentTime >= audio.duration && !trackLoop) {
             audio.src = next(trackNumber);
@@ -314,6 +316,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     progressBar.addEventListener('input', setTimeByProgressBar);
     function setTimeByProgressBar () {
         audio.currentTime = progressBar.value;
+        document.querySelector('.progress_line').style.width = `${progressBar.value / progressBar.max * 96}%`
     }
 
     
@@ -366,6 +369,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         document.querySelector('.volume_btn').classList.remove('muted');
         audio.volume = volume.value / 100;
         localStorage.setItem('volume_ULIKE', volume.value / 100);
+        document.querySelector('.volume_line').style.width = `${audio.volume * 100 }%`
         if (volume.value == 0) {
             document.querySelector('.volume_btn').classList.add('muted');
         }

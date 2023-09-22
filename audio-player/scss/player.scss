@@ -142,17 +142,29 @@ button {
     height: 80vh;
     margin: 0 auto;
     display: flex;
-    // flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#progress-bar, #volume {
+#progress-bar {
     position: relative;
     appearance: none;
     height: 10px;
-    background: #d3e2e2;
-    width: 96%;
+    background: #d3e2e2a2;
+    width: 100%;
+    border-radius: 30px;
+    transition: all 0.4s;
+    &:hover {
+      filter: drop-shadow(0 0 5px #117072) brightness(1.1);
+    }
+  }
+
+  #volume {
+    position: relative;
+    appearance: none;
+    height: 10px;
+    width: 100%;
+    background: #d3e2e29f;
     border-radius: 30px;
     transition: all 0.4s;
     &:hover {
@@ -160,7 +172,17 @@ button {
     }
   }
   
-  #progress-bar::-webkit-slider-thumb,  #volume::-webkit-slider-thumb {
+  #progress-bar::-webkit-slider-thumb {
+    margin-top: -4px;
+    -webkit-appearance: none;
+    height: 12px;
+    width: 5px;
+    background: #117072;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #volume::-webkit-slider-thumb {
     margin-top: -4px;
     -webkit-appearance: none;
     height: 12px;
@@ -177,6 +199,15 @@ button {
     max-height: 5px;
     border-radius: 30px;
     
+  }
+
+  .progress_line {
+    position: absolute;
+    left: 0;
+    height: 10px;
+    width: 0%;
+    background-color: #0a4041;
+    border-radius: 5px;
   }
 
   .img {
@@ -244,10 +275,13 @@ button {
   }
 
   .progress {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 80%;
+    background: #d3e2e2;
+    border-radius: 5px;
   }
 
   .wrapper {
@@ -334,4 +368,26 @@ button {
 
   .disabled {
     filter: brightness(0.3);
+  }
+  #volume.disabled {
+    &:hover {
+      filter: none;
+    }
+  }
+
+  .volume_wrapper {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background: #d3e2e2;
+    border-radius: 5px;
+  }
+
+  .volume_line {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 10px;
+    background-color: #0a4041;
+    border-radius: 5px;
   }
