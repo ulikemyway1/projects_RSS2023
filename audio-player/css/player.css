@@ -149,22 +149,47 @@ button {
   justify-content: center;
 }
 
-#progress-bar, #volume {
+#progress-bar {
   position: relative;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   height: 10px;
-  background: #d3e2e2;
-  width: 96%;
+  background: rgba(211, 226, 226, 0.6352941176);
+  width: 100%;
   border-radius: 30px;
   transition: all 0.4s;
 }
-#progress-bar:hover, #volume:hover {
+#progress-bar:hover {
   filter: drop-shadow(0 0 5px #117072) brightness(1.1);
 }
 
-#progress-bar::-webkit-slider-thumb, #volume::-webkit-slider-thumb {
+#volume {
+  position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 10px;
+  width: 100%;
+  background: rgba(211, 226, 226, 0.6235294118);
+  border-radius: 30px;
+  transition: all 0.4s;
+}
+#volume:hover {
+  filter: drop-shadow(0 0 5px #117072) brightness(1.1);
+}
+
+#progress-bar::-webkit-slider-thumb {
+  margin-top: -4px;
+  -webkit-appearance: none;
+  height: 12px;
+  width: 5px;
+  background: #117072;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#volume::-webkit-slider-thumb {
   margin-top: -4px;
   -webkit-appearance: none;
   height: 12px;
@@ -180,6 +205,15 @@ button {
   cursor: pointer;
   max-height: 5px;
   border-radius: 30px;
+}
+
+.progress_line {
+  position: absolute;
+  left: 0;
+  height: 10px;
+  width: 0%;
+  background-color: #0a4041;
+  border-radius: 5px;
 }
 
 .img {
@@ -247,10 +281,13 @@ button {
 }
 
 .progress {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 80%;
+  background: #d3e2e2;
+  border-radius: 5px;
 }
 
 .wrapper {
@@ -311,7 +348,7 @@ footer a:hover {
 .volume_control {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   -moz-column-gap: 1vmin;
        column-gap: 1vmin;
   align-self: center;
@@ -326,16 +363,37 @@ footer a:hover {
   display: block;
   height: 7vmin;
   width: 7vmin;
-  background: url("/img/svg/audio.svg") center center/cover no-repeat;
+  background: url("../img/svg/audio.svg") center center/cover no-repeat;
   transition: all 0.4s;
   align-self: center;
 }
 
 .muted {
   transition: all 0.4s;
-  background: url("/img/svg/mute.svg") center center/cover no-repeat;
+  background: url("../img/svg/mute.svg") center center/cover no-repeat;
 }
 
 .disabled {
   filter: brightness(0.3);
+}
+
+#volume.disabled:hover {
+  filter: none;
+}
+
+.volume_wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  background: #d3e2e2;
+  border-radius: 5px;
+}
+
+.volume_line {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 10px;
+  background-color: #0a4041;
+  border-radius: 5px;
 }

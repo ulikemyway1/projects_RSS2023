@@ -20,13 +20,16 @@
                 </div> 
                 <div class="volume_control">
                 <button class="volume_btn"></button>
-                <input type="range" name="volume" id="volume" min="0" max="100" value="50">
+                <div class="volume_wrapper">
+                    <div class="volume_line"></div>
+                    <input type="range" name="volume" id="volume" min="0" max="100" value="50">
+                </div>   
                 </div>
-
             </div>
             
             <div class="wrapper">
               <div class="progress">
+                <div class="progress_line"></div>
                 <input type="range" name="progress" id="progress-bar" min="0" max="100" value="0">
             </div> 
             <div class="time_current">00:00</div>
