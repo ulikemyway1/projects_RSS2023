@@ -43,10 +43,7 @@ button {
     background: url('../img/svg/next.svg') center center/cover no-repeat;
     height: 10vmin;
     width: 10vmin;
-    transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 10px #117072) brightness(1.1)
-    }
+    transition: all 0.4s;    
 }
 
 .prev {
@@ -54,9 +51,6 @@ button {
     height: 10vmin;
     width: 10vmin;
     transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 10px #117072) brightness(1.1)
-    }
 }
 
 .play {
@@ -64,9 +58,6 @@ button {
     height: 10vmin;
     width: 10vmin;
     transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 10px #117072) brightness(1.1)
-    }
 }
 
 .pause {
@@ -74,9 +65,6 @@ button {
     height: 10vmin;
     width: 10vmin;
     transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 10px #117072) brightness(1.1)
-    }
 }
 
 .loop {
@@ -85,12 +73,18 @@ button {
     height: 10vmin;
     width: 10vmin;
     transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 10px #117072) brightness(1.1)
-    }
-
 }
 
+.button_effect {
+  &:hover {
+    filter: drop-shadow(0 0 10px #117072) brightness(1.1)
+  }
+  &:active {
+    transition: all 0.4s;
+    transform: scale(0.90);
+    filter: drop-shadow(0 0 3px #000000) brightness(1.1)
+  }
+}
 
 .isActive::after {
     content: '';
@@ -109,9 +103,6 @@ button {
     height: 10vmin;
     width: 10vmin;
     transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 10px #117072) brightness(1.1)
-    }
 }
 
 .go-first {
@@ -119,9 +110,6 @@ button {
     height: 10vmin;
     width: 10vmin;
     transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 10px #117072) brightness(1.1)
-    }
 }
 
 .text {
@@ -130,9 +118,6 @@ button {
     height: 10vmin;
     width: 10vmin;
     transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 10px #117072) brightness(1.1)
-    }
 }
 
 
@@ -167,9 +152,6 @@ button {
     background: #d3e2e29f;
     border-radius: 30px;
     transition: all 0.4s;
-    &:hover {
-      filter: drop-shadow(0 0 5px #117072) brightness(1.1);
-    }
   }
   
   #progress-bar::-webkit-slider-thumb {
