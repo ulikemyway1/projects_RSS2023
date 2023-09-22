@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         trackNumber = localStorage.getItem('trackNumber_ULIKE')
     } else trackNumber = 1;
     let isPlaying = false;
-    let trackDuration = 0;
     let trackLoop;
 
     if (localStorage.getItem('loop_ULIKE') == 'true') {
@@ -268,8 +267,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     audio.src = playList[trackNumber - 1].src;
     showDescription(trackNumber);
     changeBacground(trackNumber);
-    changeCover(trackNumber);
-    document.querySelector('.volume_line').style.width = `${localStorage.getItem('volume_ULIKE') * 100 }%`;
+    changeCover(trackNumber); 
 
     if (localStorage.getItem('currentTime_ULIKE')) {
         audio.currentTime = localStorage.getItem('currentTime_ULIKE')
@@ -305,6 +303,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
     }
 
+    if (localStorage.getItem('volume_ULIKE')) {
+        audio.volume = localStorage.getItem('volume_ULIKE');
+        volume.value = localStorage.getItem('volume_ULIKE') * 100;
+        if (volume.value == 0) {
+            document.querySelector('.volume_btn').classList.add('muted');
+            localStorage.setItem('isMuted_ULIKE', true);
+        }
+    } else {
+        audio.volume = 0.5;
+    }
+
     audio.addEventListener('loadedmetadata', ()=>{
         progressBar.max = audio.duration;
         if (audio.duration) {
@@ -314,7 +323,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         changeBacground(trackNumber);
         changeCover(trackNumber);
         showLyricks(trackNumber);
-        
+        document.querySelector('.volume_line').style.width = `${audio.volume * 100 }%`;
     })
 
     progressBar.addEventListener('change', setTimeByProgressBar);
@@ -379,16 +388,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
             document.querySelector('.volume_btn').classList.add('muted');
         }
     })
-
-    
-    if (localStorage.getItem('volume_ULIKE')) {
-        audio.volume = localStorage.getItem('volume_ULIKE');
-        volume.value = localStorage.getItem('volume_ULIKE') * 100;
-        if (volume.value == 0) {
-            document.querySelector('.volume_btn').classList.add('muted');
-            localStorage.setItem('isMuted_ULIKE', true);
-        }
-    } else audio.volume = 0.5;
 
 
     document.querySelector('.volume_btn').addEventListener('click', () => {
