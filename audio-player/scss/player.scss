@@ -322,14 +322,14 @@ button {
   display: block;
   height: 7vmin;
   width: 7vmin;
-  background: url('/img/svg/audio.svg') center center/cover no-repeat;
+  background: url('../img/svg/audio.svg') center center/cover no-repeat;
   transition: all 0.4s;
   align-self: center;
 }
 
   .muted {
     transition: all 0.4s;
-    background: url('/img/svg/mute.svg') center center/cover no-repeat;
+    background: url('../img/svg/mute.svg') center center/cover no-repeat;
   }
 
   .disabled {

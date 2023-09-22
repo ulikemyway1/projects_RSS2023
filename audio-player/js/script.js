@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
         trackLoop = true;
     } else trackLoop = false;
 
+    const volume = document.querySelector('#volume');
+    let muted = false;
+    if (localStorage.getItem('isMuted_ULIKE') == 'true') {
+        document.querySelector('.volume_btn').classList.add('muted');
+        audio.muted = true;
+        volume.disabled = true;
+        volume.classList.add('disabled');
+        muted = true;
+    } else audio.muted = false;
+
     const playList = [
         {'src': 'audio/kish_anar.mp3',
          'author': 'Король и Шут',
@@ -350,7 +360,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         } else return value
     }
 
-    const volume = document.querySelector('#volume');
+
 
     volume.addEventListener('input', () => {
         document.querySelector('.volume_btn').classList.remove('muted');
@@ -359,7 +369,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if (volume.value == 0) {
             document.querySelector('.volume_btn').classList.add('muted');
         }
-        console.log(volume.value)
     })
 
     
@@ -368,10 +377,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         volume.value = localStorage.getItem('volume_ULIKE') * 100;
         if (volume.value == 0) {
             document.querySelector('.volume_btn').classList.add('muted');
+            localStorage.setItem('isMuted_ULIKE', true);
         }
     } else audio.volume = 0.5;
 
-    let muted = false;
+
     document.querySelector('.volume_btn').addEventListener('click', () => {
         if (muted) {
             document.querySelector('.volume_btn').classList.remove('muted');
@@ -379,12 +389,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
             muted = false;
             volume.disabled = false;
             volume.classList.remove('disabled');
+            localStorage.setItem('isMuted_ULIKE', false);
         } else {
             document.querySelector('.volume_btn').classList.add('muted');
             audio.muted = true;
             muted = true;
             volume.disabled = true;
             volume.classList.add('disabled');
+            localStorage.setItem('isMuted_ULIKE', true);
         }
         
     })
