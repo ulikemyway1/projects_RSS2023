@@ -153,6 +153,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
         'author': 'MashUp',
         'title': "Polish Dancing Cow feat Old Sh*t Cleaner",
         'img': 'img/polish-dancing-cow.gif',
+    'lyricks':'Непереводимая игра слов...'},
+
+    {'src': 'audio/oxy.mp3',
+        'author': 'Oxxxymiron',
+        'title': "Погружение feat. Horus",
+        'img': 'img/oxy.jpg',
     'lyricks':'Непереводимая игра слов...'}
     ]
 

@@ -342,7 +342,7 @@ button {
   .volume_control {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     column-gap: 1vmin;
     align-self: center;
     margin-right: 5vmin;

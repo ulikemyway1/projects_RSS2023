@@ -348,7 +348,7 @@ footer a:hover {
 .volume_control {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   -moz-column-gap: 1vmin;
        column-gap: 1vmin;
   align-self: center;
