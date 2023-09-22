@@ -397,3 +397,16 @@ footer a:hover {
   background-color: #0a4041;
   border-radius: 5px;
 }
+
+@media (max-width: 560px) {
+  .volume_control {
+    flex-direction: column;
+    row-gap: 2vmin;
+  }
+  .volume_btn {
+    height: 12vmin;
+    width: 12vmin;
+    max-width: 35px;
+    max-height: 35px;
+  }
+}
