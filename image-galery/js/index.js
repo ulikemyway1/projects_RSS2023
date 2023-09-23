@@ -8,7 +8,6 @@ function getPhotos() {
       });
       
   }
-//   getData();
 
 document.querySelector('input').addEventListener('blur', (event)=> {
 url = `https://api.unsplash.com/search/photos?query=${document.querySelector('input').value}&per_page=0&orientation=landscape&client_id=4colJrPVgUKsfB2OkwF3G9KmiHb72P493LNMEQ1MVJ0`
