@@ -3,7 +3,6 @@ function getPhotos() {
     fetch(url)
       .then((obj) => obj.json())
       .then((data) => {
-        console.log(data);
         showPhotos(data)
       });
       

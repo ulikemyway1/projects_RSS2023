@@ -20,7 +20,7 @@ body {
 }
 
 header {
-    height: 10vmin;
+    height: 10vh;
     background: #acacac75;
     padding: 1vmin 10vmin;
     display: flex;
@@ -60,12 +60,39 @@ input#query {
 }
 
 .wrapper {
-    margin: 0 auto;
+    margin: 2vh auto;
     display: grid;
     justify-content: center;
     align-items: center;
     width: 80vw;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
-    grid-auto-rows:  400px ;
-    gap: 10px;
+    grid-auto-rows:  37vh ;
+    gap: 2vh;
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding: 2vh 10vw;
+    background: #acacac75;
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    height: 8vh;
+}
+
+footer a {
+    text-decoration: none;
+    color: #000000;
+    transition: all 0.4s;
+}
+
+footer a:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 2px black);
 }
