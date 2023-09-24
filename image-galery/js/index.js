@@ -1,4 +1,4 @@
-let url = '';
+let url = `https://api.unsplash.com/photos/random?count=6&orientation=landscape&client_id=4colJrPVgUKsfB2OkwF3G9KmiHb72P493LNMEQ1MVJ0`;
 function getPhotos() {
     fetch(url)
       .then((obj) => obj.json())
@@ -20,6 +20,20 @@ function showPhotos(data) {
     data.results.forEach((item, index) => {
       contents[index].style.background = `url('${item.urls.regular}') center center/cover`;
     })
+}
+
+function getRandomPhotos(data) {
+    fetch(url)
+      .then((obj) => obj.json())
+      .then((data) => showRandomPhotos(data));
+}
+
+getRandomPhotos();
+function showRandomPhotos(data) {
+  const contents = document.querySelectorAll('.content');
+  data.forEach((item, index) => {
+    contents[index].style.background = `url('${item.urls.regular}') center center/cover`;
+  })
 }
 
 const searchBtn = document.querySelector('.search button');
