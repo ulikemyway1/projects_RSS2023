@@ -28,4 +28,11 @@ searchField.addEventListener('input', () => {
   if (searchField.value.length !== 0) {
     searchBtn.textContent = 'X';
   } else  searchBtn.textContent = 'O';
+});
+searchBtn.addEventListener('click', () => {
+  if (searchBtn.textContent === 'X') {
+    searchField.value='';
+    searchField.focus();
+    searchBtn.textContent = 'O'
+  }
 })
