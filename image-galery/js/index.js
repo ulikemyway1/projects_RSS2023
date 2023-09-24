@@ -3,7 +3,8 @@ function getPhotos() {
     fetch(url)
       .then((obj) => obj.json())
       .then((data) => {
-        showPhotos(data)
+        showPhotos(data);
+        console.log(data)
       });
       
   }
@@ -40,12 +41,12 @@ const searchBtn = document.querySelector('.search button');
 searchField.addEventListener('input', () => {
   if (searchField.value.length !== 0) {
     searchBtn.textContent = 'X';
-  } else  searchBtn.textContent = 'O';
+  } else  searchBtn.innerHTML = '&#x1F50E;&#xFE0E;';
 });
 searchBtn.addEventListener('click', () => {
   if (searchBtn.textContent === 'X') {
-    searchField.value='';
     searchField.focus();
-    searchBtn.textContent = 'O'
+    searchField.value='';
+    searchBtn.innerHTML = '&#x1F50E;&#xFE0E;'
   }
 })
