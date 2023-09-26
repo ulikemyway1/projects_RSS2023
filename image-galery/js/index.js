@@ -22,13 +22,19 @@ const wrapper = document.querySelector('.wrapper');
 
 
 function showPhotos(data) {
+      wrapper.textContent = '';
       document.querySelectorAll('.content').forEach((img) => img.remove());
-      data.results.forEach((item, index) => {
-      const content = document.createElement('div');
-      content.classList.add('content');
-      content.style.background = `url('${item.urls.regular}') center center/cover`;
-      wrapper.appendChild(content);
-    })
+      if (data.results.length === 0) {
+        wrapper.textContent = "We're sorry, we didn't find anything matching your search query."
+      } else {
+        data.results.forEach((item, index) => {
+          const content = document.createElement('div');
+          content.classList.add('content');
+          content.style.background = `url('${item.urls.regular}') center center/cover`;
+          wrapper.appendChild(content);
+        })
+      }
+
 }
 
 function getRandomPhotos(data) {
