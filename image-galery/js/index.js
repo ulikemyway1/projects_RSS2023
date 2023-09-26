@@ -18,10 +18,16 @@ searchField.addEventListener('keydown', (event)=> {
 
 });
 
+const wrapper = document.querySelector('.wrapper');
+
+
 function showPhotos(data) {
-    const contents = document.querySelectorAll('.content');
-    data.results.forEach((item, index) => {
-      contents[index].style.background = `url('${item.urls.regular}') center center/cover`;
+      document.querySelectorAll('.content').forEach((img) => img.remove());
+      data.results.forEach((item, index) => {
+      const content = document.createElement('div');
+      content.classList.add('content');
+      content.style.background = `url('${item.urls.regular}') center center/cover`;
+      wrapper.appendChild(content);
     })
 }
 
@@ -34,9 +40,11 @@ function getRandomPhotos(data) {
 getRandomPhotos();
 
 function showRandomPhotos(data) {
-  const contents = document.querySelectorAll('.content');
   data.forEach((item, index) => {
-    contents[index].style.background = `url('${item.urls.regular}') center center/cover`;
+    const content = document.createElement('div');
+    content.classList.add('content');
+    content.style.background = `url('${item.urls.regular}') center center/cover`;
+    wrapper.appendChild(content);
   })
 }
 
