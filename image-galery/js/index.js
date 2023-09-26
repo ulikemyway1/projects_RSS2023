@@ -10,9 +10,12 @@ function getPhotos() {
   }
 
 const searchField = document.querySelector('input');
-searchField.addEventListener('change', (event)=> {
-url = `https://api.unsplash.com/search/photos?query=${document.querySelector('input').value}&per_page=6&orientation=landscape&order_by=relevant&client_id=4colJrPVgUKsfB2OkwF3G9KmiHb72P493LNMEQ1MVJ0`
-getPhotos();
+searchField.addEventListener('keydown', (event)=> {
+ if(event.key === 'Enter' && searchField.value.trim().length !== 0) {
+    url = `https://api.unsplash.com/search/photos?query=${searchField.value}&per_page=6&orientation=landscape&order_by=relevant&client_id=4colJrPVgUKsfB2OkwF3G9KmiHb72P493LNMEQ1MVJ0`
+    getPhotos();
+ }
+
 });
 
 function showPhotos(data) {
@@ -29,6 +32,7 @@ function getRandomPhotos(data) {
 }
 
 getRandomPhotos();
+
 function showRandomPhotos(data) {
   const contents = document.querySelectorAll('.content');
   data.forEach((item, index) => {
