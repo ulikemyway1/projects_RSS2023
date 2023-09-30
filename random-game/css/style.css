@@ -36,8 +36,12 @@
     font-weight: bold;
 }
 
-.active {
+.word__card.active {
     border: 2px solid green;
+    box-shadow: 0 2px 2px #000000;
+}
+.word__card:active {
+    transform: scale(0.9);
 }
 
 .lifes {
@@ -213,7 +217,14 @@ h1 {
         font-size: 12px;
         font-weight: bold;
     }
-
+    .word__card.active {
+        border: 2px solid green;
+        box-shadow: 0 2px 2px #000000;
+    }
+    .word__card:active {
+        transform: scale(0.9);
+    }
+    
     .mode_modules {
         display: flex;
         justify-content: space-between;
