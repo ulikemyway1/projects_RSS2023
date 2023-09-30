@@ -12,6 +12,7 @@
     transition: all 0.4s;
     border-radius: 6px;
     transition: all 0.4s;
+    box-shadow: 0 2px 6px #000000;
 }
 
 body {
@@ -111,11 +112,11 @@ footer a:hover {
     display: block;
     text-align: center;
     align-self: flex-start;
-    font-size: 24px;
-    padding: 5px;
+    font-size: 3vmin;
+    padding: 1vmin;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
-    height: 40px;
+    height: 5vmin;
     margin: 15px auto;
     border-radius: 6px;
     border: none;
@@ -135,4 +136,48 @@ footer a:hover {
 .more.disabled:hover {
     outline: 1px solid #000000;
     background: rgb(235, 235, 235);
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+    .search button {
+        padding: 0.5vh 0.5vw;
+        height: 5vh;
+        font-size: 3vh;
+        background: rgba(0, 0, 0, 0);
+    }
+    input#query {
+        width: 100%;
+        height: 5vh;
+    }
+
+    header {
+        padding: 1vmin 2vmin;
+    }
+
+    .more {
+        height: 10vmin;
+        font-size: 6vmin;
+    }
+
+    footer {
+        font-size: 8vmin;
+        padding: 1vmin;
+
+    }
+    .logo {
+        height: 8vmin;
+    }
+
+    .github_text {
+        display: none;
+    }
+
+    footer a:hover {
+        transform: none;
+        filter: none;
+    }
+    
 }
