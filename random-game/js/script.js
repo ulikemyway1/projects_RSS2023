@@ -21,7 +21,7 @@ modeTimeSwitcher.addEventListener('click', (e)=>{
 
     if (timerActive) {
         timerActive = false;
-        time = 5;
+        time = 120;
         clearInterval(timerID);
         document.querySelector('.timer_count').textContent = time;
     }
