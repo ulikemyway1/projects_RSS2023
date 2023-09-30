@@ -73,9 +73,9 @@ let rus;
 let eng;
 
 appContainer.addEventListener('click', (e)=>{
-  if (e.target.classList.contains('word__card') && modeTimeLimit) {
+  if (e.target.classList.contains('word__card') && modeTimeLimit && !timerActive ) {
     startTimer();
-    console.log('ddd')
+    timerActive = true;
   }
     if (e.target.classList.contains('rus') && !e.target.classList.contains('active')) {
         document.querySelectorAll('.rus__word > div').forEach((item)=>{item.classList.remove('active')});
@@ -143,22 +143,6 @@ function shuffle(arr){
 	return arr;
 }
 
-// function deletePair(eng, rus) {
-//    console.log(eng)
-
-//         if (typeof eng || typeof rus === undefined) {
-//             return
-//         } 
-//          if(eng.getAttribute(['data-id']) === rus.getAttribute(['data-id'])) {
-//             eng.remove();
-//             rus.remove();
-//             console.log('pair')
-//         }
-
-
-// }
-
-
 function deletePair() {
     let rusCard = document.querySelector('.rus__word > .active');
     let engCard = document.querySelector('.eng__word > .active');
@@ -217,10 +201,6 @@ function checkLifes() {
         console.log('game')
     }
 }
-
-
-
-
 
 
 function render() {
