@@ -29,8 +29,10 @@ const wrapper = document.querySelector('.wrapper');
 
 function showPhotos(data) {
       wrapper.textContent = '';
+      wrapper.classList.remove('nothing_found');
       document.querySelectorAll('.content').forEach((img) => img.remove());
       if (data.results.length === 0) {
+        wrapper.classList.add('nothing_found');
         wrapper.textContent = "We're sorry, we didn't find anything matching your search query."
       } else {
         for (let i = 0; i < 6; i++) {

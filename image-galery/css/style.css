@@ -79,6 +79,9 @@ input#query:focus {
     font-size: 36px;
 }
 
+.nothing_found {
+    grid-template-columns: 1fr;
+}
 
 footer {
     display: flex;
