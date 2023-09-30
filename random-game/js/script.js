@@ -2,7 +2,7 @@
 let modeLifes = false;
 let modeTimeLimit = false;
 let scoresIndex = 0;
-let time = 5;
+let time = 120;
 let timerActive = false;
 //initial render
 
@@ -255,4 +255,9 @@ const startTimer = () => {timerID = setInterval(downCount, 1000)}
 // timer()
 
 
+settingsBtn = document.getElementById('settings_btn');
+settingsPanel = document.querySelector('.settings');
 
+settingsBtn.addEventListener('click', () => {
+    settingsPanel.classList.toggle('hidden')
+})
