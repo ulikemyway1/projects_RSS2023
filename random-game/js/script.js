@@ -199,16 +199,20 @@ function minusLifes(mode_lifes) {
 function checkLifes() {
     let lifes = document.querySelectorAll('.lifes > div');
     if (lifes.length <= 0) {
-       document.querySelector('.lifes').textContent = 'GAME OVER!';
-       appContainer.innerHTML =' <h1>Press R to reload</h1>';
-       document.addEventListener('keydown', (e)=>{
-        if (e.code =='KeyR') {
-            location.reload();
-        }
+       document.querySelector('.lifes').textContent = 'Zero';
+      if(timerID) {
+        clearInterval(timerID);
+      }
+       appContainer.innerHTML =' <h1>Game Over</h1>';
+       const reloadBtn = document.createElement('button');
+       reloadBtn.classList.add('reload_btn');
+       reloadBtn.textContent = 'Start New Game';
+       appContainer.classList.add('game_over')
+       appContainer.append(reloadBtn);
+       reloadBtn.addEventListener('click', () => {
+        location.reload();
        })
 
-    } else {
-        console.log('game')
     }
 }
 

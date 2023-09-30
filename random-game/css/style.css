@@ -145,6 +145,21 @@ h1 {
     z-index: 10;
 }
 
+.reload_btn {
+    display: block;
+    width: 120px;
+    height: 60px;
+    background:#ffffff;
+    cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 24px;
+}
+
+.game_over {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
 
 @media (max-width: 767px) {
     .settings {
@@ -164,7 +179,7 @@ h1 {
     }
     .hidden ~ .total_scores {
         position: relative;
-        transform: translateY(-200%);
+        transform: translateY(-150%);
         transition: all 0.4s;
     }
     #settings_btn {
@@ -212,5 +227,13 @@ h1 {
     
     .timer {
         font-size: 18px;
+    }
+
+    .reload_btn {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 24px;
+        color: #850d1f;
     }
 }
