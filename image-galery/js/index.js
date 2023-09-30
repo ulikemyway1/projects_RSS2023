@@ -29,8 +29,10 @@ const wrapper = document.querySelector('.wrapper');
 
 function showPhotos(data) {
       wrapper.textContent = '';
+      wrapper.classList.remove('nothing_found');
       document.querySelectorAll('.content').forEach((img) => img.remove());
       if (data.results.length === 0) {
+        wrapper.classList.add('nothing_found');
         wrapper.textContent = "We're sorry, we didn't find anything matching your search query."
       } else {
         for (let i = 0; i < 6; i++) {
@@ -99,3 +101,9 @@ function showMore(data) {
     document.querySelector('.more').classList.add('disabled');
   }
 }
+
+console.log(`Total scrore: 70/70
+  Все пункты ТЗ выполнены. Дополнительный функционал:
+  1) - кнопка "Show more", нажатие на которую добавит изображения на страницу по текущему запросу при их наличии (до 30 фото);
+  2) - если по запросу API не находит фото, на страницу выводится текст с объяснением.
+`)
