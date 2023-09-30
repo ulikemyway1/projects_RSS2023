@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Words</title>
+</head>
+<body>
+    <div class="container">
+    <div class="settings">
+        <div class="words_amount">
+            <div class="descr">Количество пар слов</div>
+            <input id="words_amount" type="range" min="5" max="8" step="1" value="5">
+        <div class="word_amount_show"></div>
+        </div>
+        
+        <div class="mode_lifes">
+            <div class="descr">Ограничить попытки</div>
+            <input class="mode_lifes_checkbox" type="checkbox">
+        </div>
+
+        <div class="mode_time-limit">
+            <div class="descr">Ограничить время 30 с</div>
+            <input class="mode_time-limit_checkbox" type="checkbox">
+        </div>
+    </div>
+
+    <div class="mode_modules">
+        <div class="lifes">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="timer">
+            <div class="timer_text">Time left:</div>
+            <div class="timer_count">30</div>
+        </div>
+    </div>
+
+<div class="app__container">
+<div class="eng__word"></div>
+<div class="rus__word"></div>
+</div>
+<div class="total_scores">
+    <div class="scores_text">Total scrores:</div>
+    <div class="scores">0</div>
+</div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
