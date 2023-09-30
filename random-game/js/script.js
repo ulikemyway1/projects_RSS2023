@@ -99,16 +99,13 @@ loadResources();
 let engParent = document.querySelector('.eng__word'),
           rusParent = document.querySelector('.rus__word')
 function renderWordsCard(count, engParentSelector, rusParentSelector) {
-     engParent = document.querySelector(engParentSelector),
-          rusParent = document.querySelector(rusParentSelector)
+    engParent = document.querySelector(engParentSelector),
+    rusParent = document.querySelector(rusParentSelector)
 
     let sessionRusCard = [];
     let sessionEngCard = [];
     for (let i = 0; i < count; i++) {
-
         const rand = Math.round(Math.random()*999);
-
-
         const newEngCard = document.createElement('div');
         newEngCard.classList.add('word__card', 'eng');
         newEngCard.dataset.id = rand;
@@ -122,11 +119,11 @@ function renderWordsCard(count, engParentSelector, rusParentSelector) {
         sessionRusCard.push(newRusCard);
  
     }
-    sessionEngCard.forEach((item)=>{
+        sessionEngCard.forEach((item)=>{
         engParent.append(item)
     })
 
-    shuffle(sessionRusCard).forEach((item)=>{
+        sessionRusCard.forEach((item)=>{
         rusParent.append(item)
     })
 }
@@ -152,7 +149,8 @@ function deletePair() {
     } else if (rusCard.dataset.id === engCard.dataset.id) {
             rusCard.remove();
             engCard.remove();
-            renderWordsCard(1, '.eng__word', '.rus__word')
+            renderWordsCard(1, '.eng__word', '.rus__word');
+            shuffleField();
             countScore();
     } else if (rusCard.dataset.id != engCard.dataset.id) {
         appContainer.style.background  = 'red';
@@ -168,6 +166,18 @@ function deletePair() {
 
 setInterval(deletePair, 10)
 
+function shuffleField() {
+    let shuffledRUS = [];
+    let shuffledENG = [];
+    document.querySelectorAll('.eng').forEach(item => shuffledENG.push(item))
+    document.querySelectorAll('.rus').forEach(item => shuffledRUS.push(item))
+    shuffledENG = shuffle(shuffledENG);
+    shuffledRUS = shuffle(shuffledRUS);
+    document.querySelectorAll('.eng').forEach(item => item.remove())
+    document.querySelectorAll('.rus').forEach(item => item.remove())
+    shuffledENG.forEach(item => engParent.append(item));
+    shuffledRUS.forEach(item => rusParent.append(item));
+}
 
 //lifes
 function minusLifes(mode_lifes) {
