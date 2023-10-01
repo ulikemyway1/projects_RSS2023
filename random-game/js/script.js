@@ -249,8 +249,48 @@ let timerID;
 const startTimer = () => {timerID = setInterval(downCount, 1000)}
 
 //open settings
+modals = document.querySelectorAll('.modal');
+btns = document.querySelectorAll('.btn');
 settingsBtn = document.getElementById('settings_btn');
 settingsPanel = document.querySelector('.settings');
+infoBtn = document.getElementById('info_btn');
+infoPanel = document.querySelector('.info');
+scoresBtn = document.getElementById('scores_btn');
+scoresPanel = document.querySelector('.scores');
+
 settingsBtn.addEventListener('click', () => {
-    settingsPanel.classList.toggle('hidden')
+    settingsBtn.classList.toggle('active');
+    if (!settingsPanel.classList.contains('hidden')) {
+        settingsPanel.classList.toggle('hidden');
+    } else {
+           modals.forEach(modal => modal.classList.add('hidden'));
+           settingsPanel.classList.toggle('hidden');
+           btns.forEach(modal => modal.classList.remove('active'));
+           settingsBtn.classList.add('active');  
+    }
 })
+
+infoBtn.addEventListener('click', () => {
+    infoBtn.classList.toggle('active');
+    if (!infoPanel.classList.contains('hidden')) {
+        infoPanel.classList.toggle('hidden');
+    } else {
+           modals.forEach(modal => modal.classList.add('hidden'));
+           infoPanel.classList.toggle('hidden');
+           btns.forEach(modal => modal.classList.remove('active'));
+           infoBtn.classList.add('active');  
+    }
+})
+
+scoresBtn.addEventListener('click', () => {
+    scoresBtn.classList.toggle('active');
+    if (!scoresPanel.classList.contains('hidden')) {
+        scoresPanel.classList.toggle('hidden');
+    } else {
+           modals.forEach(modal => modal.classList.add('hidden'));
+           scoresPanel.classList.toggle('hidden');
+           btns.forEach(modal => modal.classList.remove('active'));
+           scoresBtn.classList.add('active');  
+    }
+})
+

@@ -13,9 +13,12 @@
 <body>
     <div class="container">
         <div class="wrapper_rigth">
-            <button id="settings_btn"><img src="icons/settings.svg" alt="SETTINGS"></button>
+            <button id="info_btn" class="btn"><img src="icons/info.svg" alt="INFO"></button>
+            <button id="scores_btn" class="btn"><img src="icons/scores.svg" alt="SCORES"></button>
+            <button id="settings_btn" class="btn"><img src="icons/settings.svg" alt="SETTINGS"></button>
         </div>
-    <div class="settings hidden">
+    <div class="info modal hidden">Your goal is to score 50 points as quickly as possible.<br>You can select additional modes in the settings. <br>Good luck!</div>
+    <div class="settings modal hidden">
         <div class="words_amount setting">
             <div class="descr">Number of pairs</div>
             <input id="words_amount" type="range" min="5" max="8" step="1" value="5">
@@ -32,6 +35,7 @@
             <input class="mode_time-limit_checkbox" type="checkbox">
         </div>
     </div>
+    <div class="scores modal"><h2>Top 10 players</h2></div>
 
     <div class="mode_modules">
         <div class="lifes">
