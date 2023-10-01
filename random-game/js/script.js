@@ -2,10 +2,19 @@
 let modeLifes = false;
 let modeTimeLimit = false;
 let scoresIndex = 0;
-let time = 120;
-let timerActive = false;
+let timeDown = 120;
+let timeUp = 0;
+let timerDownActive = false;
+let timerApActive = false;
+let timerCount;
+let timerDown;
+const startTimerDown = () => {timerDown = setInterval(downCount, 1000)}
+const startTimerUp = () => {timerUp = setInterval(upCount, 1000)}
 //initial render
-
+let playersDB = [];
+if (localStorage.getItem('playersDB_ULIKE')) {
+    playersDB = JSON.parse(localStorage.getItem('playersDB_ULIKE')); 
+}
 
 const modeLifesSwitcher = document.querySelector('.mode_lifes_checkbox');
 const modeTimeSwitcher = document.querySelector('.mode_time-limit_checkbox');
@@ -19,15 +28,15 @@ modeTimeSwitcher.addEventListener('click', (e)=>{
     if (modeTimeLimit) { modeTimeLimit = false} else {modeTimeLimit = true}
     render();
 
-    if (timerActive) {
-        timerActive = false;
-        time = 120;
-        clearInterval(timerID);
+    if (timerDownActive) {
+        timerDownActive = false;
+        timeDown = 120;
+        clearInterval(timerDown);
         document.querySelector('.timer_count').textContent = time;
     }
 });
 
-let scores = document.querySelector('.scores')
+let scores = document.querySelector('.session_scores')
 
 //pick 8000 pars of words from DB
 const appContainer = document.querySelector('.app__container');
@@ -73,9 +82,14 @@ let rus;
 let eng;
 
 appContainer.addEventListener('click', (e)=>{
-  if (e.target.classList.contains('word__card') && modeTimeLimit && !timerActive ) {
-    startTimer();
-    timerActive = true;
+    if (!timerApActive) {
+    timerApActive = true;
+    startTimerUp();
+    } 
+
+  if (e.target.classList.contains('word__card') && modeTimeLimit && !timerDownActive ) {
+    startTimerDown();
+    timerDownActive = true;
   }
     if (e.target.classList.contains('rus') && !e.target.classList.contains('active')) {
         document.querySelectorAll('.rus__word > div').forEach((item)=>{item.classList.remove('active')});
@@ -191,8 +205,11 @@ function checkLifes() {
     let lifes = document.querySelectorAll('.lifes > div');
     if (lifes.length <= 0) {
        document.querySelector('.lifes').textContent = 'Zero';
-      if(timerID) {
-        clearInterval(timerID);
+      if(timerDown) {
+        clearInterval(timerDown);
+      }
+      if(timerApActive) {
+        clearInterval(timerUp);
       }
        appContainer.innerHTML =' <h1>Game Over</h1>';
        const reloadBtn = document.createElement('button');
@@ -213,7 +230,7 @@ function render() {
     rusParent.innerHTML = '';
     scoresIndex = 0;
     scores.textContent = scoresIndex;
-    document.querySelector('.timer_count').textContent = time;
+    document.querySelector('.timer_count').textContent = timeDown;
     document.querySelector('.lifes').style.display = 'none';
     document.querySelector('.timer').style.display = 'none';
     document.querySelector('.lifes').innerHTML='<div></div><div></div><div></div>'
@@ -227,17 +244,17 @@ function render() {
 }
 
 
-function countScore() {
-       scoresIndex++;
-       scores.textContent = scoresIndex;
-}
+
 
 function downCount() {
-        time--;
-        document.querySelector('.timer_count').textContent = time;
-        if (time == 0) {
-            clearInterval(timerID);
+        timeDown--;
+        document.querySelector('.timer_count').textContent = timeDown;
+        if (timeDown == 0) {
+            clearInterval(timerDown);
             appContainer.innerHTML =' <h1>Time is out. <br><br> Press R to play again.</h1>';
+            if(timerApActive) {
+                clearInterval(timerUp);
+              }
             document.addEventListener('keydown', (e)=>{
         if (e.code =='KeyR') {
             location.reload();
@@ -245,8 +262,62 @@ function downCount() {
         })
 }}
 
-let timerID;
-const startTimer = () => {timerID = setInterval(downCount, 1000)}
+function upCount() {
+    timeUp++;
+    document.querySelector('.timeUp').textContent = timeUp;
+}
+
+function countScore() {
+    scoresIndex++;
+    scores.textContent = scoresIndex;
+    if (scoresIndex === 3) {
+        win()
+    }
+}
+
+function win() {
+    clearInterval(timerUp);
+    clearInterval(timerDown);
+    const winPanel = document.querySelector('.win');
+    winPanel.classList.remove('hidden')
+    const winTime = document.querySelector('.win_time');
+    winTime.textContent =`You've scored 50 points in ${timeUp} s`;
+    const sendNameBtn = document.getElementById('send_player_name');
+    const playerName = document.getElementById('player_name');
+    playerName.addEventListener('input', () => {
+    if (playerName.value.trim().length > 0) {
+        sendNameBtn.disabled = false;
+    } else {
+        sendNameBtn.disabled = true;
+    }
+    })
+sendNameBtn.addEventListener('click', () => {
+    if (playerName.value.trim().length > 0) {
+        saveLocal(playerName.value.trim());
+        playerName.value = '';
+        setTimeout(()=>{
+            winPanel.classList.add('hidden')
+        }, 400);
+        location.reload();
+    } 
+})
+}
+
+
+
+function saveLocal(name) {
+    let player = new Object;
+    player.name = name;
+    player.time = timeUp;
+    playersDB.push(player);
+    playersDB.sort((a, b) => a.time - b.time );
+    localStorage.setItem('playersDB_ULIKE', JSON.stringify(playersDB.filter((item, index) => {
+        if (index < 10) {
+            return item}
+    })));
+}
+
+
 
 //open settings
 modals = document.querySelectorAll('.modal');

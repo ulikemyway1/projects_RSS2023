@@ -78,7 +78,7 @@ h1 {
     background-color: #efecec;
 }
 
-.modal {
+.modal, .win {
     position: absolute;
     width: 100%;
     height: 90%;
@@ -100,7 +100,7 @@ h1 {
     margin-bottom: 5px;
 }
 
-.total_scores {
+.stat {
     display: block;
     text-align: center;
     margin: 5vh auto;
@@ -264,4 +264,34 @@ h1 {
         font-size: 24px;
         color: #850d1f;
     }
+}
+
+.stat_wrapper {
+    display: flex;
+}
+
+.win {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+.win.hidden {
+    display: none;
+}
+.win_title, .win_time {
+text-align: center;
+}
+.win_wrapper {
+    margin: 0 auto;
+}
+#player_name {
+    max-width: 20vw;
+    height: 5vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+#send_player_name {
+    cursor: pointer;
+    height: 5vh;
 }

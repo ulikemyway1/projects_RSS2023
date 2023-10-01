@@ -35,7 +35,16 @@
             <input class="mode_time-limit_checkbox" type="checkbox">
         </div>
     </div>
-    <div class="scores modal"><h2>Top 10 players</h2></div>
+    <div class="win hidden">
+        <div class="win_title ">Congratulations!<br>You have successfully completed the game.</div>
+        <div class="win_time"></div> 
+        <div class="win_wrapper">
+            <input id="player_name" type="text" placeholder="What's your name?" autofocus>
+            <button id="send_player_name" disabled>OK!</button>
+        </div>
+
+    </div>
+    <div class="scores modal hidden"><h2>Top 10 players</h2></div>
 
     <div class="mode_modules">
         <div class="lifes">
@@ -53,11 +62,18 @@
 <div class="eng__word"></div>
 <div class="rus__word"></div>
 </div>
-<div class="total_scores">
-    <div class="scores_text">Total scrores:</div>
-    <div class="scores">0</div>
+<div class="stat_wrapper">
+    <div class="stat">
+        <div class="scores_text">Time:</div>
+        <div class="timeUp">0</div>
+    </div>
+    <div class="stat">
+        <div class="scores_text">Total scrores:</div>
+        <div class="session_scores">0</div>
+    </div>
 </div>
 </div>
 <script src="js/script.js"></script>
 </body>
 </html>
+
