@@ -295,3 +295,7 @@ text-align: center;
     cursor: pointer;
     height: 5vh;
 }
+
+.score_table {
+    text-align-last: left;
+}

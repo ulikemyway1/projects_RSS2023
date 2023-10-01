@@ -8,6 +8,7 @@ let timerDownActive = false;
 let timerApActive = false;
 let timerCount;
 let timerDown;
+let wantedScores = 5;
 const startTimerDown = () => {timerDown = setInterval(downCount, 1000)}
 const startTimerUp = () => {timerUp = setInterval(upCount, 1000)}
 //initial render
@@ -243,9 +244,6 @@ function render() {
             }
 }
 
-
-
-
 function downCount() {
         timeDown--;
         document.querySelector('.timer_count').textContent = timeDown;
@@ -270,7 +268,7 @@ function upCount() {
 function countScore() {
     scoresIndex++;
     scores.textContent = scoresIndex;
-    if (scoresIndex === 3) {
+    if (scoresIndex === wantedScores) {
         win()
     }
 }
@@ -281,7 +279,7 @@ function win() {
     const winPanel = document.querySelector('.win');
     winPanel.classList.remove('hidden')
     const winTime = document.querySelector('.win_time');
-    winTime.textContent =`You've scored 50 points in ${timeUp} s`;
+    winTime.textContent =`You've scored 5 points in ${timeUp} s`;
     const sendNameBtn = document.getElementById('send_player_name');
     const playerName = document.getElementById('player_name');
     playerName.addEventListener('input', () => {
@@ -302,8 +300,6 @@ sendNameBtn.addEventListener('click', () => {
     } 
 })
 }
-
-
 
 function saveLocal(name) {
     let player = new Object;
@@ -355,6 +351,7 @@ infoBtn.addEventListener('click', () => {
 
 scoresBtn.addEventListener('click', () => {
     scoresBtn.classList.toggle('active');
+    createTopList();
     if (!scoresPanel.classList.contains('hidden')) {
         scoresPanel.classList.toggle('hidden');
     } else {
@@ -364,4 +361,17 @@ scoresBtn.addEventListener('click', () => {
            scoresBtn.classList.add('active');  
     }
 })
+
+function createTopList() {
+    const scoreTable = document.querySelector('.score_table');
+    scoreTable.innerHTML = 'Nothing to show yet...';
+    if (playersDB.length != 0) {
+        scoreTable.innerHTML = '';
+        playersDB.forEach((player) => {
+            const record = document.createElement('li');
+            record.textContent = `${player.name} scored 5 points in ${player.time} s`;
+            scoreTable.append(record);
+        })
+    } 
+}
 
