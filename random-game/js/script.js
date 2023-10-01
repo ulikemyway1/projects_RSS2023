@@ -29,9 +29,9 @@ modeTimeSwitcher.addEventListener('click', (e)=>{
 
 let scores = document.querySelector('.scores')
 
-//pick N pars of words from DB
+//pick 8000 pars of words from DB
 const appContainer = document.querySelector('.app__container');
-let cardsAmount = 1000;
+let cardsAmount = 8000;
 let setupAmount = document.querySelector('#words_amount');
 const wordAmountShow = document.querySelector('.word_amount_show');
 let rusArr = [];
@@ -41,7 +41,6 @@ async function loadResources() {
     await fetch('./words.json').then((data)=>{
         return data.json()
     }).then((data) =>{
-       
         for (let i = 0; i<=cardsAmount; i++) {
             let itemEng = {};
             let itemRus = {};
@@ -53,10 +52,11 @@ async function loadResources() {
             rusArr.push(itemRus)
 
         }
- 
     })
 
-    renderWordsCard(5, '.eng__word', '.rus__word');
+renderWordsCard(5, '.eng__word', '.rus__word');
+}
+
     
 //установка количества карточек
 wordAmountShow.textContent = setupAmount.value
@@ -90,10 +90,8 @@ appContainer.addEventListener('click', (e)=>{
     } else if (e.target.classList.contains('eng') && e.target.classList.contains('active')) {
         e.target.classList.remove('active')
     }
-
+    deletePair();
 })
-}
-
 
 loadResources(); 
 let engParent = document.querySelector('.eng__word'),
@@ -119,16 +117,16 @@ function renderWordsCard(count, engParentSelector, rusParentSelector) {
         sessionRusCard.push(newRusCard);
  
     }
-        sessionEngCard.forEach((item)=>{
+        shuffle(sessionEngCard).forEach((item)=>{
         engParent.append(item)
     })
 
-        sessionRusCard.forEach((item)=>{
+       shuffle(sessionRusCard).forEach((item)=>{
         rusParent.append(item)
     })
 }
 
-//перемешивание элементов в массиве
+//shuffle elements of array
 function shuffle(arr){
 	let j, temp;
 	for(let i = arr.length - 1; i > 0; i--){
@@ -138,6 +136,19 @@ function shuffle(arr){
 		arr[i] = temp;
 	}
 	return arr;
+}
+// shuffle word cards after removing one pair
+function shuffleField() {
+    let shuffledRUS = [];
+    let shuffledENG = [];
+    document.querySelectorAll('.eng').forEach(item => shuffledENG.push(item))
+    document.querySelectorAll('.rus').forEach(item => shuffledRUS.push(item))
+    shuffledENG = shuffle(shuffledENG);
+    shuffledRUS = shuffle(shuffledRUS);
+    document.querySelectorAll('.eng').forEach(item => item.remove())
+    document.querySelectorAll('.rus').forEach(item => item.remove())
+    shuffledENG.forEach(item => engParent.append(item));
+    shuffledRUS.forEach(item => rusParent.append(item));
 }
 
 function deletePair() {
@@ -160,40 +171,20 @@ function deletePair() {
         minusLifes();
         rusCard.classList.remove('active');
         engCard.classList.remove('active');
-    }
-    
-}
-
-setInterval(deletePair, 10)
-
-function shuffleField() {
-    let shuffledRUS = [];
-    let shuffledENG = [];
-    document.querySelectorAll('.eng').forEach(item => shuffledENG.push(item))
-    document.querySelectorAll('.rus').forEach(item => shuffledRUS.push(item))
-    shuffledENG = shuffle(shuffledENG);
-    shuffledRUS = shuffle(shuffledRUS);
-    document.querySelectorAll('.eng').forEach(item => item.remove())
-    document.querySelectorAll('.rus').forEach(item => item.remove())
-    shuffledENG.forEach(item => engParent.append(item));
-    shuffledRUS.forEach(item => rusParent.append(item));
+    } 
 }
 
 //lifes
 function minusLifes(mode_lifes) {
     if (modeLifes) {
-        
         let lifes = document.querySelectorAll('.lifes > div');
-
         if (lifes.length <= 0) {
             checkLifes()
         } else {
             lifes[0].remove();
             checkLifes()
-        }
-        
+        } 
     }
-   
 }
 
 function checkLifes() {
@@ -218,8 +209,8 @@ function checkLifes() {
 
 
 function render() {
-    engParent.innerHTML='';
-    rusParent.innerHTML='';
+    engParent.innerHTML = '';
+    rusParent.innerHTML = '';
     scoresIndex = 0;
     scores.textContent = scoresIndex;
     document.querySelector('.timer_count').textContent = time;
@@ -239,7 +230,6 @@ function render() {
 function countScore() {
        scoresIndex++;
        scores.textContent = scoresIndex;
-
 }
 
 function downCount() {
@@ -254,14 +244,13 @@ function downCount() {
         }
         })
 }}
+
 let timerID;
 const startTimer = () => {timerID = setInterval(downCount, 1000)}
-// timer()
 
-
+//open settings
 settingsBtn = document.getElementById('settings_btn');
 settingsPanel = document.querySelector('.settings');
-
 settingsBtn.addEventListener('click', () => {
     settingsPanel.classList.toggle('hidden')
 })
