@@ -198,7 +198,7 @@ function deletePair() {
             appContainer.classList.add('ok');
             setTimeout(()=>{
                 appContainer.classList.remove('ok');
-            }, 50);
+            }, 100);
             rusCard.remove();
             engCard.remove();
             renderWordsCard(1, '.eng__word', '.rus__word');
