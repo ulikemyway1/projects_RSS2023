@@ -11,6 +11,20 @@ let timerDown;
 let wantedScores = 5;
 const startTimerDown = () => {timerDown = setInterval(downCount, 1000)}
 const startTimerUp = () => {timerUp = setInterval(upCount, 1000)}
+// sounds
+const clickSound = new Audio;
+clickSound.src = 'sounds/click.mp3';
+const errorSound = new Audio;
+errorSound.src = 'sounds/error.mp3';
+const okSound = new Audio;
+okSound.src = 'sounds/ok.mp3';
+
+
+
+
+//
+
+
 //initial render
 let playersDB = [];
 if (localStorage.getItem('playersDB_ULIKE')) {
@@ -83,29 +97,36 @@ let rus;
 let eng;
 
 appContainer.addEventListener('click', (e)=>{
-    if (!timerApActive) {
-    timerApActive = true;
-    startTimerUp();
-    } 
-
-  if (e.target.classList.contains('word__card') && modeTimeLimit && !timerDownActive ) {
-    startTimerDown();
-    timerDownActive = true;
-  }
-    if (e.target.classList.contains('rus') && !e.target.classList.contains('active')) {
-        document.querySelectorAll('.rus__word > div').forEach((item)=>{item.classList.remove('active')});
-        e.target.classList.add('active');
-        rus = e.target;
-    } else if (e.target.classList.contains('rus') && e.target.classList.contains('active')) {
-        e.target.classList.remove('active')
-    } else  if (e.target.classList.contains('eng') && !e.target.classList.contains('active')) {
-        document.querySelectorAll('.eng__word > div').forEach((item)=>{item.classList.remove('active')});
-        e.target.classList.add('active');
-        eng = e.target;
-    } else if (e.target.classList.contains('eng') && e.target.classList.contains('active')) {
-        e.target.classList.remove('active')
+    if (e.target.classList.contains('word__card')) {
+        if (!timerApActive) {
+            timerApActive = true;
+            startTimerUp();
+            } 
+          if (e.target.classList.contains('word__card') && modeTimeLimit && !timerDownActive ) {
+            startTimerDown();
+            timerDownActive = true;
+          }
+            if (e.target.classList.contains('rus') && !e.target.classList.contains('active')) {
+                document.querySelectorAll('.rus__word > div').forEach((item)=>{item.classList.remove('active')});
+                e.target.classList.add('active');
+                rus = e.target;
+            } else if (e.target.classList.contains('rus') && e.target.classList.contains('active')) {
+                e.target.classList.remove('active')
+            } else  if (e.target.classList.contains('eng') && !e.target.classList.contains('active')) {
+                document.querySelectorAll('.eng__word > div').forEach((item)=>{item.classList.remove('active')});
+                e.target.classList.add('active');
+                eng = e.target;
+            } else if (e.target.classList.contains('eng') && e.target.classList.contains('active')) {
+                e.target.classList.remove('active')
+            }
+            let rusCard = document.querySelector('.rus__word > .active');
+            let engCard = document.querySelector('.eng__word > .active');
+            if ((rusCard && !engCard) || (!rusCard && engCard) || (!rusCard && !engCard)) {
+                clickSound.play();
+            }
+            deletePair();
     }
-    deletePair();
+  
 })
 
 loadResources(); 
@@ -173,12 +194,14 @@ function deletePair() {
     if (rusCard == null || engCard == null) {
         return
     } else if (rusCard.dataset.id === engCard.dataset.id) {
+            okSound.play();
             rusCard.remove();
             engCard.remove();
             renderWordsCard(1, '.eng__word', '.rus__word');
             shuffleField();
             countScore();
     } else if (rusCard.dataset.id != engCard.dataset.id) {
+        errorSound.play();
         appContainer.style.background  = 'red';
         setTimeout(()=>{
             appContainer.style.background  = '';
