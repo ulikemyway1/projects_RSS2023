@@ -205,7 +205,6 @@ function minusLifes(mode_lifes) {
 function checkLifes() {
     let lifes = document.querySelectorAll('.lifes > div');
     if (lifes.length <= 0) {
-       document.querySelector('.lifes').textContent = 'Zero';
       if(timerDown) {
         clearInterval(timerDown);
       }
@@ -272,7 +271,7 @@ function countScore() {
         win()
     }
 }
-
+const winForm = document.getElementById('win_form');
 function win() {
     clearInterval(timerUp);
     clearInterval(timerDown);
@@ -289,7 +288,11 @@ function win() {
         sendNameBtn.disabled = true;
     }
     })
-sendNameBtn.addEventListener('click', () => {
+sendNameBtn.addEventListener('click', makeRecord);
+winForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+})
+function makeRecord () {
     if (playerName.value.trim().length > 0) {
         saveLocal(playerName.value.trim());
         playerName.value = '';
@@ -297,9 +300,11 @@ sendNameBtn.addEventListener('click', () => {
             winPanel.classList.add('hidden')
         }, 400);
         location.reload();
-    } 
-})
+    }
 }
+}
+
+
 
 function saveLocal(name) {
     let player = new Object;

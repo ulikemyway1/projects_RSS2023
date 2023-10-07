@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
 .container {
     width: 80vw;
     max-width: 1024px;
@@ -33,7 +40,8 @@
     margin-top: 20px;
     cursor: pointer;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 24px;
+    font-size: 100%;
+    line-height: 100%;
     font-weight: bold;
 }
 
@@ -47,19 +55,16 @@
 
 .lifes {
     display: none;
-    border: 1px solid rgb(103, 122, 48);
-    
-    
     text-align: center;
     font-size: 24px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .lifes div {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     margin: 5px;
-    background-color: red;
+    background: url('../icons/heart.svg') center center/cover no-repeat;
     
 }
 
@@ -105,7 +110,7 @@ h1 {
     text-align: center;
     margin: 5vh auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: bold;
     transition: all 0.4s;
 }
@@ -113,10 +118,12 @@ h1 {
 
 .mode_modules {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 5vw;
     width: 300px;
     margin: 20px auto;
     transition: all 0.4s;
+    border-bottom: 1px solid #000000;
 }
 
 .timer {
@@ -193,8 +200,10 @@ h1 {
 
 .game_over {
     display: flex;
-    justify-content: space-between;
-    align-items: center
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
 }
 
 @media (max-width: 767px) {
@@ -217,22 +226,34 @@ h1 {
 
     .container {
         margin: 0 auto;
+        width: 100%;
+        box-shadow: none;
+        border: none;
     }
 
     .word__card {
         display: flex;
         align-items: center;
         justify-content: center;
+        text-align: center;
         border: 1px solid black;
         width: 24vw;
+        min-width: 130px;
         max-width: 250px;
         height: 5vh;
+        min-height: 60px;
         border-radius: 10px;
         margin-top: 2vh;
         cursor: pointer;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 12px;
         font-weight: bold;
+    }
+
+    .app__container {
+        width: 100%;
+        padding: 5px;
+        justify-content: center;
+        gap: 5vw;
     }
     .word__card.active {
         border: 2px solid green;
@@ -243,16 +264,9 @@ h1 {
     }
     
     .mode_modules {
-        display: flex;
-        justify-content: space-between;
-        width: 65vw;
-        margin: 5px auto;
+        margin: 15px auto;
     }
-    .lifes div {
-        height: 10px;
-        width: 10px;
-    }
-    
+
     .timer {
         font-size: 18px;
     }
@@ -274,6 +288,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 5vh;
+    justify-content: center;
 }
 .win.hidden {
     display: none;
@@ -285,7 +300,6 @@ text-align: center;
     margin: 0 auto;
 }
 #player_name {
-    max-width: 20vw;
     height: 5vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
@@ -298,4 +312,36 @@ text-align: center;
 
 .score_table {
     text-align-last: left;
+}
+
+.modal, .win {
+    padding: 5px;
+    overflow: auto;
+
+}
+
+
+
+footer {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 800px;
+    border-top: 1px solid #000000;
+}
+footer img {
+    height: 25px;
+    transition: all 0.4s;
+}
+footer img:active {
+    transform: scale(1.1)
+}
+footer img:hover {
+    transform: scale(1.1)
+}
+
+footer span {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
 }
