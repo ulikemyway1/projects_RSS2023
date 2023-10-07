@@ -195,6 +195,10 @@ function deletePair() {
         return
     } else if (rusCard.dataset.id === engCard.dataset.id) {
             okSound.play();
+            appContainer.classList.add('ok');
+            setTimeout(()=>{
+                appContainer.classList.remove('ok');
+            }, 50);
             rusCard.remove();
             engCard.remove();
             renderWordsCard(1, '.eng__word', '.rus__word');
@@ -202,10 +206,10 @@ function deletePair() {
             countScore();
     } else if (rusCard.dataset.id != engCard.dataset.id) {
         errorSound.play();
-        appContainer.style.background  = 'red';
+        appContainer.classList.add('errors');
         setTimeout(()=>{
-            appContainer.style.background  = '';
-        }, 300);
+            appContainer.classList.remove('errors');
+        }, 50);
         minusLifes();
         rusCard.classList.remove('active');
         engCard.classList.remove('active');
@@ -238,7 +242,7 @@ function checkLifes() {
        const reloadBtn = document.createElement('button');
        reloadBtn.classList.add('reload_btn');
        reloadBtn.textContent = 'Start New Game';
-       appContainer.classList.add('game_over')
+       appContainer.classList.add('game_over');
        appContainer.append(reloadBtn);
        reloadBtn.addEventListener('click', () => {
         location.reload();
