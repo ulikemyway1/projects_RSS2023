@@ -205,7 +205,6 @@ function minusLifes(mode_lifes) {
 function checkLifes() {
     let lifes = document.querySelectorAll('.lifes > div');
     if (lifes.length <= 0) {
-       document.querySelector('.lifes').textContent = 'Zero';
       if(timerDown) {
         clearInterval(timerDown);
       }
