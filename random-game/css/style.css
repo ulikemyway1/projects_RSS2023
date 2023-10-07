@@ -7,14 +7,16 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    background-color: #efefef;
 }
 
 .container {
+    
     width: 80vw;
     max-width: 1024px;
     margin: 5vh auto;
     border: 1px solid black;
-    box-shadow: 12px 12px 5px 3px rgba(14, 116, 57, 0.2);
+    box-shadow: 12px 12px 5px 3px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
     position: relative;
@@ -27,6 +29,7 @@ body {
     justify-content: center;
     gap: 40px;
     transition: all 0.4s;
+    
 }
 
 .word__card {
@@ -44,11 +47,13 @@ body {
     font-size: 100%;
     line-height: 100%;
     font-weight: bold;
+    background-color:#00b4b4;
+    color: #000000;
 }
 
 .word__card.active {
-    border: 2px solid green;
-    box-shadow: 0 2px 2px #000000;
+    border: 3px solid #6a296b;
+    box-shadow: 0 3px 10px #000000;
 }
 .word__card:active {
     transform: scale(0.9);
@@ -184,8 +189,8 @@ h1 {
 .wrapper_rigth {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     padding-bottom: 10px;
-    background-color: #ffffff;
     position: relative;
     z-index: 10;
 }
@@ -214,10 +219,7 @@ h1 {
         column-gap: 15px;
     }
 
-    #settings_btn {
-        margin-top: 5px;
-        margin-right: 5px;
-    }
+
     .wrapper_rigth {
         padding-bottom: 0
     }
@@ -262,10 +264,7 @@ h1 {
         justify-content: center;
         gap: 5vw;
     }
-    .word__card.active {
-        border: 2px solid green;
-        box-shadow: 0 2px 2px #000000;
-    }
+
     .word__card:active {
         transform: scale(0.9);
     }
@@ -355,9 +354,9 @@ footer span {
 
 .errors {
     transform: scale(0.5);
-    background-color: #850d1f;
+    background-color: #b00020
 }
 
 .ok {
-    background-color: #04801f;
+    background-color: #309054
 }
