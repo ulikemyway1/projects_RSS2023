@@ -360,3 +360,7 @@ footer span {
 .ok {
     background-color: #309054
 }
+
+#apply_settings {
+    cursor: pointer;
+}

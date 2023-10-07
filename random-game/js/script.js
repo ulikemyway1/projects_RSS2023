@@ -1,6 +1,15 @@
 //settings
-let modeLifes = false;
-let modeTimeLimit = false;
+let settings = {};
+if (localStorage.getItem('settings_ULIKE')) {
+    settings = JSON.parse(localStorage.getItem('settings_ULIKE')); 
+} else {
+    settings = {
+        modeLifes: false,
+        modeTimeLimit: false,
+    };
+}
+let modeLifes = settings.modeLifes;
+let modeTimeLimit = settings.modeTimeLimit;
 let scoresIndex = 0;
 let timeDown = 120;
 let timeUp = 0;
@@ -21,7 +30,6 @@ okSound.src = 'sounds/ok.mp3';
 
 
 
-
 //
 
 
@@ -35,20 +43,27 @@ const modeLifesSwitcher = document.querySelector('.mode_lifes_checkbox');
 const modeTimeSwitcher = document.querySelector('.mode_time-limit_checkbox');
 
 modeLifesSwitcher.addEventListener('click', (e)=>{
-    if (modeLifes) { modeLifes = false} else {modeLifes = true}
+    if (modeLifes) {
+        settings.modeLifes = false;
+        localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
+        
+    } else {
+        settings.modeLifes = true;
+        localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
+    }
     render();
 });
 
 modeTimeSwitcher.addEventListener('click', (e)=>{
-    if (modeTimeLimit) { modeTimeLimit = false} else {modeTimeLimit = true}
+    if (modeTimeLimit) {
+        settings.modeTimeLimit = false;
+        localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
+    } else {
+        settings.modeTimeLimit = true;
+        localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
+    }
     render();
 
-    if (timerDownActive) {
-        timerDownActive = false;
-        timeDown = 120;
-        clearInterval(timerDown);
-        document.querySelector('.timer_count').textContent = time;
-    }
 });
 
 let scores = document.querySelector('.session_scores')
@@ -264,10 +279,10 @@ function render() {
     renderWordsCard(setupAmount.value, '.eng__word', '.rus__word');   
     if (modeLifes) {
         document.querySelector('.lifes').style.display = 'flex';
-        };
-        if (modeTimeLimit) {
+    };
+    if (modeTimeLimit) {
             document.querySelector('.timer').style.display = 'flex';
-            }
+     }
 }
 
 function downCount() {
@@ -407,3 +422,17 @@ function createTopList() {
     } 
 }
 
+if (modeLifes) {
+    document.querySelector('.lifes').style.display = 'flex';
+    modeLifesSwitcher.checked = true;
+    };
+
+if (modeTimeLimit) {
+        document.querySelector('.timer').style.display = 'flex';
+        modeTimeSwitcher.checked = true;
+        }
+
+const applySettingsBtn = document.querySelector('#apply_settings');
+applySettingsBtn.addEventListener('click', () => {
+    location.reload();
+})
