@@ -217,6 +217,8 @@ h1 {
 
     .container {
         margin: 0 auto;
+        width: 100%;
+        box-shadow: none;
     }
 
     .word__card {
@@ -225,14 +227,23 @@ h1 {
         justify-content: center;
         border: 1px solid black;
         width: 24vw;
+        min-width: 130px;
         max-width: 250px;
         height: 5vh;
+        min-height: 60px;
         border-radius: 10px;
         margin-top: 2vh;
         cursor: pointer;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 12px;
         font-weight: bold;
+    }
+
+    .app__container {
+        width: 100%;
+        padding: 5px;
+        justify-content: center;
+        gap: 5vw;
     }
     .word__card.active {
         border: 2px solid green;
@@ -298,4 +309,10 @@ text-align: center;
 
 .score_table {
     text-align-last: left;
+}
+
+.modal {
+    padding: 5px;
+    overflow: auto;
+
 }
