@@ -155,7 +155,7 @@ h1 {
 }
 
 .scores {
-    text-align: center;
+    text-align: left;
 }
 
 .hidden {
@@ -363,4 +363,44 @@ footer span {
 
 #apply_settings {
     cursor: pointer;
+    width: 100px;
+    height: 50px;
+}
+
+.stat_accuracy {
+    display: none;
+}
+
+.game_result_btn, .stop_game {
+    cursor: pointer;
+    height: 40px;
+    width: 95px;
+    border: none;
+    outline: 2px solid black;
+    border-radius: 10px;
+}
+
+.game_result_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.game_result_btn.active {
+    outline: 2px solid #6a296b;
+    font-weight: 600;
+}
+
+.accurate_table {
+    display: none;
+}
+
+.stop_game:disabled:hover {
+    cursor: unset;
+    outline: 2px solid black
+}
+.stop_game:hover {
+    outline: 2px solid #6a296b;
+    transition: all 0.4s;
 }

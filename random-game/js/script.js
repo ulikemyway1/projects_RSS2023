@@ -6,10 +6,10 @@ if (localStorage.getItem('settings_ULIKE')) {
     settings = {
         modeLifes: false,
         modeTimeLimit: false,
+        modeEndless: false,
     };
 }
-let modeLifes = settings.modeLifes;
-let modeTimeLimit = settings.modeTimeLimit;
+
 let scoresIndex = 0;
 let timeDown = 120;
 let timeUp = 0;
@@ -18,8 +18,13 @@ let timerApActive = false;
 let timerCount;
 let timerDown;
 let wantedScores = 5;
-const startTimerDown = () => {timerDown = setInterval(downCount, 1000)}
-const startTimerUp = () => {timerUp = setInterval(upCount, 1000)}
+let pairs = 0;
+let truePairs = 0;
+const startTimerDown = () => {timerDown = setInterval(downCount, 1000)};
+const startTimerUp = () => {timerUp = setInterval(upCount, 1000)};
+if (settings.modeEndless) {
+    document.querySelector('.stat_accuracy').style.display = 'unset';
+}
 // sounds
 const clickSound = new Audio;
 clickSound.src = 'sounds/click.mp3';
@@ -35,15 +40,19 @@ okSound.src = 'sounds/ok.mp3';
 
 //initial render
 let playersDB = [];
+let playersDBAccurasy = [];
 if (localStorage.getItem('playersDB_ULIKE')) {
     playersDB = JSON.parse(localStorage.getItem('playersDB_ULIKE')); 
+}
+if (localStorage.getItem('playersDBAccurasy_ULIKE')) {
+    playersDBAccurasy = JSON.parse(localStorage.getItem('playersDBAccurasy_ULIKE')); 
 }
 
 const modeLifesSwitcher = document.querySelector('.mode_lifes_checkbox');
 const modeTimeSwitcher = document.querySelector('.mode_time-limit_checkbox');
-
+const modeEndlessSwitcher = document.querySelector('.mode_endless_checkbox');
 modeLifesSwitcher.addEventListener('click', (e)=>{
-    if (modeLifes) {
+    if (settings.modeLifes) {
         settings.modeLifes = false;
         localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
         
@@ -55,7 +64,7 @@ modeLifesSwitcher.addEventListener('click', (e)=>{
 });
 
 modeTimeSwitcher.addEventListener('click', (e)=>{
-    if (modeTimeLimit) {
+    if (settings.modeTimeLimit) {
         settings.modeTimeLimit = false;
         localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
     } else {
@@ -63,8 +72,22 @@ modeTimeSwitcher.addEventListener('click', (e)=>{
         localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
     }
     render();
-
 });
+
+modeEndlessSwitcher.addEventListener('click', (e)=>{
+    if (settings.modeEndless) {
+        settings.modeEndless = false;
+        localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
+    } else {
+        settings.modeEndless = true;
+        localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
+    }
+    timeUp = 0;
+    timeDown = 120;
+    render();
+});
+
+
 
 let scores = document.querySelector('.session_scores')
 
@@ -103,6 +126,7 @@ setupAmount.addEventListener('input', ()=>{
     wordAmountShow.textContent = setupAmount.value;
     engParent.innerHTML='';
     rusParent.innerHTML='';
+    timeUp = 0;
     render();
 
     
@@ -117,7 +141,7 @@ appContainer.addEventListener('click', (e)=>{
             timerApActive = true;
             startTimerUp();
             } 
-          if (e.target.classList.contains('word__card') && modeTimeLimit && !timerDownActive ) {
+          if (e.target.classList.contains('word__card') && settings.modeTimeLimit && !timerDownActive ) {
             startTimerDown();
             timerDownActive = true;
           }
@@ -149,8 +173,7 @@ let engParent = document.querySelector('.eng__word'),
           rusParent = document.querySelector('.rus__word')
 function renderWordsCard(count, engParentSelector, rusParentSelector) {
     engParent = document.querySelector(engParentSelector),
-    rusParent = document.querySelector(rusParentSelector)
-
+    rusParent = document.querySelector(rusParentSelector);
     let sessionRusCard = [];
     let sessionEngCard = [];
     for (let i = 0; i < count; i++) {
@@ -207,7 +230,7 @@ function deletePair() {
     let engCard = document.querySelector('.eng__word > .active');
    
     if (rusCard == null || engCard == null) {
-        return
+        return;
     } else if (rusCard.dataset.id === engCard.dataset.id) {
             okSound.play();
             appContainer.classList.add('ok');
@@ -219,7 +242,17 @@ function deletePair() {
             renderWordsCard(1, '.eng__word', '.rus__word');
             shuffleField();
             countScore();
+            if (settings.modeEndless) {
+                pairs++;
+                truePairs++;
+                document.querySelector('.session_accuracy').textContent = calculateАccuracy(pairs, truePairs);
+                stopGame.disabled = false;
+            };
     } else if (rusCard.dataset.id != engCard.dataset.id) {
+        if (settings.modeEndless) {
+        pairs++;
+        document.querySelector('.session_accuracy').textContent = calculateАccuracy(pairs, truePairs);
+        };
         errorSound.play();
         appContainer.classList.add('errors');
         setTimeout(()=>{
@@ -233,7 +266,7 @@ function deletePair() {
 
 //lifes
 function minusLifes(mode_lifes) {
-    if (modeLifes) {
+    if (settings.modeLifes) {
         let lifes = document.querySelectorAll('.lifes > div');
         if (lifes.length <= 0) {
             checkLifes()
@@ -275,14 +308,19 @@ function render() {
     document.querySelector('.timer_count').textContent = timeDown;
     document.querySelector('.lifes').style.display = 'none';
     document.querySelector('.timer').style.display = 'none';
+    document.querySelector('.stat_accuracy ').style.display = 'none';
     document.querySelector('.lifes').innerHTML='<div></div><div></div><div></div>'
     renderWordsCard(setupAmount.value, '.eng__word', '.rus__word');   
-    if (modeLifes) {
+    if (settings.modeLifes) {
         document.querySelector('.lifes').style.display = 'flex';
     };
-    if (modeTimeLimit) {
+    if (settings.modeTimeLimit) {
             document.querySelector('.timer').style.display = 'flex';
      }
+     if (settings.modeEndless) {
+        document.querySelector('.stat_accuracy').style.display = 'unset';
+ }
+
 }
 
 function downCount() {
@@ -309,18 +347,26 @@ function upCount() {
 function countScore() {
     scoresIndex++;
     scores.textContent = scoresIndex;
-    if (scoresIndex === wantedScores) {
+    if (scoresIndex === wantedScores && !settings.modeEndless) {
         win()
     }
 }
 const winForm = document.getElementById('win_form');
 function win() {
+   if(timeUp) {
     clearInterval(timerUp);
+   }
+   if (timeDown) {
     clearInterval(timerDown);
+   }
     const winPanel = document.querySelector('.win');
     winPanel.classList.remove('hidden')
     const winTime = document.querySelector('.win_time');
-    winTime.textContent =`You've scored 5 points in ${timeUp} s`;
+    if (!settings.modeEndless) {
+        winTime.textContent =`You've scored 5 points in ${timeUp} s`
+    } else {
+        winTime.textContent =`You've scored ${scoresIndex} p. in ${timeUp} s with ${Number.parseInt(document.querySelector('.session_accuracy').textContent)}% accuracy`;
+    }
     const sendNameBtn = document.getElementById('send_player_name');
     const playerName = document.getElementById('player_name');
     playerName.addEventListener('input', () => {
@@ -330,20 +376,37 @@ function win() {
         sendNameBtn.disabled = true;
     }
     })
-sendNameBtn.addEventListener('click', makeRecord);
-winForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-})
-function makeRecord () {
-    if (playerName.value.trim().length > 0) {
-        saveLocal(playerName.value.trim());
-        playerName.value = '';
-        setTimeout(()=>{
-            winPanel.classList.add('hidden')
-        }, 400);
-        location.reload();
+    if (!settings.modeEndless) {
+        sendNameBtn.addEventListener('click', makeRecord);
+        winForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+        })
+        function makeRecord () {
+            if (playerName.value.trim().length > 0) {
+                saveLocal(playerName.value.trim());
+                playerName.value = '';
+                setTimeout(()=>{
+                    winPanel.classList.add('hidden')
+                }, 400);
+                location.reload();
+            }
+        }
+    } else {
+        sendNameBtn.addEventListener('click', makeRecordAccurate);
+        winForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+        })
+        function makeRecordAccurate () {
+            if (playerName.value.trim().length > 0) {
+                saveLocalAccurate(playerName.value.trim());
+                playerName.value = '';
+                setTimeout(()=>{
+                    winPanel.classList.add('hidden')
+                }, 400);
+                location.reload();
+            }
+        }
     }
-}
 }
 
 
@@ -360,8 +423,28 @@ function saveLocal(name) {
     })));
 }
 
-
-
+function saveLocalAccurate (name) {
+    let player = new Object;
+    player.name = name;
+    player.scores = scoresIndex;
+    player.accuracy = Number.parseInt(document.querySelector('.session_accuracy').textContent);
+    playersDBAccurasy.push(player);
+    playersDBAccurasy.sort((b, a) => a.accuracy - b.accuracy);
+    localStorage.setItem('playersDBAccurasy_ULIKE', JSON.stringify(playersDBAccurasy.filter((item, index) => {
+        if (index < 10) {
+            return item}
+    })));
+}
+const stopGame = document.querySelector('.stop_game');
+stopGame.addEventListener('click', () => {
+    if(timeUp) {
+        clearInterval(timerUp);
+    }
+    if (timeDown) {
+        clearInterval(timerDown);
+    }
+    win();
+});
 //open settings
 modals = document.querySelectorAll('.modal');
 btns = document.querySelectorAll('.btn');
@@ -408,10 +491,12 @@ scoresBtn.addEventListener('click', () => {
            scoresBtn.classList.add('active');  
     }
 })
+const scoreTable = document.querySelector('.score_table');
+const accurateTable = document.querySelector('.accurate_table');
 
 function createTopList() {
-    const scoreTable = document.querySelector('.score_table');
     scoreTable.innerHTML = 'Nothing to show yet...';
+    accurateTable.innerHTML = 'Nothing to show yet...';
     if (playersDB.length != 0) {
         scoreTable.innerHTML = '';
         playersDB.forEach((player) => {
@@ -419,20 +504,55 @@ function createTopList() {
             record.textContent = `${player.name} scored 5 points in ${player.time} s`;
             scoreTable.append(record);
         })
+    };
+    if (playersDBAccurasy.length != 0) {
+        accurateTable.innerHTML = '';
+        playersDBAccurasy.forEach((player) => {
+            const recordAccurasy = document.createElement('li');
+            recordAccurasy.textContent = `${player.name} scored ${player.scores} p. with ${player.accuracy}% accuracy`;
+            accurateTable.append(recordAccurasy);
+        })
     } 
 }
 
-if (modeLifes) {
+if (settings.modeLifes) {
     document.querySelector('.lifes').style.display = 'flex';
     modeLifesSwitcher.checked = true;
     };
 
-if (modeTimeLimit) {
+if (settings.modeTimeLimit) {
         document.querySelector('.timer').style.display = 'flex';
         modeTimeSwitcher.checked = true;
         }
 
+if (settings.modeEndless) {
+     modeEndlessSwitcher.checked = true;
+            }
+
 const applySettingsBtn = document.querySelector('#apply_settings');
 applySettingsBtn.addEventListener('click', () => {
     location.reload();
+})
+
+//endless mode
+function calculateАccuracy(pairs, truePairs) {
+    return `${Math.round(truePairs / pairs * 100)}%`
+}
+
+const resultBtns = document.querySelector('.game_result_wrapper');
+const fastestBtn = document.querySelector('.fastest');
+const accurateBtn = document.querySelector('.more_accurate');
+resultBtns.addEventListener('click', (e) => {
+    if (e.target == accurateBtn) {
+        e.target.classList.add('active');
+        fastestBtn.classList.remove('active');
+        scoreTable.style.display = 'none';
+        accurateTable.style.display = 'block';
+    }
+    if (e.target == fastestBtn) {
+        e.target.classList.add('active');
+        accurateBtn.classList.remove('active');
+        scoreTable.style.display = 'block';
+        accurateTable.style.display = 'none';
+    }
 })

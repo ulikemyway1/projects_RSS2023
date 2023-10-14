@@ -34,6 +34,12 @@
             <div class="descr">Set time limit to 120 s</div>
             <input class="mode_time-limit_checkbox" type="checkbox">
         </div>
+
+        <div class="mode_endless setting">
+            <div class="descr">No score limit</div>
+            <input class="mode_endless_checkbox" type="checkbox">
+        </div>
+
         <div class="apply_settings">
             <button id="apply_settings">Apply</button>
         </div>
@@ -43,7 +49,7 @@
         <div class="win_time"></div> 
         <div class="win_wrapper">
             <form action="#" id="win_form">
-            <input id="player_name" type="text" placeholder="What's your name?" maxlength="20" autofocus>
+            <input id="player_name" type="text" placeholder="What's your name?" maxlength="20" autofocus autocomplete="off" >
             <button id="send_player_name" disabled>OK!</button>
             </form>
         </div>
@@ -51,7 +57,12 @@
     </div>
     <div class="scores modal hidden">
         <h2>Top 10 players</h2>
+        <div class="game_result_wrapper">
+            <button class="fastest game_result_btn active">The Fastest</button>
+            <button class="more_accurate game_result_btn">The most accurate</button>
+        </div>
         <ol class="score_table"></ol>
+        <ol class="accurate_table"></ol>
     </div>
 
     <div class="mode_modules">
@@ -78,6 +89,12 @@
     <div class="stat">
         <div class="scores_text">Total scores:</div>
         <div class="session_scores">0</div>
+    </div>
+
+    <div class="stat stat_accuracy">
+        <div class="accuracy_text">Аccuracy:</div>
+        <div class="session_accuracy">100%</div>
+        <button class="stop_game" disabled>Stop the Game</button>
     </div>
 </div>
 <footer>
