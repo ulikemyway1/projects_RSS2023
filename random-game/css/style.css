@@ -10,18 +10,25 @@ body {
     background-color: #efefef;
 }
 
+h2 {
+    margin: 0;
+    margin-bottom: 5px;
+    text-align: center;
+    text-decoration: underline;
+}
+
 .container {
-    
+    max-height: 100dvh;
     width: 80vw;
     max-width: 1024px;
-    margin: 5vh auto;
+    margin: 5dvh auto;
     border: 1px solid black;
     box-shadow: 12px 12px 5px 3px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
     position: relative;
 }
-.app__container {
+.words_wrapper {
     margin: 0 auto;
     width: 65vw;
     max-width: 800px;
@@ -29,7 +36,14 @@ body {
     justify-content: center;
     gap: 40px;
     transition: all 0.4s;
-    
+}
+
+.app__container {
+    height: 70dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .word__card {
@@ -39,18 +53,21 @@ body {
     border: 1px solid black;
     width: 24vw;
     max-width: 250px;
-    height: 7vh;
+    height: 7dvh;
     border-radius: 10px;
     margin-top: 20px;
     cursor: pointer;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 100%;
+    font-size: 150%;
     line-height: 100%;
     font-weight: bold;
     background-color:#00b4b4;
     color: #000000;
 }
+.stat_wrapper {
+    display: flex;
 
+}
 .word__card.active {
     border: 3px solid #6a296b;
     box-shadow: 0 3px 10px #000000;
@@ -83,26 +100,19 @@ h1 {
 .settings {
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 5dvh;
     align-items:center;
-    padding: 10vh;
-    background-color: #efecec;
+    padding: 10dvh;
 }
 
 .modal, .win {
-    position: absolute;
-    width: 100%;
-    height: 90%;
     max-width: 1024px;
-    padding: 10vh;
-    background-color: #efecec;
-    left: 50%;
-    top: 10%;
-    transform: translateX(-50%);
-    z-index: 100;
+    padding: 20px;
+    height: 70dvh;
     font-size: 16px;
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: auto;
 }
 .descr {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -114,7 +124,7 @@ h1 {
 .stat {
     display: block;
     text-align: center;
-    margin: 5vh auto;
+    margin: 1dvh auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     font-weight: bold;
@@ -152,10 +162,21 @@ h1 {
 .info {
     position: absolute;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info span {
+    font-weight: 800;
 }
 
 .scores {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     text-align: left;
+    
 }
 
 .hidden {
@@ -191,8 +212,6 @@ h1 {
     justify-content: flex-end;
     align-items: center;
     padding-bottom: 10px;
-    position: relative;
-    z-index: 10;
 }
 
 .reload_btn {
@@ -225,7 +244,7 @@ h1 {
     }
 
     .total_scores {
-        margin: 1vh auto
+        margin: 1dvh auto
     }
 
     .container {
@@ -249,10 +268,11 @@ h1 {
         width: 24vw;
         min-width: 130px;
         max-width: 250px;
-        height: 5vh;
-        min-height: 60px;
+        height: 6dvh;
+        min-height: 25px;
         border-radius: 10px;
-        margin-top: 2vh;
+        margin-top: 2dvh;
+        font-size: 120%;
         cursor: pointer;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: bold;
@@ -270,7 +290,7 @@ h1 {
     }
     
     .mode_modules {
-        margin: 15px auto;
+        margin: 1px auto;
     }
 
     .timer {
@@ -284,16 +304,27 @@ h1 {
         font-size: 24px;
         color: #850d1f;
     }
+
+    .stat_wrapper {
+        display: flex;
+        
+    }
+
+    #settings_btn, #scores_btn, #info_btn {
+        margin-top: 0;
+        margin-right: 15px;
+        cursor: pointer;
+        background:rgba(0, 0, 0, 0);
+        border: none;
+        transition: all 0.4s;
+    }
 }
 
-.stat_wrapper {
-    display: flex;
-}
 
 .win {
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 5dvh;
     justify-content: center;
 }
 .win.hidden {
@@ -306,26 +337,19 @@ text-align: center;
     margin: 0 auto;
 }
 #player_name {
-    height: 5vh;
+    height: 5dvh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
 }
 
 #send_player_name {
     cursor: pointer;
-    height: 5vh;
+    height: 5dvh;
 }
 
 .score_table {
     text-align-last: left;
 }
-
-.modal, .win {
-    padding: 5px;
-    overflow: auto;
-
-}
-
 
 
 footer {
@@ -373,11 +397,13 @@ footer span {
 
 .game_result_btn, .stop_game {
     cursor: pointer;
-    height: 40px;
+    height: 4dvh;
+    min-height: 40px;
     width: 95px;
     border: none;
     outline: 2px solid black;
     border-radius: 10px;
+    font-size: 16px;
 }
 
 .game_result_wrapper {
