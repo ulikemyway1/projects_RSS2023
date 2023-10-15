@@ -17,7 +17,19 @@
             <button id="scores_btn" class="btn"><img src="icons/scores.svg" alt="SCORES"></button>
             <button id="settings_btn" class="btn"><img src="icons/settings.svg" alt="SETTINGS"></button>
         </div>
-    <div class="info modal hidden">Your goal is to score 5 points as quickly as possible.<br>You can select additional modes in the settings. <br>Good luck!</div>
+<div class="app__container">
+    <div class="mode_modules">
+        <div class="lifes">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="timer">
+            <div class="timer_text">Time left:</div>
+            <div class="timer_count">120</div>
+        </div>
+    </div>
+    <div class="info modal hidden">Your goal is to score 5 points as quickly as possible.<br><br>You can select additional modes in the settings. <br><br><span>Good luck!</span></div>
     <div class="settings modal hidden">
         <div class="words_amount setting">
             <div class="descr">Number of pairs</div>
@@ -65,21 +77,11 @@
         <ol class="accurate_table"></ol>
     </div>
 
-    <div class="mode_modules">
-        <div class="lifes">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div class="timer">
-            <div class="timer_text">Time left:</div>
-            <div class="timer_count">120</div>
-        </div>
-    </div>
 
-<div class="app__container">
-<div class="eng__word"></div>
-<div class="rus__word"></div>
+  <div class="words_wrapper">
+    <div class="eng__word"></div>
+    <div class="rus__word"></div>
+  </div>  
 </div>
 <div class="stat_wrapper">
     <div class="stat">

@@ -7,6 +7,7 @@ if (localStorage.getItem('settings_ULIKE')) {
         modeLifes: false,
         modeTimeLimit: false,
         modeEndless: false,
+        cardsAmount: 5,
     };
 }
 
@@ -116,7 +117,7 @@ async function loadResources() {
         }
     })
 
-renderWordsCard(5, '.eng__word', '.rus__word');
+renderWordsCard(settings.cardsAmount, '.eng__word', '.rus__word');
 }
 
     
@@ -124,6 +125,8 @@ renderWordsCard(5, '.eng__word', '.rus__word');
 wordAmountShow.textContent = setupAmount.value
 setupAmount.addEventListener('input', ()=>{
     wordAmountShow.textContent = setupAmount.value;
+    settings.cardsAmount = setupAmount.value;
+    localStorage.setItem('settings_ULIKE', JSON.stringify(settings));
     engParent.innerHTML='';
     rusParent.innerHTML='';
     timeUp = 0;
@@ -310,7 +313,7 @@ function render() {
     document.querySelector('.timer').style.display = 'none';
     document.querySelector('.stat_accuracy ').style.display = 'none';
     document.querySelector('.lifes').innerHTML='<div></div><div></div><div></div>'
-    renderWordsCard(setupAmount.value, '.eng__word', '.rus__word');   
+    renderWordsCard(settings.cardsAmount, '.eng__word', '.rus__word');   
     if (settings.modeLifes) {
         document.querySelector('.lifes').style.display = 'flex';
     };
@@ -360,7 +363,10 @@ function win() {
     clearInterval(timerDown);
    }
     const winPanel = document.querySelector('.win');
-    winPanel.classList.remove('hidden')
+    winPanel.classList.remove('hidden');
+    wordsWrapper.classList.add('hidden');
+    btns.forEach(item => item.disabled = true);
+    modules.classList.add('hidden');
     const winTime = document.querySelector('.win_time');
     if (!settings.modeEndless) {
         winTime.textContent =`You've scored 5 points in ${timeUp} s`
@@ -401,7 +407,10 @@ function win() {
                 saveLocalAccurate(playerName.value.trim());
                 playerName.value = '';
                 setTimeout(()=>{
-                    winPanel.classList.add('hidden')
+                    winPanel.classList.add('hidden');
+                    wordsWrapper.classList.remove('hidden');
+                    btns.forEach(item => item.disabled = false);
+                    modules.classList.remove('hidden');
                 }, 400);
                 location.reload();
             }
@@ -446,19 +455,25 @@ stopGame.addEventListener('click', () => {
     win();
 });
 //open settings
-modals = document.querySelectorAll('.modal');
-btns = document.querySelectorAll('.btn');
-settingsBtn = document.getElementById('settings_btn');
-settingsPanel = document.querySelector('.settings');
-infoBtn = document.getElementById('info_btn');
-infoPanel = document.querySelector('.info');
-scoresBtn = document.getElementById('scores_btn');
-scoresPanel = document.querySelector('.scores');
+const modals = document.querySelectorAll('.modal');
+const btns = document.querySelectorAll('.btn');
+const settingsBtn = document.getElementById('settings_btn');
+const settingsPanel = document.querySelector('.settings');
+const infoBtn = document.getElementById('info_btn');
+const infoPanel = document.querySelector('.info');
+const scoresBtn = document.getElementById('scores_btn');
+const scoresPanel = document.querySelector('.scores');
+const wordsWrapper = document.querySelector('.words_wrapper');
+const modules = document.querySelector('.mode_modules');
 
 settingsBtn.addEventListener('click', () => {
     settingsBtn.classList.toggle('active');
+    wordsWrapper.classList.add('hidden');
+    modules.classList.add('hidden');
     if (!settingsPanel.classList.contains('hidden')) {
         settingsPanel.classList.toggle('hidden');
+        wordsWrapper.classList.remove('hidden');
+        modules.classList.remove('hidden');
     } else {
            modals.forEach(modal => modal.classList.add('hidden'));
            settingsPanel.classList.toggle('hidden');
@@ -469,8 +484,12 @@ settingsBtn.addEventListener('click', () => {
 
 infoBtn.addEventListener('click', () => {
     infoBtn.classList.toggle('active');
+    wordsWrapper.classList.add('hidden');
+    modules.classList.add('hidden');
     if (!infoPanel.classList.contains('hidden')) {
         infoPanel.classList.toggle('hidden');
+        wordsWrapper.classList.remove('hidden');
+        modules.classList.remove('hidden');
     } else {
            modals.forEach(modal => modal.classList.add('hidden'));
            infoPanel.classList.toggle('hidden');
@@ -481,9 +500,13 @@ infoBtn.addEventListener('click', () => {
 
 scoresBtn.addEventListener('click', () => {
     scoresBtn.classList.toggle('active');
+    wordsWrapper.classList.add('hidden');
+    modules.classList.add('hidden');
     createTopList();
     if (!scoresPanel.classList.contains('hidden')) {
         scoresPanel.classList.toggle('hidden');
+        wordsWrapper.classList.remove('hidden');
+        modules.classList.remove('hidden');
     } else {
            modals.forEach(modal => modal.classList.add('hidden'));
            scoresPanel.classList.toggle('hidden');
@@ -514,6 +537,9 @@ function createTopList() {
         })
     } 
 }
+
+setupAmount.value = settings.cardsAmount;
+wordAmountShow.textContent = settings.cardsAmount;
 
 if (settings.modeLifes) {
     document.querySelector('.lifes').style.display = 'flex';
