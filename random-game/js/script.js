@@ -582,3 +582,74 @@ resultBtns.addEventListener('click', (e) => {
         accurateTable.style.display = 'none';
     }
 })
+
+
+//helloween theme
+let creaturesMoving = false;
+const hellThemeBtn = document.querySelector('#hell_theme');
+const container = document.querySelector('.container');
+const spider = document.createElement('img');
+const witch = document.createElement('img');
+hellThemeBtn.addEventListener('click', ()=> {
+    if (!hellThemeBtn.classList.contains('turn_on')) {
+        hellThemeBtn.classList.add('turn_on');
+        localStorage.setItem('helloween_ULIKE', true)
+    } else {
+        hellThemeBtn.classList.remove('turn_on');
+        localStorage.setItem('helloween_ULIKE', false);
+    }
+    helloween();
+})
+
+function helloween() {
+    document.body.classList.toggle('hell_bg');
+    container.classList.toggle('hell_bg_color');
+    spider.classList.add('spider')
+    spider.src = 'theme/spider.svg';
+    container.append(spider);
+    witch.classList.add('witch');
+    witch.src='theme/witch.svg';
+    container.append(witch);
+    if (!creaturesMoving) {
+        moveCreatures();
+        creaturesMoving = true;
+    }
+
+    if (!JSON.parse(localStorage.getItem('helloween_ULIKE'))) {
+        spider.remove();
+        witch.remove();
+    }
+
+}
+
+if (JSON.parse(localStorage.getItem('helloween_ULIKE'))) {
+    helloween();
+    hellThemeBtn.classList.add('turn_on');
+}
+
+function moveCreatures() {
+    function moveSpider45 (spider) {
+        spider.style.transform = 'rotate(35deg)';
+        spider.style.top = '-40px'
+    }
+    function moveSpiderMinus45 (spider) {
+        spider.style.transform = 'rotate(-35deg)';
+        spider.style.top = '-15px'
+    }
+    
+   const move1 = setInterval(() => moveSpider45(spider), 2000);
+   const move2 = setInterval(() => moveSpiderMinus45(spider), 4000);
+    
+    function moveWitchLeft (witch) {
+        witch.style.transform = 'translateX(-100%) translateY(-30%)'
+    }
+    
+    function moveWitchRight (witch) {
+        witch.style.transform = 'translateX(100%) translateY(100%) rotate(110deg)'
+    }
+    const move3 = setInterval(() => moveWitchLeft(witch), 10000);
+    const move4 =  setInterval(() => moveWitchRight(witch), 12000);
+    
+}
+
+
